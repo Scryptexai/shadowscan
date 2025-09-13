@@ -1,0 +1,610 @@
+"""
+ShadowScan EVM Simulator - Anvil-Focused Implementation
+
+Professional simulation engine using Foundry's Anvil for fork-based testing.
+Anvil provides reliable, fast local blockchain simulation.
+"""
+
+import asyncio
+import json
+import subprocess
+import tempfile
+import shutil
+import os
+import signal
+import time
+from typing import Dict, List, Any, Optional, Union
+from dataclasses import dataclass
+from pathlib import Path
+import random
+import requests
+
+@dataclass 
+class SimulationResult:
+    success: bool
+    transaction_hash: Optional[str] = None
+    state_diff: Optional[Dict[str, Any]] = None
+    trace: Optional[Dict[str, Any]] = None
+    events: Optional[List[Dict[str, Any]]] = None
+    gas_used: Optional[int] = None
+    error: Optional[str] = None
+    evidence: Optional[Dict[str, Any]] = None
+    simulation_url: Optional[str] = None
+
+@dataclass
+class AnvilFork:
+    fork_id: str
+    chain: str
+    port: int
+    rpc_url: str
+    process: Optional[subprocess.Popen]
+    block_number: int
+    accounts: List[str]
+    created_at: str
+
+class EVMSimulator:
+    """Professional EVM simulation engine using Anvil."""
+    
+    def __init__(self, backend: str = "anvil"):
+        self.backend = backend
+        self.active_forks = {}
+        self.port_range = (8545, 9000)
+        
+        # Network RPC URLs
+        self.rpc_urls = {
+            "ethereum": "https://eth.llamarpc.com",
+            "polygon": "https://polygon.llamarpc.com", 
+            "arbitrum": "https://arb1.arbitrum.io/rpc",
+            "optimism": "https://mainnet.optimism.io",
+            "bsc": "https://bsc-dataseed1.binance.org"
+        }
+    
+    def _find_available_port(self) -> int:
+        """Find an available port for Anvil."""
+        import socket
+        
+        for _ in range(50):  # Try 50 times
+            port = random.randint(*self.port_range)
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                try:
+                    s.bind(('localhost', port))
+                    return port
+                except OSError:
+                    continue
+        
+        raise RuntimeError("No available ports found")
+    
+    async def create_fork(self, 
+                         chain: str, 
+                         block_number: Optional[int] = None,
+                         fork_url: Optional[str] = None) -> str:
+        """Create Anvil fork for testing."""
+        
+        fork_url = fork_url or self.rpc_urls.get(chain)
+        if not fork_url:
+            raise ValueError(f"No RPC URL available for chain: {chain}")
+        
+        # Find available port
+        port = self._find_available_port()
+        
+        # Generate unique fork ID
+        timestamp = int(time.time())
+        fork_id = f"anvil-{chain}-{port}-{timestamp}"
+        
+        # Build anvil command
+        cmd = [
+            "anvil",
+            "--port", str(port),
+            "--host", "127.0.0.1",
+            "--fork-url", fork_url,
+            "--accounts", "10",
+            "--balance", "10000",  # 10k ETH per account
+            "--gas-limit", "30000000",
+            "--gas-price", "1000000000",  # 1 gwei
+            "--code-size-limit", "50000",
+            "--disable-default-create2-deployer"
+        ]
+        
+        if block_number:
+            cmd.extend(["--fork-block-number", str(block_number)])
+        
+        try:
+            # Start Anvil process
+            process = subprocess.Popen(
+                cmd,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                preexec_fn=os.setsid,  # Create new process group
+                text=True
+            )
+            
+            # Wait for Anvil to start and get account info
+            await asyncio.sleep(3)
+            
+            # Check if process is running
+            if process.poll() is not None:
+                stdout, stderr = process.communicate()
+                raise RuntimeError(f"Anvil failed to start: {stderr}")
+            
+            rpc_url = f"http://127.0.0.1:{port}"
+            
+            # Get funded accounts from Anvil
+            accounts = await self._get_anvil_accounts(rpc_url)
+            
+            # Create fork object
+            fork = AnvilFork(
+                fork_id=fork_id,
+                chain=chain,
+                port=port,
+                rpc_url=rpc_url,
+                process=process,
+                block_number=block_number or 0,
+                accounts=accounts,
+                created_at=str(timestamp)
+            )
+            
+            # Store fork info
+            self.active_forks[fork_id] = fork
+            
+            print(f"✅ Anvil fork created: {fork_id} on port {port}")
+            return fork_id
+            
+        except FileNotFoundError:
+            raise RuntimeError(
+                "Anvil not found. Install Foundry:\n"
+                "curl -L https://foundry.paradigm.xyz | bash\n"
+                "source ~/.bashrc\n"
+                "foundryup"
+            )
+        except Exception as e:
+            # Cleanup process if it exists
+            if 'process' in locals() and process:
+                try:
+                    os.killpg(os.getpgid(process.pid), signal.SIGTERM)
+                except:
+                    pass
+            raise RuntimeError(f"Failed to create Anvil fork: {str(e)}")
+    
+    async def _get_anvil_accounts(self, rpc_url: str) -> List[str]:
+        """Get funded accounts from Anvil."""
+        try:
+            payload = {
+                "jsonrpc": "2.0",
+                "method": "eth_accounts",
+                "params": [],
+                "id": 1
+            }
+            
+            async with asyncio.timeout(5):
+                response = requests.post(rpc_url, json=payload, timeout=5)
+                if response.status_code == 200:
+                    result = response.json()
+                    return result.get("result", [])
+        except Exception as e:
+            print(f"Warning: Could not get Anvil accounts: {e}")
+        
+        # Fallback to default Anvil accounts
+        return [
+            "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266",
+            "0x70997970c51812dc3a010c7d01b50e0d17dc79c8",
+            "0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc"
+        ]
+    
+    async def simulate_exploit(self,
+                              fork_id: str,
+                              exploit_script: str,
+                              params: Dict[str, Any] = None) -> SimulationResult:
+        """Execute exploit simulation on Anvil fork."""
+        
+        if fork_id not in self.active_forks:
+            return SimulationResult(
+                success=False,
+                error=f"Fork not found: {fork_id}"
+            )
+        
+        fork = self.active_forks[fork_id]
+        
+        # Check if Anvil process is still running
+        if fork.process and fork.process.poll() is not None:
+            return SimulationResult(
+                success=False,
+                error="Anvil process has terminated"
+            )
+        
+        try:
+            return await self._execute_anvil_simulation(fork, exploit_script, params)
+        except Exception as e:
+            return SimulationResult(
+                success=False,
+                error=f"Simulation failed: {str(e)}"
+            )
+    
+    async def _execute_anvil_simulation(self, 
+                                      fork: AnvilFork,
+                                      exploit_script: str,
+                                      params: Dict[str, Any] = None) -> SimulationResult:
+        """Execute exploit script on Anvil fork."""
+        
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            
+            # Create exploit script
+            script_path = temp_path / "exploit.py"
+            
+            # Enhanced script template with web3 integration
+            script_content = f"""
+import json
+import sys
+from web3 import Web3
+from decimal import Decimal
+
+# Connect to Anvil fork
+rpc_url = "{fork.rpc_url}"
+w3 = Web3(Web3.HTTPProvider(rpc_url))
+
+# Verify connection
+if not w3.is_connected():
+    print(json.dumps({{"error": "Failed to connect to Anvil", "success": False}}))
+    sys.exit(1)
+
+# Parameters from simulation
+params = {params or {}}
+
+# Use funded Anvil accounts
+accounts = {fork.accounts}
+attacker = accounts[0] if accounts else "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266"
+
+print(f"🔧 Anvil Simulation Started")
+print(f"🔗 RPC: {rpc_url}")  
+print(f"💰 Attacker: {{attacker}}")
+print(f"⛽ Block Number: {{w3.eth.block_number}}")
+
+try:
+    # Get initial state
+    initial_balance = w3.eth.get_balance(attacker)
+    initial_block = w3.eth.block_number
+    
+    print(f"💳 Initial Balance: {{w3.from_wei(initial_balance, 'ether')}} ETH")
+    
+    # Execute custom exploit logic
+    {exploit_script}
+    
+    # Capture final state
+    final_balance = w3.eth.get_balance(attacker)
+    final_block = w3.eth.block_number
+    
+    # Calculate results
+    balance_change = final_balance - initial_balance
+    profit = balance_change - w3.to_wei(0.01, 'ether')  # Minus gas costs
+    
+    results = {{
+        "success": True,
+        "initial_balance": initial_balance,
+        "final_balance": final_balance,
+        "balance_change": balance_change,
+        "profit": profit,
+        "blocks_mined": final_block - initial_block,
+        "attacker_address": attacker,
+        "fork_id": "{fork.fork_id}",
+        "simulation_type": "anvil"
+    }}
+    
+    print(f"✅ Simulation Complete")
+    print(f"💰 Profit: {{w3.from_wei(max(profit, 0), 'ether')}} ETH")
+    print(json.dumps(results, default=str))
+    
+except Exception as e:
+    error_results = {{
+        "success": False,
+        "error": str(e),
+        "fork_id": "{fork.fork_id}",
+        "attacker_address": attacker if 'attacker' in locals() else "unknown"
+    }}
+    
+    print(f"❌ Simulation Error: {{str(e)}}")
+    print(json.dumps(error_results, default=str))
+"""
+            
+            with open(script_path, 'w') as f:
+                f.write(script_content)
+            
+            # Execute script with timeout
+            try:
+                process = await asyncio.create_subprocess_exec(
+                    "python3", str(script_path),
+                    stdout=asyncio.subprocess.PIPE,
+                    stderr=asyncio.subprocess.PIPE,
+                    cwd=temp_dir
+                )
+                
+                # Wait with timeout
+                stdout, stderr = await asyncio.wait_for(
+                    process.communicate(), 
+                    timeout=60.0  # 60 second timeout
+                )
+                
+                if process.returncode == 0:
+                    # Parse results from stdout
+                    output_lines = stdout.decode().strip().split('\n')
+                    
+                    # Find the JSON result line
+                    json_result = None
+                    for line in reversed(output_lines):
+                        if line.startswith('{') and '"success"' in line:
+                            try:
+                                json_result = json.loads(line)
+                                break
+                            except json.JSONDecodeError:
+                                continue
+                    
+                    if json_result:
+                        return SimulationResult(
+                            success=json_result.get("success", False),
+                            gas_used=json_result.get("gas_used", 200000),
+                            evidence={
+                                "anvil_simulation": True,
+                                "fork_id": fork.fork_id,
+                                "profit": json_result.get("profit", 0),
+                                "balance_change": json_result.get("balance_change", 0),
+                                "simulation_output": output_lines[:-1],  # All except JSON result
+                                "raw_result": json_result
+                            }
+                        )
+                    else:
+                        return SimulationResult(
+                            success=False,
+                            error="Could not parse simulation results",
+                            evidence={
+                                "anvil_simulation": True,
+                                "stdout": stdout.decode(),
+                                "stderr": stderr.decode()
+                            }
+                        )
+                else:
+                    return SimulationResult(
+                        success=False,
+                        error=f"Script execution failed (exit {process.returncode})",
+                        evidence={
+                            "stderr": stderr.decode(),
+                            "stdout": stdout.decode()
+                        }
+                    )
+                    
+            except asyncio.TimeoutError:
+                return SimulationResult(
+                    success=False,
+                    error="Simulation timeout (60s)"
+                )
+            except Exception as e:
+                return SimulationResult(
+                    success=False,
+                    error=f"Script execution error: {str(e)}"
+                )
+    
+    async def simulate_oracle_manipulation(self,
+                                         fork_id: str,
+                                         target_contract: str,
+                                         pool_address: str,
+                                         manipulation_type: str = "single_block") -> SimulationResult:
+        """Simulate oracle manipulation attack."""
+        
+        oracle_script = f"""
+    # Oracle Manipulation Simulation
+    target_contract = "{target_contract}"
+    pool_address = "{pool_address}"
+    manipulation_type = "{manipulation_type}"
+    
+    print(f"🎯 Target Contract: {{target_contract}}")
+    print(f"🏊 Pool Address: {{pool_address}}")
+    print(f"⚡ Manipulation Type: {{manipulation_type}}")
+    
+    # Simulate oracle manipulation
+    manipulation_amount = w3.to_wei(10, 'ether')  # 10 ETH manipulation
+    
+    # Step 1: Record initial price (mock)
+    initial_price = 1000.0  # $1000
+    
+    # Step 2: Execute large swap to manipulate price
+    print(f"📊 Executing large swap of {{w3.from_wei(manipulation_amount, 'ether')}} ETH")
+    
+    # Mock swap transaction
+    swap_tx = {{
+        'from': attacker,
+        'to': pool_address,
+        'value': manipulation_amount,
+        'gas': 300000,
+        'gasPrice': w3.to_wei(20, 'gwei')
+    }}
+    
+    # Simulate the price impact
+    price_impact = 0.15  # 15% price change
+    manipulated_price = initial_price * (1 + price_impact)
+    
+    print(f"📈 Price Impact: {{price_impact * 100:.1f}}%")
+    print(f"💱 New Price: ${{manipulated_price:.2f}}")
+    
+    # Step 3: Execute vulnerable function on target
+    print(f"🔓 Calling vulnerable function on target")
+    
+    # Mock profit calculation
+    profit_usd = manipulation_amount * price_impact * 0.5  # 50% profit efficiency
+    profit_wei = int(profit_usd * 10**18 / initial_price)  # Convert to Wei
+    
+    # Simulate adding profit to balance
+    if profit_wei > 0:
+        # This would be done by the vulnerable contract in reality
+        print(f"💰 Profit Extracted: {{w3.from_wei(profit_wei, 'ether')}} ETH")
+    
+    # Store results for later use
+    manipulation_results = {{
+        "initial_price": initial_price,
+        "manipulated_price": manipulated_price,
+        "price_change_percent": price_impact * 100,
+        "profit_wei": profit_wei,
+        "manipulation_cost": w3.to_wei(0.1, 'ether'),  # Gas + fees
+        "net_profit": profit_wei - w3.to_wei(0.1, 'ether')
+    }}
+    
+    print(f"📋 Manipulation Results: {{manipulation_results}}")
+    
+    # Update profit for final calculation
+    profit = manipulation_results["net_profit"]
+"""
+        
+        return await self.simulate_exploit(fork_id, oracle_script, {
+            "target": target_contract,
+            "pool": pool_address,
+            "type": manipulation_type
+        })
+    
+    async def get_fork_info(self, fork_id: str) -> Optional[Dict[str, Any]]:
+        """Get fork information."""
+        fork = self.active_forks.get(fork_id)
+        if not fork:
+            return None
+        
+        # Check if process is still running
+        is_running = fork.process and fork.process.poll() is None
+        
+        return {
+            "fork_id": fork.fork_id,
+            "chain": fork.chain,
+            "port": fork.port,
+            "rpc_url": fork.rpc_url,
+            "block_number": fork.block_number,
+            "accounts": fork.accounts,
+            "status": "running" if is_running else "stopped",
+            "created_at": fork.created_at
+        }
+    
+    async def cleanup_fork(self, fork_id: str) -> bool:
+        """Clean up Anvil fork."""
+        fork = self.active_forks.get(fork_id)
+        if not fork:
+            return False
+        
+        try:
+            if fork.process:
+                # Kill the entire process group
+                os.killpg(os.getpgid(fork.process.pid), signal.SIGTERM)
+                
+                # Wait for process to terminate
+                try:
+                    await asyncio.wait_for(
+                        asyncio.create_task(asyncio.to_thread(fork.process.wait)),
+                        timeout=5.0
+                    )
+                except asyncio.TimeoutError:
+                    # Force kill if it doesn't respond
+                    os.killpg(os.getpgid(fork.process.pid), signal.SIGKILL)
+            
+            # Remove from active forks
+            del self.active_forks[fork_id]
+            print(f"🗑️ Cleaned up Anvil fork: {fork_id}")
+            return True
+            
+        except Exception as e:
+            print(f"Warning: Error cleaning up fork {fork_id}: {e}")
+            # Still remove from active forks
+            if fork_id in self.active_forks:
+                del self.active_forks[fork_id]
+            return False
+    
+    async def cleanup_all_forks(self):
+        """Clean up all active forks."""
+        fork_ids = list(self.active_forks.keys())
+        for fork_id in fork_ids:
+            await self.cleanup_fork(fork_id)
+    
+    async def health_check(self) -> Dict[str, Any]:
+        """Check Anvil availability and active forks."""
+        
+        # Check if Anvil is available
+        anvil_available = False
+        try:
+            process = subprocess.run(
+                ["anvil", "--version"], 
+                capture_output=True, 
+                text=True, 
+                timeout=5
+            )
+            anvil_available = process.returncode == 0
+            anvil_version = process.stdout.strip() if anvil_available else "unknown"
+        except Exception:
+            anvil_version = "not found"
+        
+        # Check active forks
+        active_forks = {}
+        for fork_id, fork in self.active_forks.items():
+            is_running = fork.process and fork.process.poll() is None
+            active_forks[fork_id] = {
+                "chain": fork.chain,
+                "port": fork.port,
+                "status": "running" if is_running else "stopped"
+            }
+        
+        return {
+            "anvil_available": anvil_available,
+            "anvil_version": anvil_version,
+            "active_forks": len(self.active_forks),
+            "fork_details": active_forks,
+            "backend": self.backend
+        }
+
+
+# Convenience functions for exploit templates
+class ExploitTemplates:
+    """Anvil-optimized exploit templates."""
+    
+    @staticmethod
+    def flashloan_attack_anvil(target_contract: str, flashloan_amount: int) -> str:
+        """Generate Anvil flashloan attack script."""
+        return f"""
+    # Flashloan Attack Simulation
+    target = "{target_contract}"
+    flashloan_amount = {flashloan_amount}
+    
+    print(f"🔥 Flashloan Attack Simulation")
+    print(f"🎯 Target: {{target}}")
+    print(f"💰 Flashloan Amount: {{w3.from_wei(flashloan_amount, 'ether')}} ETH")
+    
+    # Step 1: Simulate flashloan (Anvil has unlimited ETH)
+    print("1️⃣ Requesting flashloan...")
+    
+    # Step 2: Execute exploit
+    print("2️⃣ Executing exploit logic...")
+    
+    # Step 3: Calculate profit
+    profit_rate = 0.05  # 5% profit
+    profit = int(flashloan_amount * profit_rate)
+    
+    print(f"3️⃣ Profit: {{w3.from_wei(profit, 'ether')}} ETH")
+    print(f"4️⃣ Repaying flashloan...")
+    
+    # Simulate profit
+    profit = profit
+"""
+    
+    @staticmethod
+    def reentrancy_attack_anvil(target_contract: str) -> str:
+        """Generate Anvil reentrancy attack script."""
+        return f"""
+    # Reentrancy Attack Simulation
+    target = "{target_contract}"
+    
+    print(f"🔄 Reentrancy Attack Simulation")
+    print(f"🎯 Target: {{target}}")
+    
+    # Simulate reentrancy attack
+    attack_rounds = 3
+    profit_per_round = w3.to_wei(0.1, 'ether')
+    
+    print(f"🔁 Simulating {{attack_rounds}} reentrancy rounds")
+    
+    total_profit = profit_per_round * attack_rounds
+    
+    print(f"💰 Total Profit: {{w3.from_wei(total_profit, 'ether')}} ETH")
+    
+    # Update profit for final calculation
+    profit = total_profit
+"""

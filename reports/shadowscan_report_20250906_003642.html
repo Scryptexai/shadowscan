@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><head><title>ShadowScan Report</title></head>
+<body>
+<h1>🌑 ShadowScan Security Report</h1>
+<p>Target: 0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3</p>
+<p>Generated: 2025-09-06 00:36:48</p>
+<p>Total Findings: 2</p>
+<div>
+
+<div style="border: 1px solid #ddd; margin: 10px 0; padding: 10px;">
+<h3>Suspicious Miner Reward Pattern Detected</h3>
+<p>Severity: MEDIUM</p>
+<p>Found 1 transfers to coinbase addresses</p>
+<p><strong>Recommendation:</strong> Review contract code for hidden _mintMinerReward() function</p>
+</div>
+
+<div style="border: 1px solid #ddd; margin: 10px 0; padding: 10px;">
+<h3>_transfer Override with Mint Detected</h3>
+<p>Severity: HIGH</p>
+<p>Contract overrides _transfer function with automatic minting</p>
+<p><strong>Recommendation:</strong> Remove automatic minting from _transfer or add proper access controls</p>
+</div>
+</div></body></html>

@@ -1,0 +1,381 @@
+# shadowscan/collectors/evm/tx_fetcher.py
+"""Enhanced transaction fetcher with trace support and concurrency."""
+
+import asyncio
+import aiohttp
+import requests
+from typing import List, Dict, Any, Optional
+from web3 import Web3
+import logging
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import time
+
+from shadowscan.utils.schema import Transaction
+from shadowscan.utils.helpers import extract_function_signature
+
+logger = logging.getLogger(__name__)
+
+class TxFetcher:
+    """Enhanced transaction fetcher with trace support and rate limiting."""
+    
+    def __init__(self, web3: Web3, etherscan_api_key: Optional[str] = None, max_workers: int = 8):
+        self.web3 = web3
+        self.etherscan_api_key = etherscan_api_key
+        self.max_workers = max_workers
+        
+        # API endpoints
+        self.api_endpoints = {
+            'ethereum': 'https://api.etherscan.io/api',
+            'polygon': 'https://api.polygonscan.com/api',
+            'bsc': 'https://api.bscscan.com/api',
+            'arbitrum': 'https://api.arbiscan.io/api'
+        }
+        
+        # Rate limiting
+        self.last_api_call = 0
+        self.api_delay = 0.2  # 200ms between API calls
+    
+    def fetch_recent_txs(self, address: str, provider, limit: int = 200, 
+                        chain: str = 'ethereum', include_traces: bool = True) -> List[Transaction]:
+        """
+        Fetch recent transactions with optional trace data.
+        
+        Args:
+            address: Contract address
+            provider: Web3 provider (for compatibility)
+            limit: Maximum number of transactions
+            chain: Blockchain network
+            include_traces: Whether to fetch transaction traces
+            
+        Returns:
+            List of Transaction objects
+        """
+        transactions = []
+        
+        try:
+            # Try API first if available
+            if self.etherscan_api_key:
+                transactions = self._fetch_from_api(address, chain, limit)
+            
+            # Fallback to RPC scanning
+            if not transactions:
+                transactions = self._fetch_from_rpc(address, limit)
+            
+            # Add traces if requested and RPC supports it
+            if include_traces and transactions:
+                transactions = self._add_traces(transactions)
+            
+            return transactions[:limit]
+            
+        except Exception as e:
+            logger.error(f"Error fetching transactions for {address}: {e}")
+            return []
+    
+    def _fetch_from_api(self, address: str, chain: str, limit: int) -> List[Transaction]:
+        """Fetch transactions from blockchain explorer API."""
+        endpoint = self.api_endpoints.get(chain)
+        if not endpoint:
+            return []
+        
+        try:
+            self._rate_limit()
+            
+            params = {
+                'module': 'account',
+                'action': 'txlist',
+                'address': address,
+                'startblock': 0,
+                'endblock': 99999999,
+                'page': 1,
+                'offset': min(limit, 10000),
+                'sort': 'desc',
+                'apikey': self.etherscan_api_key
+            }
+            
+            response = requests.get(endpoint, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            
+            if data.get('status') == '1' and data.get('result'):
+                transactions = []
+                for tx_data in data['result']:
+                    tx = Transaction(
+                        hash=tx_data['hash'],
+                        from_addr=tx_data['from'],
+                        to=tx_data.get('to'),
+                        input=tx_data.get('input', '0x'),
+                        value=tx_data.get('value', '0'),
+                        block=int(tx_data.get('blockNumber', 0)),
+                        timestamp=int(tx_data.get('timeStamp', 0)),
+                        gas_used=int(tx_data.get('gasUsed', 0)) if tx_data.get('gasUsed') else None
+                    )
+                    transactions.append(tx)
+                
+                logger.info(f"Fetched {len(transactions)} transactions from {chain} API")
+                return transactions
+            else:
+                logger.warning(f"No transactions found in API response for {address}")
+                
+        except Exception as e:
+            logger.error(f"Error fetching from {chain} API: {e}")
+        
+        return []
+    
+    def _fetch_from_rpc(self, address: str, limit: int) -> List[Transaction]:
+        """Fetch transactions by scanning recent blocks via RPC."""
+        transactions = []
+        
+        try:
+            current_block = self.web3.eth.block_number
+            checksum_addr = Web3.to_checksum_address(address)
+            
+            # Scan last 2000 blocks or until we have enough transactions
+            blocks_to_scan = min(2000, current_block)
+            
+            logger.info(f"Scanning last {blocks_to_scan} blocks for transactions to {address}")
+            
+            for block_num in range(current_block, current_block - blocks_to_scan, -1):
+                if len(transactions) >= limit:
+                    break
+                
+                try:
+                    block = self.web3.eth.get_block(block_num, full_transactions=True)
+                    
+                    for tx in block.transactions:
+                        # Check if transaction involves our target address
+                        if (tx.to and tx.to.lower() == address.lower()) or \
+                           (hasattr(tx, 'creates') and tx.creates and tx.creates.lower() == address.lower()):
+                            
+                            transaction = Transaction(
+                                hash=tx.hash.hex(),
+                                from_addr=tx['from'],
+                                to=tx.to,
+                                input=tx.input.hex(),
+                                value=str(tx.value),
+                                block=tx.blockNumber,
+                                timestamp=int(block.timestamp),
+                                gas_used=None  # We don't have receipt info yet
+                            )
+                            
+                            transactions.append(transaction)
+                            
+                            if len(transactions) >= limit:
+                                break
+                
+                except Exception as e:
+                    logger.debug(f"Error processing block {block_num}: {e}")
+                    continue
+            
+            logger.info(f"Found {len(transactions)} transactions via RPC scanning")
+            return transactions
+            
+        except Exception as e:
+            logger.error(f"Error scanning blocks via RPC: {e}")
+            return []
+    
+    def _add_traces(self, transactions: List[Transaction]) -> List[Transaction]:
+        """Add trace data to transactions using parallel processing."""
+        if not transactions:
+            return transactions
+        
+        logger.info(f"Adding traces to {len(transactions)} transactions")
+        
+        # Use ThreadPoolExecutor for parallel trace fetching
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            # Submit trace jobs
+            future_to_tx = {
+                executor.submit(self._get_transaction_trace, tx.hash): i 
+                for i, tx in enumerate(transactions)
+            }
+            
+            # Collect results
+            for future in as_completed(future_to_tx):
+                tx_index = future_to_tx[future]
+                try:
+                    trace_data = future.result()
+                    if trace_data:
+                        transactions[tx_index].trace = trace_data
+                except Exception as e:
+                    logger.debug(f"Error getting trace for tx {transactions[tx_index].hash}: {e}")
+        
+        traces_added = sum(1 for tx in transactions if tx.trace is not None)
+        logger.info(f"Added traces to {traces_added}/{len(transactions)} transactions")
+        
+        return transactions
+    
+    def _get_transaction_trace(self, tx_hash: str) -> Optional[Dict[str, Any]]:
+        """Get trace data for a single transaction."""
+        try:
+            # Try debug_traceTransaction first (if available)
+            trace = self._debug_trace_transaction(tx_hash)
+            if trace:
+                return trace
+            
+            # Fallback to basic transaction receipt analysis
+            receipt = self.web3.eth.get_transaction_receipt(tx_hash)
+            if receipt:
+                return self._analyze_receipt(receipt)
+                
+        except Exception as e:
+            logger.debug(f"Error tracing transaction {tx_hash}: {e}")
+        
+        return None
+    
+    def _debug_trace_transaction(self, tx_hash: str) -> Optional[Dict[str, Any]]:
+        """Use debug_traceTransaction if RPC supports it."""
+        try:
+            # This will work with nodes that support debug APIs (like Alchemy, Infura debug tier)
+            result = self.web3.manager.request_blocking("debug_traceTransaction", [tx_hash, {"tracer": "callTracer"}])
+            
+            if result and isinstance(result, dict):
+                return {
+                    'type': 'debug_trace',
+                    'calls': self._extract_calls_from_trace(result),
+                    'gas_used': result.get('gasUsed'),
+                    'failed': result.get('failed', False)
+                }
+                
+        except Exception as e:
+            logger.debug(f"debug_traceTransaction not available: {e}")
+        
+        return None
+    
+    def _extract_calls_from_trace(self, trace_result: Dict[str, Any]) -> List[Dict[str, Any]]:
+        """Extract call information from debug trace result."""
+        calls = []
+        
+        def extract_call(call_data: Dict[str, Any]) -> Dict[str, Any]:
+            call_info = {
+                'type': call_data.get('type', 'CALL'),
+                'from': call_data.get('from'),
+                'to': call_data.get('to'),
+                'value': call_data.get('value', '0x0'),
+                'gas': call_data.get('gas'),
+                'gasUsed': call_data.get('gasUsed'),
+                'input': call_data.get('input', '0x'),
+                'output': call_data.get('output', '0x'),
+                'error': call_data.get('error')
+            }
+            
+            # Add function signature if available
+            if call_info['input'] and len(call_info['input']) >= 10:
+                call_info['function_selector'] = call_info['input'][:10]
+            
+            return call_info
+        
+        # Process main call
+        if trace_result:
+            calls.append(extract_call(trace_result))
+            
+            # Process subcalls
+            if 'calls' in trace_result:
+                for subcall in trace_result['calls']:
+                    calls.append(extract_call(subcall))
+        
+        return calls
+    
+    def _analyze_receipt(self, receipt: Dict[str, Any]) -> Dict[str, Any]:
+        """Analyze transaction receipt for basic trace information."""
+        try:
+            return {
+                'type': 'receipt_analysis',
+                'gas_used': receipt.get('gasUsed'),
+                'status': receipt.get('status', 1),
+                'logs_count': len(receipt.get('logs', [])),
+                'contract_created': receipt.get('contractAddress'),
+                'failed': receipt.get('status') == 0
+            }
+        except Exception as e:
+            logger.debug(f"Error analyzing receipt: {e}")
+            return {}
+    
+    def _rate_limit(self):
+        """Simple rate limiting for API calls."""
+        current_time = time.time()
+        time_since_last_call = current_time - self.last_api_call
+        
+        if time_since_last_call < self.api_delay:
+            time.sleep(self.api_delay - time_since_last_call)
+        
+        self.last_api_call = time.time()
+
+    def get_transaction_details(self, tx_hash: str) -> Optional[Transaction]:
+        """Get detailed information for a specific transaction."""
+        try:
+            # Get transaction data
+            tx_data = self.web3.eth.get_transaction(tx_hash)
+            receipt = self.web3.eth.get_transaction_receipt(tx_hash)
+            block = self.web3.eth.get_block(tx_data.blockNumber)
+            
+            # Create Transaction object
+            transaction = Transaction(
+                hash=tx_data.hash.hex(),
+                from_addr=tx_data['from'],
+                to=tx_data.to,
+                input=tx_data.input.hex(),
+                value=str(tx_data.value),
+                block=tx_data.blockNumber,
+                timestamp=int(block.timestamp),
+                gas_used=receipt.gasUsed if receipt else None
+            )
+            
+            # Add trace if possible
+            trace = self._get_transaction_trace(tx_hash)
+            if trace:
+                transaction.trace = trace
+            
+            return transaction
+            
+        except Exception as e:
+            logger.error(f"Error getting transaction details for {tx_hash}: {e}")
+            return None
+
+    def analyze_transaction_patterns(self, transactions: List[Transaction]) -> Dict[str, Any]:
+        """Analyze patterns in transaction data."""
+        if not transactions:
+            return {}
+        
+        analysis = {
+            'total_transactions': len(transactions),
+            'unique_senders': len(set(tx.from_addr for tx in transactions)),
+            'total_value': sum(int(tx.value) for tx in transactions if tx.value.isdigit()),
+            'function_calls': {},
+            'failure_rate': 0.0,
+            'gas_usage': {
+                'total': 0,
+                'average': 0,
+                'max': 0,
+                'min': float('inf')
+            }
+        }
+        
+        failed_count = 0
+        gas_values = []
+        
+        for tx in transactions:
+            # Analyze function calls
+            if tx.input and len(tx.input) >= 10:
+                func_sig = tx.input[:10]
+                analysis['function_calls'][func_sig] = analysis['function_calls'].get(func_sig, 0) + 1
+            
+            # Analyze gas usage
+            if tx.gas_used:
+                gas_values.append(tx.gas_used)
+                analysis['gas_usage']['total'] += tx.gas_used
+                analysis['gas_usage']['max'] = max(analysis['gas_usage']['max'], tx.gas_used)
+                analysis['gas_usage']['min'] = min(analysis['gas_usage']['min'], tx.gas_used)
+            
+            # Count failures from traces
+            if tx.trace and tx.trace.get('failed'):
+                failed_count += 1
+        
+        # Calculate averages
+        if gas_values:
+            analysis['gas_usage']['average'] = analysis['gas_usage']['total'] / len(gas_values)
+        
+        if analysis['gas_usage']['min'] == float('inf'):
+            analysis['gas_usage']['min'] = 0
+        
+        analysis['failure_rate'] = failed_count / len(transactions) if transactions else 0.0
+        
+        return analysis

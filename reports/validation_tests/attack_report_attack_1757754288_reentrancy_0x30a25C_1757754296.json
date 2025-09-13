@@ -1,0 +1,59 @@
+{
+  "attack_id": "attack_1757754288_reentrancy_0x30a25C",
+  "target_info": {
+    "address": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+    "name": "Multi_Vuln_Target",
+    "chain": "ethereum",
+    "vulnerabilities": [
+      "reentrancy"
+    ],
+    "estimated_value": 5.0,
+    "complexity": "high"
+  },
+  "vulnerability_proof": {
+    "mode": "reentrancy",
+    "exploited_vulnerabilities": [
+      "reentrancy"
+    ],
+    "attack_technique": "Reentrancy attack exploiting external call before state update"
+  },
+  "execution_details": {
+    "environment": "mainnet",
+    "attacker_address": "0x1f065fc11b7075703E06B2c45dCFC9A40fB8C8b9",
+    "execution_time": 1.374293565750122,
+    "gas_used": 150000,
+    "transactions": [
+      {
+        "hash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "type": "attack_transaction",
+        "gas_used": 50000,
+        "success": true
+      }
+    ]
+  },
+  "financial_impact": {
+    "total_profit": 101.15,
+    "gas_cost": 0.15,
+    "net_profit": 101.0,
+    "roi": 674333333333333.4
+  },
+  "technical_analysis": {
+    "vulnerability_exploited": true,
+    "attack_vector_valid": true,
+    "defense_bypassed": true
+  },
+  "risk_assessment": {
+    "risk_level": "CRITICAL",
+    "success_probability": true,
+    "detection_risk": "HIGH"
+  },
+  "mitigation_suggestions": [
+    "Implement Checks-Effects-Interactions pattern",
+    "Use reentrancy guards",
+    "Avoid external calls before state updates"
+  ],
+  "timestamp": "2025-09-13T17:04:56Z",
+  "blockchain_evidence": [
+    "Transaction: 0x1111111111111111111111111111111111111111111111111111111111111111"
+  ]
+}

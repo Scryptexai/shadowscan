@@ -1,0 +1,131 @@
+{
+  "attack_modes": {
+    "reentrancy": {
+      "name": "Reentrancy Attack",
+      "description": "Exploits reentrancy vulnerability by repeatedly calling vulnerable function before original execution completes",
+      "severity": "CRITICAL",
+      "category": "fund_drain",
+      "requires": [
+        "vulnerable_function",
+        "external_call",
+        "state_change_after_call"
+      ],
+      "attack_contracts": {
+        "basic": "contracts/attacks/BasicReentrancyAttack.sol",
+        "flashloan": "contracts/attacks/FlashloanReentrancyAttack.sol",
+        "multicall": "contracts/attacks/MulticallReentrancyAttack.sol"
+      },
+      "validation_methods": [
+        "balance_drain",
+        "state_corruption",
+        "reentrancy_lock_bypass"
+      ]
+    },
+    "flashloan": {
+      "name": "Flash Loan Attack",
+      "description": "Uses flash loans to manipulate prices or execute arbitrage without capital requirements",
+      "severity": "HIGH", 
+      "category": "price_manipulation",
+      "requires": [
+        "flashloan_provider",
+        "price_oracle",
+        "arbitrage_opportunity"
+      ],
+      "attack_contracts": {
+        "price_manipulation": "contracts/attacks/PriceManipulationAttack.sol",
+        "arbitrage": "contracts/attacks/FlashloanArbitrageAttack.sol",
+        "liquidation": "contracts/attacks/FlashloanLiquidationAttack.sol"
+      },
+      "validation_methods": [
+        "profit_calculation",
+        "price_impact",
+        "gas_efficiency"
+      ]
+    },
+    "oracle_manipulation": {
+      "name": "Oracle Manipulation Attack",
+      "description": "Manipulates oracle prices to trigger liquidations or extract value",
+      "severity": "HIGH",
+      "category": "price_manipulation",
+      "requires": [
+        "manipulable_oracle",
+        "liquidation_trigger",
+        "collateral_check"
+      ],
+      "attack_contracts": {
+        "twap": "contracts/attacks/TWAPManipulationAttack.sol",
+        "clp": "contracts/attacks/CLPManipulationAttack.sol",
+        "chainlink": "contracts/attacks/ChainlinkManipulationAttack.sol"
+      },
+      "validation_methods": [
+        "price_deviation",
+        "liquidation_success",
+        "collateral_extraction"
+      ]
+    },
+    "access_control": {
+      "name": "Access Control Attack",
+      "description": "Exploits missing or improper access controls to gain unauthorized privileges",
+      "severity": "MEDIUM",
+      "category": "privilege_escalation",
+      "requires": [
+        "missing_access_control",
+        "privilege_function",
+        "state_modification"
+      ],
+      "attack_contracts": {
+        "ownership": "contracts/attacks/OwnershipAttack.sol",
+        "role": "contracts/attacks/RoleAttack.sol", 
+        "multisig": "contracts/attacks/MultisigAttack.sol"
+      },
+      "validation_methods": [
+        "privilege_gained",
+        "unauthorized_actions",
+        "control_transfer"
+      ]
+    },
+    "integer_overflow": {
+      "name": "Integer Overflow/Underflow Attack",
+      "description": "Exploits arithmetic operations that exceed storage limits",
+      "severity": "HIGH",
+      "category": "arithmetic_exploit",
+      "requires": [
+        "arithmetic_operation",
+        "no_bounds_check",
+        "critical_calculation"
+      ],
+      "attack_contracts": {
+        "overflow": "contracts/attacks/IntegerOverflowAttack.sol",
+        "underflow": "contracts/attacks/IntegerUnderflowAttack.sol",
+        "wrap": "contracts/attacks/TokenWrapAttack.sol"
+      },
+      "validation_methods": [
+        "value_overflow",
+        "wrap_success",
+        "balance_mismatch"
+      ]
+    }
+  },
+  "attack_validation": {
+    "success_criteria": {
+      "funds_drained": "Balance decreased by >50%",
+      "privilege_escalated": "Unauthorized access gained",
+      "price_manipulated": "Price deviation >20%", 
+      "contract_broken": "Core functionality compromised",
+      "state_corrupted": "Critical state variables altered"
+    },
+    "risk_levels": {
+      "LOW": "Minimal impact, demonstration only",
+      "MEDIUM": "Financial loss possible",
+      "HIGH": "Significant financial impact",
+      "CRITICAL": "Complete fund drain possible"
+    },
+    "reporting": {
+      "include_transaction_traces": true,
+      "include_gas_analysis": true,
+      "include_profit_calculation": true,
+      "include_exploit_code": true,
+      "include_mitigation_suggestions": true
+    }
+  }
+}

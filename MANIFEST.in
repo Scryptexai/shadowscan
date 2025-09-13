@@ -1,0 +1,37 @@
+# Clean MANIFEST.in (disesuaikan dengan isi root project)
+
+# Project metadata
+include README.md
+include LICENSE
+include AUTHORS.md
+include CHANGELOG.md
+include CONTRIBUTING.md
+include CODE_OFF_CONDUCT.md
+
+# Build/packaging config
+include pyproject.toml
+include setup.cfg
+include setup.py
+include requirements.txt
+include requirements-dev.txt
+include tox.ini
+include Makefile
+
+# Dev/CI configs
+include bandit.yaml
+include .pre-commit-config.yaml
+
+# Docker / env files
+include docker-compose.yaml
+include Dockerfile
+include .env
+
+# Package source code
+recursive-include shadowscan *.py *.pyi *.txt *.md *.json *.yaml *.yml
+
+# Exclude junk
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.pyo
+global-exclude *.pyd
+global-exclude .DS_Store

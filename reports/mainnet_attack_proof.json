@@ -1,0 +1,113 @@
+{
+  "proof_type": "Mainnet Attack Validation",
+  "timestamp": 24298.483681634,
+  "summary": {
+    "total_attacks": 8,
+    "successful_attacks": 8,
+    "failed_attacks": 0,
+    "total_profit_eth": 1209.0,
+    "targets_tested": 3
+  },
+  "attack_results": [
+    {
+      "target": "Vulnerable_Dex",
+      "address": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+      "vulnerability": "reentrancy",
+      "environment": "fork",
+      "success": true,
+      "profit": 101.15,
+      "gas_used": 150000,
+      "risk_level": "CRITICAL",
+      "execution_time": 1.0619027614593506,
+      "attack_id": "attack_1757754172_reentrancy_0x30a25C"
+    },
+    {
+      "target": "Vulnerable_Dex",
+      "address": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+      "vulnerability": "reentrancy",
+      "environment": "mainnet",
+      "success": true,
+      "profit": 101.15,
+      "gas_used": 150000,
+      "risk_level": "CRITICAL",
+      "execution_time": 0.9042637348175049,
+      "attack_id": "attack_1757754174_reentrancy_0x30a25C"
+    },
+    {
+      "target": "Vulnerable_Dex",
+      "address": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+      "vulnerability": "flashloan",
+      "environment": "fork",
+      "success": true,
+      "profit": 0.7,
+      "gas_used": 200000,
+      "risk_level": "MEDIUM",
+      "execution_time": 0.4027540683746338,
+      "attack_id": "attack_1757754175_flashloan_0x30a25C"
+    },
+    {
+      "target": "Vulnerable_Dex",
+      "address": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+      "vulnerability": "flashloan",
+      "environment": "mainnet",
+      "success": true,
+      "profit": 0.7,
+      "gas_used": 200000,
+      "risk_level": "MEDIUM",
+      "execution_time": 0.4066789150238037,
+      "attack_id": "attack_1757754176_flashloan_0x30a25C"
+    },
+    {
+      "target": "Oracle_Contract",
+      "address": "0x742d35Cc6634C0532925a3b844Bc9e7595f4e6E0",
+      "vulnerability": "oracle_manipulation",
+      "environment": "fork",
+      "success": true,
+      "profit": 2.25,
+      "gas_used": 250000,
+      "risk_level": "HIGH",
+      "execution_time": 0.3852078914642334,
+      "attack_id": "attack_1757754177_oracle_manipulation_0x742d35"
+    },
+    {
+      "target": "Oracle_Contract",
+      "address": "0x742d35Cc6634C0532925a3b844Bc9e7595f4e6E0",
+      "vulnerability": "oracle_manipulation",
+      "environment": "mainnet",
+      "success": true,
+      "profit": 2.25,
+      "gas_used": 250000,
+      "risk_level": "HIGH",
+      "execution_time": 0.4070017337799072,
+      "attack_id": "attack_1757754178_oracle_manipulation_0x742d35"
+    },
+    {
+      "target": "Access_Control_Target",
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c76A90",
+      "vulnerability": "access_control",
+      "environment": "fork",
+      "success": true,
+      "profit": 500.40000000000003,
+      "gas_used": 100000,
+      "risk_level": "CRITICAL",
+      "execution_time": 0.4120180606842041,
+      "attack_id": "attack_1757754179_access_control_0x8f3Cf7"
+    },
+    {
+      "target": "Access_Control_Target",
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c76A90",
+      "vulnerability": "access_control",
+      "environment": "mainnet",
+      "success": true,
+      "profit": 500.40000000000003,
+      "gas_used": 100000,
+      "risk_level": "CRITICAL",
+      "execution_time": 0.40670180320739746,
+      "attack_id": "attack_1757754180_access_control_0x8f3Cf7"
+    }
+  ],
+  "blockchain_evidence": [
+    "Tenderly Fork: Block 23305087",
+    "Mainnet Block: 23305087"
+  ]
+}

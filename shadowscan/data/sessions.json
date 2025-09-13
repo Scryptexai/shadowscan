@@ -1,0 +1,102 @@
+{
+  "test-session": {
+    "target": "0x1234567890123456789012345678901234567890",
+    "chain": "ethereum",
+    "session_id": "test-session",
+    "discovered_contracts": [
+      "0xABcdEFABcdEFabcdEfAbCdefabcdeFABcDEFabCD",
+      "0x1111111111111111111111111111111111111111",
+      "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
+    ],
+    "session_start": "2025-09-13T07:36:20.924337",
+    "session_end": null,
+    "status": "active"
+  },
+  "example-session-001": {
+    "target": "0x1234567890123456789012345678901234567890",
+    "chain": "ethereum",
+    "session_id": "example-session-001",
+    "discovered_contracts": [
+      "0xABcdEFABcdEFabcdEfAbCdefabcdeFABcDEFabCD",
+      "0x1111111111111111111111111111111111111111",
+      "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
+    ],
+    "session_start": "2025-09-13T08:41:30.191210",
+    "session_end": "2025-09-13T08:41:30.245120",
+    "status": "completed"
+  },
+  "comprehensive-test": {
+    "target": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+    "chain": "ethereum",
+    "session_id": "comprehensive-test",
+    "discovered_contracts": [
+      "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3"
+    ],
+    "session_start": "2025-09-13T08:26:47.471562",
+    "session_end": null,
+    "status": "active"
+  },
+  "final-test": {
+    "target": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+    "chain": "ethereum",
+    "session_id": "final-test",
+    "discovered_contracts": [],
+    "session_start": "2025-09-13T08:28:48.132524",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x30a25C_20250913_163327": {
+    "target": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+    "chain": "ethereum",
+    "session_id": "session_0x30a25C_20250913_163327",
+    "discovered_contracts": [],
+    "session_start": "2025-09-13T08:33:27.976948",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0xdAC17F_20250913_164747": {
+    "target": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "chain": "ethereum",
+    "session_id": "session_0xdAC17F_20250913_164747",
+    "discovered_contracts": [],
+    "session_start": "2025-09-13T08:47:47.766669",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x6B1754_20250913_164856": {
+    "target": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    "chain": "ethereum",
+    "session_id": "session_0x6B1754_20250913_164856",
+    "discovered_contracts": [],
+    "session_start": "2025-09-13T08:48:56.982477",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0xC02aaA_20250913_164930": {
+    "target": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "chain": "ethereum",
+    "session_id": "session_0xC02aaA_20250913_164930",
+    "discovered_contracts": [],
+    "session_start": "2025-09-13T08:49:31.095285",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x30a25C_20250913_175338": {
+    "target": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+    "chain": "ethereum",
+    "session_id": "session_0x30a25C_20250913_175338",
+    "discovered_contracts": [],
+    "session_start": "2025-09-13T09:53:39.168401",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x30a25C_20250913_175546": {
+    "target": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+    "chain": "ethereum",
+    "session_id": "session_0x30a25C_20250913_175546",
+    "discovered_contracts": [],
+    "session_start": "2025-09-13T09:55:47.237560",
+    "session_end": null,
+    "status": "active"
+  }
+}

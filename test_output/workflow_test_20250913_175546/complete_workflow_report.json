@@ -1,0 +1,38 @@
+{
+  "session_id": "workflow_test_20250913_175546",
+  "success": true,
+  "module1": {
+    "success": true,
+    "target_contract": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+    "main_contract_vulnerabilities": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0
+    },
+    "function_count": 3,
+    "is_proxy": true,
+    "dex_relations": [],
+    "related_contracts": [],
+    "session_file": "test_output/workflow_test_20250913_175546/module1/session_0x30a25C_20250913_175546.json",
+    "execution_time": 100.374497
+  },
+  "module2": {
+    "success": true,
+    "verified_main_contract_vulns": [],
+    "related_contract_vulns": [],
+    "attack_scenarios": [],
+    "processing_time": 0.000992
+  },
+  "module3": {
+    "success": true,
+    "attack_results": [],
+    "successful_attacks": 0,
+    "total_scenarios_tested": 0,
+    "report_path": "test_output/workflow_test_20250913_175546/module3/attack_report.json",
+    "execution_time": 0.002002
+  },
+  "total_execution_time": 100.381019,
+  "target_contract": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+  "timestamp": "2025-09-13T17:57:26.590180"
+}

@@ -1,0 +1,259 @@
+version: '3.8'
+
+services:
+  # Main ShadowScan application
+  shadowscan:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PYTHON_VERSION: 3.12
+    image: shadowscan:latest
+    container_name: shadowscan-app
+    restart: unless-stopped
+    environment:
+      - PYTHONPATH=/app
+      - SHADOWSCAN_ENV=production
+      - SHADOWSCAN_LOG_LEVEL=INFO
+      - SHADOWSCAN_CONFIG_PATH=/app/config
+    env_file:
+      - .env
+    volumes:
+      - ./config:/app/config:ro
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+      - ./data:/app/data
+    ports:
+      - "8080:8080"
+    networks:
+      - shadowscan-network
+    depends_on:
+      - redis
+      - postgres
+    healthcheck:
+      test: ["CMD", "python", "-c", "import shadowscan; print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Redis for caching and task queue
+  redis:
+    image: redis:7-alpine
+    container_name: shadowscan-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    command: redis-server /usr/local/etc/redis/redis.conf
+    networks:
+      - shadowscan-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # PostgreSQL for persistent data storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: shadowscan-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: shadowscan
+      POSTGRES_USER: shadowscan
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-shadowscan_password}
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8 --locale=C"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./config/postgres-init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - shadowscan-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shadowscan -d shadowscan"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # Ethereum node (optional - for local testing)
+  ganache:
+    image: trufflesuite/ganache:latest
+    container_name: shadowscan-ganache
+    restart: unless-stopped
+    ports:
+      - "8545:8545"
+    command: >
+      ganache
+      --host 0.0.0.0
+      --port 8545
+      --networkId 1337
+      --chainId 1337
+      --accounts 10
+      --deterministic
+      --mnemonic "your test mnemonic here for development only"
+    networks:
+      - shadowscan-network
+    profiles:
+      - development
+
+  # Web dashboard (optional)
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    image: shadowscan-dashboard:latest
+    container_name: shadowscan-dashboard
+    restart: unless-stopped
+    environment:
+      - SHADOWSCAN_API_URL=http://shadowscan:8080
+      - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    networks:
+      - shadowscan-network
+    depends_on:
+      - shadowscan
+    profiles:
+      - dashboard
+
+  # Selenium Grid Hub (for web scanning)
+  selenium-hub:
+    image: selenium/hub:4.15
+    container_name: shadowscan-selenium-hub
+    restart: unless-stopped
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    environment:
+      GRID_MAX_SESSION: 16
+      GRID_BROWSER_TIMEOUT: 300
+      GRID_TIMEOUT: 300
+    networks:
+      - shadowscan-network
+    profiles:
+      - selenium
+
+  # Chrome node for Selenium
+  selenium-chrome:
+    image: selenium/node-chrome:4.15
+    container_name: shadowscan-chrome
+    restart: unless-stopped
+    shm_size: 2gb
+    environment:
+      HUB_HOST: selenium-hub
+      HUB_PORT: 4444
+      NODE_MAX_INSTANCES: 4
+      NODE_MAX_SESSION: 4
+    volumes:
+      - /dev/shm:/dev/shm
+    networks:
+      - shadowscan-network
+    depends_on:
+      - selenium-hub
+    profiles:
+      - selenium
+
+  # Firefox node for Selenium
+  selenium-firefox:
+    image: selenium/node-firefox:4.15
+    container_name: shadowscan-firefox
+    restart: unless-stopped
+    shm_size: 2gb
+    environment:
+      HUB_HOST: selenium-hub
+      HUB_PORT: 4444
+      NODE_MAX_INSTANCES: 4
+      NODE_MAX_SESSION: 4
+    volumes:
+      - /dev/shm:/dev/shm
+    networks:
+      - shadowscan-network
+    depends_on:
+      - selenium-hub
+    profiles:
+      - selenium
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: shadowscan-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./config/ssl:/etc/nginx/ssl:ro
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - shadowscan-network
+    depends_on:
+      - shadowscan
+    profiles:
+      - production
+
+  # Prometheus for monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: shadowscan-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    networks:
+      - shadowscan-network
+    profiles:
+      - monitoring
+
+  # Grafana for visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: shadowscan-grafana
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-admin}
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./config/grafana:/etc/grafana/provisioning:ro
+    networks:
+      - shadowscan-network
+    depends_on:
+      - prometheus
+    profiles:
+      - monitoring
+
+networks:
+  shadowscan-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  redis-data:
+    driver: local
+  postgres-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+
+# Development override
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+# Create docker-compose.dev.yml for development-specific overrides

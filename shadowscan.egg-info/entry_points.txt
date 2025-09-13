@@ -1,0 +1,3 @@
+[console_scripts]
+shadowscan = shadowscan.cli.main:main
+

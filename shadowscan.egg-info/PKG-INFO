@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: shadowscan
+Version: 3.0.0
+Summary: Advanced Blockchain Security Scanning Platform with Attack Framework
+Home-page: https://github.com/shadowscan/shadowscan
+Author: ShadowScan Security Team
+Author-email: security@shadowscan.dev
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/shadowscan/shadowscan/issues
+Project-URL: Source, https://github.com/shadowscan/shadowscan
+Project-URL: Documentation, https://docs.shadowscan.dev
+Keywords: blockchain security smart-contract vulnerability-scanning attack-framework
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Security
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+License-File: AUTHORS.md
+
+# 🌑 ShadowScan - Universal Cyber Attack Test Engine
+
+![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+![Version](https://img.shields.io/pypi/v/shadowscan)
+
+**ShadowScan** is a universal penetration testing platform designed to test the security of blockchain, web applications, and network infrastructure with the highest professional standards.
+
+## 🚀 Key Features
+
+- **Multi-Vector Analysis**: Blockchain, Web, and Network in a single platform
+- **AI-Powered Heuristics**: Predict vulnerabilities based on global patterns
+- **Stealth Mode**: Undetectable operations by defense systems
+- **Modular Architecture**: Add new modules without changing core
+- **Tenderly Integration**: Safe exploit simulation without risk
+- **Professional Reporting**: Detailed reports with exploit evidence
+- **Multi-Chain Support**: Ethereum, BNB Chain, Base, Arbitrum, and more
+
+## 🧰 Use Cases
+
+- **Developers**: Test contracts before deployment
+- **Auditors**: Verify project security
+- **Bug Bounty Hunters**: Find vulnerabilities for rewards
+- **Red Teams**: Internal pen-test exercises
+
+## 📦 Installation
+
+```bash
+# Clone repository
+git clone https://github.com/shadowscan/shadowscan.git
+cd shadowscan
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Setup configuration
+cp .env.example .env
+nano .env  # Edit according to your needs
+
+

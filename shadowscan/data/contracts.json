@@ -1,0 +1,67 @@
+{
+  "ethereum:0xABcdEFABcdEFabcdEfAbCdefabcdeFABcDEFabCD": {
+    "address": "0xABcdEFABcdEFabcdEfAbCdefabcdeFABcDEFabCD",
+    "chain": "ethereum",
+    "name": null,
+    "role": "token",
+    "abi": null,
+    "bytecode": null,
+    "is_proxy": false,
+    "implementation": null,
+    "source_verified": false,
+    "first_seen": "2025-09-13T07:36:20.926496",
+    "last_updated": "2025-09-13T07:36:20.926507",
+    "metadata": {
+      "symbol": "TEST"
+    }
+  },
+  "ethereum:0xabcdefabcdefabcdefabcdefabcdefabcdefabcd": {
+    "address": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
+    "chain": "ethereum",
+    "name": null,
+    "role": "token",
+    "abi": null,
+    "bytecode": null,
+    "is_proxy": false,
+    "implementation": null,
+    "source_verified": false,
+    "first_seen": "2025-09-13T07:46:40.865885",
+    "last_updated": "2025-09-13T08:41:30.199107",
+    "metadata": {
+      "symbol": "TOKEN1",
+      "decimals": 18
+    }
+  },
+  "ethereum:0x1111111111111111111111111111111111111111": {
+    "address": "0x1111111111111111111111111111111111111111",
+    "chain": "ethereum",
+    "name": null,
+    "role": "dex",
+    "abi": null,
+    "bytecode": null,
+    "is_proxy": false,
+    "implementation": null,
+    "source_verified": false,
+    "first_seen": "2025-09-13T07:46:40.872836",
+    "last_updated": "2025-09-13T08:41:30.243246",
+    "metadata": {
+      "type": "uniswap_v2"
+    }
+  },
+  "ethereum:0x30a25cc9c9eade4d4d9e9349be6e68c3411367d3": {
+    "address": "0x30a25cc9c9eade4d4d9e9349be6e68c3411367d3",
+    "chain": "ethereum",
+    "name": null,
+    "role": "target",
+    "abi": null,
+    "bytecode": null,
+    "is_proxy": false,
+    "implementation": null,
+    "source_verified": false,
+    "first_seen": "2025-09-13T08:26:18.778198",
+    "last_updated": "2025-09-13T08:26:47.473268",
+    "metadata": {
+      "test": true
+    }
+  }
+}

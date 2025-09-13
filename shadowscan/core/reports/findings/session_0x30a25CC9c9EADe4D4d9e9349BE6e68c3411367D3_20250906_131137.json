@@ -1,0 +1,11 @@
+{
+  "target": "0x30a25CC9c9EADe4D4d9e9349BE6e68c3411367D3",
+  "chain": "ethereum",
+  "block_number": 23304268,
+  "timestamp": "2025-09-06T13:11:37.198385",
+  "hypothesis_ids": [
+    "HYP-20250906_131137-D3063C98",
+    "HYP-20250906_131137-6B8049F7"
+  ],
+  "total_findings": 2
+}

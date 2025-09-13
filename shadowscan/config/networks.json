@@ -1,0 +1,79 @@
+{
+  "mainnet": {
+    "ethereum": {
+      "name": "Ethereum Mainnet",
+      "rpc_url": "https://virtual.mainnet.eu.rpc.tenderly.co/eeffdb55-4da5-4241-a9eb-bb6ac3ef16e8",
+      "chain_id": 1,
+      "block_explorer": "https://etherscan.io",
+      "explorer_api": "https://api.etherscan.io/api",
+      "gas_price": "dynamic",
+      "confirmation_blocks": 2,
+      "max_fee_per_gas": null,
+      "max_priority_fee_per_gas": null
+    },
+    "polygon": {
+      "name": "Polygon Mainnet", 
+      "rpc_url": "https://polygon-rpc.com",
+      "chain_id": 137,
+      "block_explorer": "https://polygonscan.com",
+      "explorer_api": "https://api.polygonscan.com/api",
+      "gas_price": "dynamic",
+      "confirmation_blocks": 5
+    },
+    "bsc": {
+      "name": "Binance Smart Chain",
+      "rpc_url": "https://bsc-dataseed.binance.org",
+      "chain_id": 56,
+      "block_explorer": "https://bscscan.com",
+      "explorer_api": "https://api.bscscan.com/api",
+      "gas_price": "dynamic",
+      "confirmation_blocks": 3
+    },
+    "arbitrum": {
+      "name": "Arbitrum One",
+      "rpc_url": "https://arb1.arbitrum.io/rpc",
+      "chain_id": 42161,
+      "block_explorer": "https://arbiscan.io",
+      "explorer_api": "https://api.arbiscan.io/api",
+      "gas_price": "dynamic",
+      "confirmation_blocks": 1
+    }
+  },
+  "fork": {
+    "ethereum": {
+      "name": "Ethereum Fork",
+      "rpc_url": "https://virtual.mainnet.eu.rpc.tenderly.co/eeffdb55-4da5-4241-a9eb-bb6ac3ef16e8",
+      "chain_id": 1,
+      "fork_block": 23305087,
+      "block_explorer": "https://etherscan.io",
+      "explorer_api": "https://api.etherscan.io/api",
+      "gas_price": 0,
+      "auto_impersonate": true,
+      "block_time": 1
+    },
+    "polygon": {
+      "name": "Polygon Fork",
+      "rpc_url": "https://polygon-rpc.com",
+      "chain_id": 137,
+      "fork_block": 50000000,
+      "gas_price": 0,
+      "auto_impersonate": true
+    },
+    "bsc": {
+      "name": "BSC Fork", 
+      "rpc_url": "https://bsc-dataseed.binance.org",
+      "chain_id": 56,
+      "fork_block": 35000000,
+      "gas_price": 0,
+      "auto_impersonate": true
+    },
+    "arbitrum": {
+      "name": "Arbitrum Fork",
+      "rpc_url": "https://arb1.arbitrum.io/rpc",
+      "chain_id": 42161,
+      "fork_block": 100000000,
+      "gas_price": 0,
+      "auto_impersonate": true
+    }
+  }
+}
