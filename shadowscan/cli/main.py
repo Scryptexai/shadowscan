@@ -17,6 +17,7 @@ project_root = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from shadowscan.commands.attack_commands import attack
+from shadowscan.enhanced_screening.commands.enhanced_commands import enhanced
 from shadowscan.utils.display_helpers import console
 
 console = Console()
@@ -299,6 +300,7 @@ def analyze(target, mode):
 
 # Add subcommands
 shadowscan.add_command(attack)
+shadowscan.add_command(enhanced)
 
 def main():
     """Main entry point"""
