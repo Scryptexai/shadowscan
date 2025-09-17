@@ -1,0 +1,20 @@
+{
+  "test_info": {
+    "start_time": "2025-09-17T14:15:37.301419",
+    "framework": "Shadowscan Real Transaction Executor",
+    "version": "3.0.0",
+    "mode": "Real Execution",
+    "execution_time": 12.082497835159302,
+    "end_time": "2025-09-17T14:15:49.383936"
+  },
+  "results": {
+    "transactions": [
+      "RealExploitResult(exploit_type='transfer', target_address='0xdd2e4083b326627be9ecbaf180b71c07521c7a20', target_name='Unknown', tx_hash='', block_number=0, gas_used=0, gas_cost=0, actual_profit=0, success=False, error_message=\"Transaction had invalid fields: {'to': '0xdd2e4083b326627be9ecbaf180b71c07521c7a20'}\", execution_details=None)",
+      "RealExploitResult(exploit_type='contract_call', target_address='0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D', target_name='UniswapV2Router', tx_hash='5b6f7519e09879559eb047d3eac9f687be21cd8c3ab9f203877dbac8e7c97ffc', block_number=23380945, gas_used=100000, gas_cost=Decimal('0.000018060386500000'), actual_profit=Decimal('-0.000018060386500000'), success=False, error_message='Transaction failed', execution_details={'network': 'ethereum', 'amount_sent': 0.0, 'gas_limit': 100000, 'gas_price': Decimal('1.80603865E-10'), 'nonce': 2, 'block_hash': '1019c641862a007c6314d07ee7e6bc3cec7315dd7c985207102e99530fedf0e0', 'transaction_index': 339, 'cumulative_gas_used': 33659193})"
+    ],
+    "successful_transactions": 0,
+    "failed_transactions": 2,
+    "total_gas_cost": 0,
+    "total_profit": 0
+  }
+}

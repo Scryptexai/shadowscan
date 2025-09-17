@@ -10,7 +10,7 @@ DEFAULT_CONFIG = {
             "rpc_url": "https://eth.llamarpc.com"
         },
         "polygon": {
-            "name": "Polygon",
+            "name": "Polygon", 
             "chain_id": 137,
             "rpc_url": "https://polygon.llamarpc.com"
         },
@@ -22,15 +22,6 @@ DEFAULT_CONFIG = {
     }
 }
 
-class ConfigLoader:
-    """Simple config loader for compatibility."""
-    
-    def __init__(self):
-        self.config = DEFAULT_CONFIG.copy()
-    
-    def get(self, key, default=None):
-        return self.config.get(key, default)
-
 def get_config():
     return DEFAULT_CONFIG.copy()
 
@@ -38,4 +29,4 @@ def get_network_config(network: str):
     config = get_config()
     return config["networks"].get(network, {})
 
-__all__ = ["DEFAULT_CONFIG", "ConfigLoader", "get_config", "get_network_config"]
+__all__ = ["DEFAULT_CONFIG", "get_config", "get_network_config"]

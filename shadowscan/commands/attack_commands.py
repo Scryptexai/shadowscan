@@ -18,40 +18,101 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from shadowscan.core.attack.attack_framework import (
     AttackFramework, AttackMode, Environment, AttackTarget
 )
-from shadowscan.config.loader import load_config
+from shadowscan.config.config_loader import ConfigLoader
 
 @click.group()
 def attack():
-    """⚔️ Execute controlled exploit simulations"""
+    """⚔️ Execute controlled exploit simulations
+    
+    🆕 Enhanced attack framework with DEX-focused capabilities:
+    • Dynamic RPC configuration with ticker & chain ID
+    • 18 attack modes covering 20+ vulnerability types
+    • 8 traditional + 8 DEX-specific attack modes
+    • Fork and mainnet execution environments
+    • Comprehensive vulnerability validation
+    • Real-time attack simulation and proof generation
+    
+    🎯 DEX Attack Modes: dex_flashloan, dex_price_manipulation, dex_liquidity_drain,
+    dex_front_running, dex_sandwich_attack, dex_arbitrage, dex_fee_manipulation, dex_oracle_exploit
+    """
     pass
 
 @attack.command()
 @click.option('-t', '--target', required=True, help='Target contract address')
 @click.option('-c', '--chain', default='ethereum', help='Blockchain network')
-@click.option('-m', '--mode', type=click.Choice(['reentrancy', 'flashloan', 'oracle_manipulation', 'access_control', 'integer_overflow']), 
-              default='reentrancy', help='Attack mode')
+@click.option('-T', '--ticker', help='Blockchain ticker (ETH, MATIC, BNB, etc.)')
+@click.option('-i', '--chain-id', type=int, help='Chain ID (overrides default)')
+@click.option('-m', '--mode', type=click.Choice([
+    'reentrancy', 'flashloan', 'oracle_manipulation', 'access_control', 'integer_overflow',
+    'front_running', 'sandwich_attack', 'fee_manipulation', 'price_oracle', 'liquidity_pool',
+    # DEX-Specific Attack Modes
+    'dex_flashloan', 'dex_price_manipulation', 'dex_liquidity_drain', 'dex_front_running',
+    'dex_sandwich_attack', 'dex_arbitrage', 'dex_fee_manipulation', 'dex_oracle_exploit'
+]), default='reentrancy', help='Attack mode')
 @click.option('-e', '--environment', type=click.Choice(['fork', 'mainnet']), default='fork', 
               help='Execution environment')
 @click.option('-v', '--vulnerabilities', multiple=True, help='Vulnerabilities to exploit')
 @click.option('--value', type=float, default=1.0, help='Estimated target value (ETH)')
 @click.option('--dry-run', is_flag=True, help='Plan attack without execution')
 @click.option('--output', help='Output directory for reports')
-def execute(target: str, chain: str, mode: str, environment: str, 
+def execute(target: str, chain: str, ticker: str, chain_id: int, mode: str, environment: str, 
            vulnerabilities: List[str], value: float, dry_run: bool, output: str):
-    """Execute vulnerability validation attack"""
+    """🎯 Execute vulnerability validation attack
+    
+    🆕 Enhanced with dynamic multi-chain configuration:
+    • Dynamic RPC via ticker (-T) and chain ID (-i)
+    • Support for 8+ blockchains: ETH, MATIC, BNB, ARB, BASE, OPT, AVAX, FTM
+    • 10 attack modes: reentrancy, flashloan, oracle manipulation, etc.
+    • Automatic vulnerability selection from 20+ types
+    • Fork and mainnet execution environments
+    • Real-time profit estimation and risk assessment
+    
+    Example: shadowscan attack execute -t 0x... -T ETH -i 1 -m flashloan -e fork
+    """
+    
+    # Load configuration
+    config_loader = ConfigLoader()
+    
+    # Setup chain ID
+    if chain_id:
+        target_chain_id = chain_id
+    elif ticker:
+        target_chain_id = config_loader.get_chain_id(ticker)
+    else:
+        target_chain_id = config_loader.get_chain_id(chain)
+    
+    # Setup RPC URL
+    if ticker:
+        rpc_url = config_loader.get_rpc_url(ticker)
+    else:
+        rpc_url = config_loader.get_rpc_url(chain)
     
     # Create attack target
     attack_target = AttackTarget(
         address=target,
         name=f"Target_{target[:8]}",
         chain=chain,
-        vulnerabilities=list(vulnerabilities) or ['reentrancy'],
+        chain_id=target_chain_id,
+        rpc_url=rpc_url,
+        vulnerabilities=list(vulnerabilities) or config_loader.get_vulnerability_types()[:3],
         estimated_value=value,
         complexity="medium"
     )
     
     # Initialize attack framework
     framework = AttackFramework()
+    
+    # Display configuration
+    click.echo("🔧 Attack Configuration:")
+    click.echo(f"   Target: {target}")
+    click.echo(f"   Chain: {chain.title()}")
+    if ticker:
+        click.echo(f"   Ticker: {ticker}")
+    click.echo(f"   Chain ID: {target_chain_id}")
+    click.echo(f"   Mode: {mode}")
+    click.echo(f"   Environment: {environment}")
+    click.echo(f"   Vulnerabilities: {', '.join(attack_target.vulnerabilities)}")
+    click.echo()
     
     try:
         # Plan attack

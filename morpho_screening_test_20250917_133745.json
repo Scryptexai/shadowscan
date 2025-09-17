@@ -1,0 +1,185 @@
+{
+  "test_info": {
+    "start_time": "2025-09-17T13:37:45.542097",
+    "framework": "Shadowscan Morpho Protocol Screening",
+    "version": "2.1.0",
+    "execution_time": 0.054439544677734375,
+    "end_time": "2025-09-17T13:37:45.596606"
+  },
+  "results": {
+    "ethereum_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    },
+    "ethereum_real_test": {
+      "screening_result": {
+        "protocol": "Morpho",
+        "network": "ethereum",
+        "timestamp": "2025-09-17T13:37:45.542265",
+        "contracts": {
+          "market_registry": {
+            "address": "0x7b5c9eea0c1c7a16b390e328c5a9f2f3d0b1f2e8",
+            "name": "Error",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          },
+          "oracle": {
+            "address": "0x1b5c3e9f0c0a8e4b0f1c2a3b4c5d6e7f8a9b0c1d2",
+            "name": "Error",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          },
+          "lens": {
+            "address": "0x5d3e1d0a4b0c0e0f1a2b3c4d5e6f7a8b9c0d1e2",
+            "name": "Error",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          },
+          "metamorpho": {
+            "address": "0x7b5c9eea0c1c7a16b390e328c5a9f2f3d0b1f2e8",
+            "name": "Error",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          }
+        },
+        "vulnerabilities": [],
+        "tvl_analysis": {
+          "total_tvl": 0.0,
+          "contracts": {},
+          "risk_factors": []
+        },
+        "risk_assessment": {
+          "overall_risk": "Low",
+          "risk_score": 0,
+          "severity_counts": {
+            "Critical": 0,
+            "High": 0,
+            "Medium": 0,
+            "Low": 0
+          },
+          "total_vulnerabilities": 0,
+          "total_tvl": 0.0,
+          "potential_loss": 0,
+          "recommendations": []
+        }
+      },
+      "network": "ethereum",
+      "success": true
+    },
+    "ethereum_vulnerability_analysis": {
+      "total_vulnerabilities": 0,
+      "exploitable_vulnerabilities": [],
+      "risk_assessment": {},
+      "recommendations": [
+        "\ud83d\udd0d Regular security screening recommended",
+        "\ud83d\udcb0 Consider implementing bug bounty program"
+      ]
+    },
+    "base_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    },
+    "base_real_test": {
+      "screening_result": {
+        "protocol": "Morpho",
+        "network": "base",
+        "timestamp": "2025-09-17T13:37:45.585850",
+        "contracts": {
+          "market_registry": {
+            "address": "0x7b5c9eea0c1c7a16b390e328c5a9f2f3d0b1f2e8",
+            "name": "Error",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          },
+          "oracle": {
+            "address": "0x1b5c3e9f0c0a8e4b0f1c2a3b4c5d6e7f8a9b0c1d2",
+            "name": "Error",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          },
+          "lens": {
+            "address": "0x5d3e1d0a4b0c0e0f1a2b3c4d5e6f7a8b9c0d1e2",
+            "name": "Error",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          },
+          "metamorpho": {
+            "address": "0x7b5c9eea0c1c7a16b390e328c5a9f2f3d0b1f2e8",
+            "name": "Error",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          }
+        },
+        "vulnerabilities": [],
+        "tvl_analysis": {
+          "total_tvl": 0.0,
+          "contracts": {},
+          "risk_factors": []
+        },
+        "risk_assessment": {
+          "overall_risk": "Low",
+          "risk_score": 0,
+          "severity_counts": {
+            "Critical": 0,
+            "High": 0,
+            "Medium": 0,
+            "Low": 0
+          },
+          "total_vulnerabilities": 0,
+          "total_tvl": 0.0,
+          "potential_loss": 0,
+          "recommendations": []
+        }
+      },
+      "network": "base",
+      "success": true
+    },
+    "base_vulnerability_analysis": {
+      "total_vulnerabilities": 0,
+      "exploitable_vulnerabilities": [],
+      "risk_assessment": {},
+      "recommendations": [
+        "\ud83d\udd0d Regular security screening recommended",
+        "\ud83d\udcb0 Consider implementing bug bounty program"
+      ]
+    },
+    "arbitrum_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    },
+    "arbitrum_real_test": {
+      "error": "Network arbitrum not available",
+      "network": "arbitrum",
+      "success": false
+    }
+  }
+}

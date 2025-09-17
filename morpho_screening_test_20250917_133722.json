@@ -1,0 +1,20 @@
+{
+  "test_info": {
+    "start_time": "2025-09-17T13:37:22.275657",
+    "framework": "Shadowscan Morpho Protocol Screening",
+    "version": "2.1.0",
+    "execution_time": 3.743171691894531e-05,
+    "end_time": "2025-09-17T13:37:22.275758"
+  },
+  "results": {
+    "ethereum_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    },
+    "base_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    },
+    "arbitrum_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    }
+  }
+}

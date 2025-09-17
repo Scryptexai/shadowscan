@@ -1,0 +1,15 @@
+{
+  "test_info": {
+    "start_time": "2025-09-17T14:15:20.179751",
+    "framework": "Shadowscan Real Transaction Executor",
+    "version": "3.0.0",
+    "mode": "Real Execution"
+  },
+  "results": {
+    "transactions": [],
+    "successful_transactions": 0,
+    "failed_transactions": 0,
+    "total_gas_cost": 0,
+    "total_profit": 0
+  }
+}

@@ -177,6 +177,16 @@ class ScreeningSession:
     # Detection results
     hypotheses: List[Hypothesis] = field(default_factory=list)
     
+    # DEX Analysis (Ecosystem Tracking)
+    is_dex: bool = False
+    dex_protocol: Optional[str] = None
+    dex_contract_type: Optional[str] = None
+    dex_confidence: float = 0.0
+    dex_analysis: Dict[str, Any] = field(default_factory=dict)
+    related_contracts: List[Dict[str, Any]] = field(default_factory=list)
+    vulnerability_patterns: List[str] = field(default_factory=list)
+    high_priority_targets: int = 0
+    
     # Metadata
     execution_time: float = 0.0
     rpc_calls_made: int = 0

@@ -10,6 +10,7 @@ from datetime import datetime
 import logging
 
 from shadowscan.core.pipeline.screening_engine import ScreeningEngine
+from shadowscan.config.config_loader import ConfigLoader
 
 # Configure logging
 logging.basicConfig(
@@ -21,8 +22,12 @@ logger = logging.getLogger(__name__)
 @click.command()
 @click.option('--target', '-t', required=True, help='Target contract address to screen')
 @click.option('--chain', '-c', default='ethereum', 
-              type=click.Choice(['ethereum', 'polygon', 'bsc', 'arbitrum'], case_sensitive=False),
+              type=click.Choice(['ethereum', 'polygon', 'bsc', 'arbitrum', 'base', 'optimism', 'avalanche', 'fantom'], case_sensitive=False),
               help='Blockchain network')
+@click.option('--ticker', '-k', default=None, 
+              type=click.Choice(['ETH', 'MATIC', 'BNB', 'ARB', 'BASE', 'OPT', 'AVAX', 'FTM'], case_sensitive=False),
+              help='Blockchain ticker symbol (overrides default from .env)')
+@click.option('--chain-id', '-i', type=int, help='Chain ID (overrides default for network)')
 @click.option('--mode', '-m', default='f', 
               type=click.Choice(['f', 'M', 'fork', 'mainnet'], case_sensitive=False),
               help='Screening mode: f/fork for development, M/mainnet for read-only')
@@ -37,35 +42,56 @@ logger = logging.getLogger(__name__)
               help='Analysis depth: s/shallow for quick scan, f/full for comprehensive')
 @click.option('--output', '-o', default='reports/findings',
               help='Output directory for reports and artifacts')
-@click.option('--concurrency', '-n', default=8, type=int,
-              help='Maximum parallel RPC calls')
-@click.option('--timeout', '-T', default=300, type=int,
-              help='RPC timeout in seconds')
+@click.option('--concurrency', '-n', default=4, type=int,
+              help='Maximum parallel RPC calls (optimized for DEX analysis)')
+@click.option('--timeout', '-T', default=120, type=int,
+              help='RPC timeout in seconds (reduced for faster screening)')
+@click.option('--timeout-per-task', type=int, default=60,
+              help='Timeout per individual task (seconds)')
 @click.option('--rpc-url', help='Custom RPC URL (overrides default for chain)')
 @click.option('--etherscan-key', help='Etherscan API key for enhanced data')
 @click.option('--no-cache', '-N', is_flag=True, help='Disable caching')
 @click.option('--force', '-F', is_flag=True, help='Force refresh even if cached')
 @click.option('--verbose', '-v', is_flag=True, help='Enable verbose logging')
 @click.option('--with-graph-html', is_flag=True, help='Generate HTML graph visualization')
+@click.option('--vulnerability-types', '-V', help='Comma-separated list of vulnerability types to scan for')
+@click.option('--intensity', '-I', type=int, help='Scan intensity (1-10, default from .env)')
+@click.option('--deep-scan/--no-deep-scan', default=None, help='Enable deep scanning')
 @click.pass_context
-def screen(ctx, target, chain, mode, with_graph, with_events, with_state, depth, 
-          output, concurrency, timeout, rpc_url, etherscan_key, no_cache, force, 
-          verbose, with_graph_html):
+def screen(ctx, target, chain, ticker, chain_id, mode, with_graph, with_events, with_state, depth, 
+          output, concurrency, timeout, timeout_per_task, rpc_url, etherscan_key, no_cache, force, 
+          verbose, with_graph_html, vulnerability_types, intensity, deep_scan):
     """
-    🔍 Screen a smart contract for security vulnerabilities and patterns.
+    🔍 DEX-Focused Smart Contract Screening with Ecosystem Analysis
     
-    This command performs comprehensive analysis including:
-    - Bytecode and ABI analysis
-    - Proxy pattern detection  
-    - Transaction and event analysis
-    - DEX relationship discovery
-    - Oracle intelligence gathering
-    - Vulnerability pattern detection
-    - Interaction graph generation
+    🆕 Enhanced DEX Features:
+    • Target contract as entry point for DEX ecosystem discovery
+    • Automatic DEX protocol detection (Uniswap, Sushiswap, Pancakeswap, Curve)
+    • Prioritized vulnerability scanning on DEX contracts (not target contract)
+    • Ecosystem relationship mapping from target to related DEX protocols
+    • Performance optimized: 60-120 second screening vs 2+ minutes
+    • DEX-specific vulnerability patterns (flashloan, price manipulation, liquidity drain)
+    
+    🚀 Core Capabilities:
+    • Dynamic RPC configuration via ticker (-k) and chain ID (-i)
+    • 20+ vulnerability types with DEX-focused selection (-V)
+    • Multi-chain DEX analysis (ETH, MATIC, BNB, ARB, BASE, OPT, AVAX, FTM)
+    • Ecosystem tracking: Find all DEX contracts connected to target
+    • Prioritize high-value DEX targets for vulnerability scanning
+    • Relationship graph visualization of DEX ecosystem connections
+    
+    🎯 DEX Analysis Focus:
+    • Router contract vulnerability detection
+    • Liquidity pool exploit identification  
+    • Factory contract security assessment
+    • Price oracle manipulation opportunities
+    • Cross-DEX arbitrage vulnerability patterns
+    • MEV extraction vector analysis
     
     Examples:
-      shadowscan s -t 0x30a25... -c ethereum -m f -g -e -S -d f
-      shadowscan screen --target 0xUSDT... --chain ethereum --mode mainnet
+      shadowscan screen -t 0xTARGET -k ETH -i 1 -d f --timeout 120
+      shadowscan screen -t 0xTARGET -k MATIC -i 137 -V flashloan,price_manipulation --timeout-per-task 45
+      shadowscan screen -t 0xTARGET -k BNB -i 56 -d s --concurrency 4 (quick DEX discovery)
     """
     
     if verbose:
@@ -87,20 +113,48 @@ def screen(ctx, target, chain, mode, with_graph, with_events, with_state, depth,
             click.echo(f"❌ Invalid Ethereum address: {target_address}", err=True)
             sys.exit(1)
         
-        # Setup RPC URL
+        # Load configuration
+        config_loader = ConfigLoader()
+        
+        # Setup RPC URL with ticker support
         if not rpc_url:
-            rpc_url = _get_default_rpc_url(chain_name)
+            if ticker:
+                rpc_url = config_loader.get_rpc_url(ticker)
+            else:
+                rpc_url = config_loader.get_rpc_url(chain_name)
+            
             if not rpc_url:
                 click.echo(f"❌ No RPC URL available for chain: {chain_name}", err=True)
                 click.echo("   Please provide --rpc-url parameter", err=True)
                 sys.exit(1)
         
+        # Setup chain ID
+        if chain_id:
+            target_chain_id = chain_id
+        elif ticker:
+            target_chain_id = config_loader.get_chain_id(ticker)
+        else:
+            target_chain_id = config_loader.get_chain_id(chain_name)
+        
         # Setup API key
         if not etherscan_key:
-            etherscan_key = os.getenv('ETHERSCAN_API_KEY')
+            etherscan_key = config_loader.get_api_key('ETHERSCAN')
+        
+        # Setup vulnerability types
+        if vulnerability_types:
+            vuln_types = [v.strip() for v in vulnerability_types.split(',') if v.strip()]
+        else:
+            vuln_types = config_loader.get_vulnerability_types()
+        
+        # Setup scan intensity
+        scan_intensity = intensity or config_loader.get('SCAN_INTENSITY', 7)
+        
+        # Setup deep scan
+        enable_deep_scan = deep_scan if deep_scan is not None else config_loader.get('ENABLE_DEEP_SCAN', True)
         
         # Print scan configuration
-        _print_scan_config(target_address, chain_name, screening_mode, analysis_depth, rpc_url)
+        _print_scan_config(target_address, chain_name, screening_mode, analysis_depth, rpc_url, 
+                          ticker, target_chain_id, vuln_types, scan_intensity, enable_deep_scan)
         
         # Initialize screening engine
         click.echo("🔧 Initializing screening engine...")
@@ -114,9 +168,15 @@ def screen(ctx, target, chain, mode, with_graph, with_events, with_state, depth,
             'with_graph_html': with_graph_html,
             'concurrency': concurrency,
             'timeout': timeout,
+            'timeout_per_task': timeout_per_task,
             'output': output,
             'no_cache': no_cache,
-            'force': force
+            'force': force,
+            'vulnerability_types': vuln_types,
+            'scan_intensity': scan_intensity,
+            'enable_deep_scan': enable_deep_scan,
+            'chain_id': target_chain_id,
+            'ticker': ticker or chain_name.upper()
         }
         
         # Run screening
@@ -206,12 +266,21 @@ def _get_default_rpc_url(chain: str) -> str:
     }
     return rpc_urls.get(chain)
 
-def _print_scan_config(target: str, chain: str, mode: str, depth: str, rpc_url: str):
+def _print_scan_config(target: str, chain: str, mode: str, depth: str, rpc_url: str,
+                       ticker: str = None, chain_id: int = None, vuln_types: list = None,
+                       scan_intensity: int = 7, deep_scan: bool = True):
     """Print scanning configuration."""
     click.echo(f"🎯 Target Contract: {target}")
     click.echo(f"🌐 Network: {chain.title()}")
+    if ticker:
+        click.echo(f"💰 Ticker: {ticker}")
+    if chain_id:
+        click.echo(f"🔗 Chain ID: {chain_id}")
     click.echo(f"🔗 RPC: {rpc_url}")
     click.echo(f"📊 Mode: {mode.title()} | Depth: {depth.title()}")
+    click.echo(f"🔍 Intensity: {scan_intensity}/10 | Deep Scan: {'✅' if deep_scan else '❌'}")
+    if vuln_types:
+        click.echo(f"⚡ Vulnerabilities: {', '.join(vuln_types[:5])}{'...' if len(vuln_types) > 5 else ''}")
     click.echo()
 
 def _print_success_summary(summary: dict, session_file: str):

@@ -4,9 +4,9 @@
     "chain": "ethereum",
     "session_id": "test-session",
     "discovered_contracts": [
-      "0x1111111111111111111111111111111111111111",
+      "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
       "0xABcdEFABcdEFabcdEfAbCdefabcdeFABcDEFabCD",
-      "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
+      "0x1111111111111111111111111111111111111111"
     ],
     "session_start": "2025-09-13T07:36:20.924337",
     "session_end": null,
@@ -17,9 +17,9 @@
     "chain": "ethereum",
     "session_id": "example-session-001",
     "discovered_contracts": [
-      "0x1111111111111111111111111111111111111111",
+      "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
       "0xABcdEFABcdEFabcdEfAbCdefabcdeFABcDEFabCD",
-      "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd"
+      "0x1111111111111111111111111111111111111111"
     ],
     "session_start": "2025-09-13T08:41:30.191210",
     "session_end": "2025-09-13T08:41:30.245120",
@@ -159,6 +159,96 @@
     "session_id": "session_0x30a25C_20250914_183340",
     "discovered_contracts": [],
     "session_start": "2025-09-14T10:33:40.823720",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x1B0F65_20250915_072049": {
+    "target": "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9",
+    "chain": "ethereum",
+    "session_id": "session_0x1B0F65_20250915_072049",
+    "discovered_contracts": [],
+    "session_start": "2025-09-14T23:20:49.985107",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x1B0F65_20250915_072236": {
+    "target": "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9",
+    "chain": "ethereum",
+    "session_id": "session_0x1B0F65_20250915_072236",
+    "discovered_contracts": [],
+    "session_start": "2025-09-14T23:22:37.039695",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x1B0F65_20250915_085046": {
+    "target": "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9",
+    "chain": "ethereum",
+    "session_id": "session_0x1B0F65_20250915_085046",
+    "discovered_contracts": [],
+    "session_start": "2025-09-15T00:50:46.566793",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x1B0F65_20250915_091739": {
+    "target": "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9",
+    "chain": "ethereum",
+    "session_id": "session_0x1B0F65_20250915_091739",
+    "discovered_contracts": [],
+    "session_start": "2025-09-15T01:17:40.108922",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x1B0F65_20250915_132112": {
+    "target": "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9",
+    "chain": "ethereum",
+    "session_id": "session_0x1B0F65_20250915_132112",
+    "discovered_contracts": [],
+    "session_start": "2025-09-15T05:21:12.720354",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x1B0F65_20250915_132319": {
+    "target": "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9",
+    "chain": "ethereum",
+    "session_id": "session_0x1B0F65_20250915_132319",
+    "discovered_contracts": [],
+    "session_start": "2025-09-15T05:23:19.563996",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x1B0F65_20250915_142259": {
+    "target": "0x1B0F6590d21dc02B92ad3A7D00F8884dC4f1aed9",
+    "chain": "ethereum",
+    "session_id": "session_0x1B0F65_20250915_142259",
+    "discovered_contracts": [],
+    "session_start": "2025-09-15T06:22:59.808147",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x9fE467_20250915_201439": {
+    "target": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+    "chain": "ethereum",
+    "session_id": "session_0x9fE467_20250915_201439",
+    "discovered_contracts": [],
+    "session_start": "2025-09-15T12:14:40.381064",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0xe7f172_20250915_201651": {
+    "target": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    "chain": "ethereum",
+    "session_id": "session_0xe7f172_20250915_201651",
+    "discovered_contracts": [],
+    "session_start": "2025-09-15T12:16:52.043148",
+    "session_end": null,
+    "status": "active"
+  },
+  "session_0x15247e_20250916_231633": {
+    "target": "0x15247e6E23D3923a853cCf15940A20CCdf16e94a",
+    "chain": "bsc",
+    "session_id": "session_0x15247e_20250916_231633",
+    "discovered_contracts": [],
+    "session_start": "2025-09-16T15:16:33.871332",
     "session_end": null,
     "status": "active"
   }

@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from web3 import Web3
 
 from shadowscan.core.pipeline.screening_engine import ScreeningEngine
-from detectors.enhanced_detector import (
+from enhanced_screening.detectors.enhanced_detector import (
     EnhancedVulnerabilityDetector, 
     DeepScanResult,
     VulnerabilityFinding

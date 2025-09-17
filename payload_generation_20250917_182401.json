@@ -1,0 +1,22 @@
+{
+  "generation_info": {
+    "start_time": "2025-09-17T18:24:01.242811",
+    "framework": "Shadowscan Advanced Payload Generator",
+    "version": "15.0.0",
+    "mode": "Payload Generation Demo",
+    "execution_time": 0.0016679763793945312,
+    "end_time": "2025-09-17T18:24:01.244498"
+  },
+  "payloads": [],
+  "summary": {
+    "total_payloads_generated": 5,
+    "successful_generations": 0,
+    "failed_generations": 5,
+    "average_generation_time": 0.0,
+    "average_optimization_score": 0.0,
+    "total_estimated_profit": 0.0,
+    "highest_profit_payload": "",
+    "best_optimization_score": 0.0,
+    "vulnerability_types_covered": 0
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "test_info": {
+    "start_time": "2025-09-17T13:42:08.975680",
+    "framework": "Shadowscan Morpho Protocol Screening",
+    "version": "2.1.0",
+    "execution_time": 27.948533296585083,
+    "end_time": "2025-09-17T13:42:36.924435"
+  },
+  "results": {
+    "ethereum_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    },
+    "ethereum_real_test": {
+      "screening_result": {
+        "protocol": "Morpho",
+        "network": "ethereum",
+        "timestamp": "2025-09-17T13:42:08.976580",
+        "contracts": {
+          "uniswap_v2_factory": {
+            "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+            "name": "UniswapV2Factory",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": [],
+            "events": []
+          },
+          "uniswap_v2_router": {
+            "address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+            "name": "UniswapV2Router",
+            "abi": [],
+            "balance": 0.025,
+            "total_supply": null,
+            "tvl": null,
+            "functions": [],
+            "events": []
+          },
+          "weth": {
+            "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+            "name": "WETH",
+            "abi": [],
+            "balance": 2421291.918702492,
+            "total_supply": null,
+            "tvl": null,
+            "functions": [],
+            "events": []
+          },
+          "usdc": {
+            "address": "0xA0B86a33e6417aaB7B6DBCbBE9fD4E89c0778a4b",
+            "name": "Invalid Contract",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          },
+          "dai": {
+            "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            "name": "DAI",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": [],
+            "events": []
+          }
+        },
+        "vulnerabilities": [],
+        "tvl_analysis": {
+          "total_tvl": 2421291.943702492,
+          "contracts": {
+            "uniswap_v2_factory": {
+              "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+              "balance": 0.0,
+              "risk_level": "Low"
+            },
+            "uniswap_v2_router": {
+              "address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+              "balance": 0.025,
+              "risk_level": "Low"
+            },
+            "weth": {
+              "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+              "balance": 2421291.918702492,
+              "risk_level": "High"
+            },
+            "usdc": {
+              "address": "0xA0B86a33e6417aaB7B6DBCbBE9fD4E89c0778a4b",
+              "balance": 0.0,
+              "risk_level": "Low"
+            },
+            "dai": {
+              "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+              "balance": 0.0,
+              "risk_level": "Low"
+            }
+          },
+          "risk_factors": [
+            {
+              "type": "high_balance",
+              "contract": "weth",
+              "amount": 2421291.918702492,
+              "description": "Contract holds 2421291.918702492 ETH - high value target"
+            }
+          ]
+        },
+        "risk_assessment": {
+          "overall_risk": "Low",
+          "risk_score": 0,
+          "severity_counts": {
+            "Critical": 0,
+            "High": 0,
+            "Medium": 0,
+            "Low": 0
+          },
+          "total_vulnerabilities": 0,
+          "total_tvl": 2421291.943702492,
+          "potential_loss": 0,
+          "recommendations": []
+        }
+      },
+      "network": "ethereum",
+      "success": true
+    },
+    "ethereum_vulnerability_analysis": {
+      "total_vulnerabilities": 0,
+      "exploitable_vulnerabilities": [],
+      "risk_assessment": {},
+      "recommendations": [
+        "\ud83d\udd0d Regular security screening recommended",
+        "\ud83d\udcb0 Consider implementing bug bounty program"
+      ]
+    },
+    "base_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    },
+    "base_real_test": {
+      "screening_result": {
+        "protocol": "Morpho",
+        "network": "base",
+        "timestamp": "2025-09-17T13:42:24.733909",
+        "contracts": {
+          "uniswap_v3_factory": {
+            "address": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+            "name": "UniswapV3Factory",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": [],
+            "events": []
+          },
+          "weth": {
+            "address": "0x4200000000000000000000000000000000000006",
+            "name": "WETH",
+            "abi": [],
+            "balance": 184575.22647965822,
+            "total_supply": null,
+            "tvl": null,
+            "functions": [],
+            "events": []
+          },
+          "usdc": {
+            "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "name": "USDC",
+            "abi": [],
+            "balance": 0.009800646158085843,
+            "total_supply": null,
+            "tvl": null,
+            "functions": [],
+            "events": []
+          },
+          "aerodrome_factory": {
+            "address": "0x420dd381b31AEF6683DB6B902084CB0fFeE009AB",
+            "name": "Invalid Contract",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          },
+          "aerodrome_router": {
+            "address": "0xcf77a3ba969d5381E67F7532b45b2e4993316A4E",
+            "name": "Invalid Contract",
+            "abi": [],
+            "balance": 0.0,
+            "total_supply": null,
+            "tvl": null,
+            "functions": null,
+            "events": null
+          }
+        },
+        "vulnerabilities": [],
+        "tvl_analysis": {
+          "total_tvl": 184575.53168248045,
+          "contracts": {
+            "uniswap_v3_factory": {
+              "address": "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+              "balance": 0.0,
+              "risk_level": "Low"
+            },
+            "weth": {
+              "address": "0x4200000000000000000000000000000000000006",
+              "balance": 184575.52188183428,
+              "risk_level": "High"
+            },
+            "usdc": {
+              "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+              "balance": 0.009800646158085843,
+              "risk_level": "Low"
+            },
+            "aerodrome_factory": {
+              "address": "0x420dd381b31AEF6683DB6B902084CB0fFeE009AB",
+              "balance": 0.0,
+              "risk_level": "Low"
+            },
+            "aerodrome_router": {
+              "address": "0xcf77a3ba969d5381E67F7532b45b2e4993316A4E",
+              "balance": 0.0,
+              "risk_level": "Low"
+            }
+          },
+          "risk_factors": [
+            {
+              "type": "high_balance",
+              "contract": "weth",
+              "amount": 184575.52188183428,
+              "description": "Contract holds 184575.52188183428 ETH - high value target"
+            }
+          ]
+        },
+        "risk_assessment": {
+          "overall_risk": "Low",
+          "risk_score": 0,
+          "severity_counts": {
+            "Critical": 0,
+            "High": 0,
+            "Medium": 0,
+            "Low": 0
+          },
+          "total_vulnerabilities": 0,
+          "total_tvl": 184575.53168248045,
+          "potential_loss": 0,
+          "recommendations": []
+        }
+      },
+      "network": "base",
+      "success": true
+    },
+    "base_vulnerability_analysis": {
+      "total_vulnerabilities": 0,
+      "exploitable_vulnerabilities": [],
+      "risk_assessment": {},
+      "recommendations": [
+        "\ud83d\udd0d Regular security screening recommended",
+        "\ud83d\udcb0 Consider implementing bug bounty program"
+      ]
+    },
+    "arbitrum_fork_test": {
+      "error": "Failed to create Tenderly fork"
+    },
+    "arbitrum_real_test": {
+      "error": "Network arbitrum not available",
+      "network": "arbitrum",
+      "success": false
+    }
+  }
+}

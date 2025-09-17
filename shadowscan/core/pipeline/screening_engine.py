@@ -21,11 +21,12 @@ from shadowscan.detectors.evm.generic_patterns import PatternDetector as Generic
 from shadowscan.data.contracts import ContractRegistry
 from shadowscan.utils.schema import (
     ScreeningSession, ScreeningMode, DepthLevel, ProxyInfo,
-    FunctionSummary, StateSnapshot, OracleInfo, InteractionGraph
+    FunctionSummary, StateSnapshot, OracleInfo, InteractionGraph, Hypothesis, RiskLevel
 )
 from shadowscan.utils.helpers import (
     generate_session_id, format_wei, is_contract_address
 )
+from shadowscan.utils.dex_detector import DEXDetector
 
 logger = logging.getLogger(__name__)
 
@@ -54,6 +55,9 @@ class ScreeningEngine:
         
         # Initialize ContractRegistry
         self.contract_registry = ContractRegistry()
+        
+        # Initialize DEX Detector
+        self.dex_detector = DEXDetector()
         
         # Performance tracking
         self.rpc_calls_made = 0
@@ -185,6 +189,7 @@ class ScreeningEngine:
             'abi': lambda: self._collect_abi_info(session.target, session.chain),
             'proxy': lambda: self._collect_proxy_info(session.target),
             'transactions': lambda: self._collect_transaction_data(session.target, session.chain, session.depth),
+            'dex_analysis': lambda: self._collect_dex_analysis(session.target, session.chain),
         }
         
         # Add optional heavy tasks for full depth
@@ -194,20 +199,22 @@ class ScreeningEngine:
             if opts.get('with_state', True):
                 collection_tasks['state'] = lambda: self._collect_state_data(session.target)
         
-        # Execute collection tasks in parallel
+        # Execute collection tasks in parallel with timeout optimization
         results = {}
-        with ThreadPoolExecutor(max_workers=concurrency) as executor:
+        timeout_per_task = opts.get('timeout_per_task', 60)  # 60 seconds per task max
+        
+        with ThreadPoolExecutor(max_workers=min(concurrency, 4)) as executor:  # Limit workers for performance
             # Submit all tasks
             future_to_task = {
                 executor.submit(task): task_name 
                 for task_name, task in collection_tasks.items()
             }
             
-            # Collect results
-            for future in as_completed(future_to_task, timeout=opts.get('timeout', 300)):
+            # Collect results with individual task timeouts
+            for future in as_completed(future_to_task, timeout=timeout_per_task):
                 task_name = future_to_task[future]
                 try:
-                    results[task_name] = future.result()
+                    results[task_name] = future.result(timeout=10)  # 10s timeout per result
                     logger.debug(f"Collection task '{task_name}' completed")
                 except Exception as e:
                     logger.error(f"Collection task '{task_name}' failed: {e}")
@@ -319,6 +326,62 @@ class ScreeningEngine:
             logger.error(f"Error collecting state data: {e}")
             return StateSnapshot()
     
+    def _collect_dex_analysis(self, target_address: str, chain: str) -> Dict[str, Any]:
+        """Collect DEX analysis data for contract."""
+        try:
+            logger.info(f"Starting DEX analysis for {target_address}")
+            
+            # Get ABI for DEX detection
+            abi_result = self._collect_abi_info(target_address, chain)
+            contract_abi = abi_result.get('abi', [])
+            
+            # Detect DEX protocol and contract type
+            dex_detection = self.dex_detector.detect_dex_contracts(target_address, contract_abi)
+            
+            # Get transaction data for ecosystem analysis
+            transactions = self._collect_transaction_data(target_address, chain, DepthLevel.SHALLOW)
+            
+            # Find related DEX contracts
+            related_contracts = self.dex_detector.find_related_dex_contracts(target_address, transactions)
+            
+            # Prioritize DEX targets
+            prioritized_contracts = self.dex_detector.prioritize_dex_targets(related_contracts)
+            
+            # Get DEX-specific vulnerability patterns
+            vulnerability_patterns = []
+            if dex_detection['is_dex']:
+                patterns = self.dex_detector.get_dex_vulnerability_patterns(
+                    dex_detection.get('protocol', 'unknown'),
+                    dex_detection.get('contract_type', 'unknown')
+                )
+                vulnerability_patterns.extend(patterns)
+            
+            # Limit to top 5 related contracts for performance
+            top_contracts = prioritized_contracts[:5]
+            
+            dex_analysis = {
+                'target_dex_info': dex_detection,
+                'related_contracts': top_contracts,
+                'vulnerability_patterns': vulnerability_patterns,
+                'total_related_contracts': len(prioritized_contracts),
+                'high_priority_targets': len([c for c in prioritized_contracts if c.get('priority') == 'high'])
+            }
+            
+            logger.info(f"DEX analysis completed: {dex_detection['is_dex']}, {len(top_contracts)} related contracts")
+            
+            return dex_analysis
+            
+        except Exception as e:
+            logger.error(f"Error collecting DEX analysis: {e}")
+            return {
+                'target_dex_info': {'is_dex': False, 'protocol': None, 'confidence': 0.0},
+                'related_contracts': [],
+                'vulnerability_patterns': [],
+                'total_related_contracts': 0,
+                'high_priority_targets': 0,
+                'error': str(e)
+            }
+    
     def _analyze_functions_from_abi(self, abi: List[Dict[str, Any]]) -> FunctionSummary:
         """Analyze functions from ABI to create summary."""
         summary = FunctionSummary()
@@ -368,6 +431,22 @@ class ScreeningEngine:
         
         # State data
         session.state_snapshot = results.get('state', StateSnapshot())
+        
+        # DEX analysis data
+        dex_analysis = results.get('dex_analysis', {})
+        session.dex_analysis = dex_analysis
+        
+        # Add DEX metadata to session for ecosystem tracking
+        if dex_analysis.get('target_dex_info', {}).get('is_dex'):
+            session.is_dex = True
+            session.dex_protocol = dex_analysis['target_dex_info'].get('protocol')
+            session.dex_contract_type = dex_analysis['target_dex_info'].get('contract_type')
+            session.dex_confidence = dex_analysis['target_dex_info'].get('confidence', 0.0)
+        
+        # Store related contracts for ecosystem analysis
+        session.related_contracts = dex_analysis.get('related_contracts', [])
+        session.vulnerability_patterns = dex_analysis.get('vulnerability_patterns', [])
+        session.high_priority_targets = dex_analysis.get('high_priority_targets', 0)
     
     def _dict_to_transaction(self, tx_dict: Dict[str, Any]):
         """Convert transaction dict to Transaction object."""
@@ -459,15 +538,28 @@ class ScreeningEngine:
             return None
     
     def _run_detection_phase(self, session: ScreeningSession, opts: Dict[str, Any]):
-        """Run detection phase to generate vulnerability hypotheses."""
+        """Run detection phase to generate vulnerability hypotheses with DEX-focused analysis."""
         logger.info("Starting detection phase...")
         
         try:
             # Convert session to dict for pattern detector
             session_dict = session.to_dict()
             
-            # Run generic pattern detection
+            # Run generic pattern detection on target contract
             hypotheses = self.pattern_detector.detect_generic_patterns(session_dict)
+            
+            # Enhanced DEX-focused vulnerability scanning
+            if session.related_contracts:
+                logger.info(f"Running DEX-focused scanning on {len(session.related_contracts)} related contracts...")
+                
+                # Prioritize DEX contracts for vulnerability scanning
+                dex_hypotheses = self._scan_dex_contracts(session.related_contracts, opts)
+                hypotheses.extend(dex_hypotheses)
+                
+                # Log DEX scanning results
+                dex_vulns = [h for h in dex_hypotheses if h.severity in [RiskLevel.CRITICAL, RiskLevel.HIGH]]
+                logger.info(f"DEX scanning completed: {len(dex_vulns)} critical/high vulnerabilities found in related contracts")
+            
             session.hypotheses = hypotheses
             
             logger.info(f"Detection phase completed: {len(hypotheses)} hypotheses generated")
@@ -476,6 +568,212 @@ class ScreeningEngine:
             logger.error(f"Error in detection phase: {e}")
             self.errors_encountered.append(f"detection: {str(e)}")
             session.hypotheses = []
+    
+    def _scan_dex_contracts(self, related_contracts: List[Dict[str, Any]], opts: Dict[str, Any]) -> List[Hypothesis]:
+        """Scan DEX contracts for vulnerabilities with prioritized analysis."""
+        dex_hypotheses = []
+        
+        try:
+            # Group contracts by priority
+            high_priority = [c for c in related_contracts if c.get('priority') == 'high']
+            medium_priority = [c for c in related_contracts if c.get('priority') == 'medium']
+            
+            logger.info(f"Scanning DEX contracts: {len(high_priority)} high priority, {len(medium_priority)} medium priority")
+            
+            # Scan high priority DEX contracts first
+            for contract in high_priority[:3]:  # Limit to top 3 for performance
+                contract_hypotheses = self._analyze_dex_contract(contract, opts)
+                dex_hypotheses.extend(contract_hypotheses)
+            
+            # Scan medium priority contracts if time permits
+            if len(high_priority) < 3:  # Only if we have capacity
+                for contract in medium_priority[:2]:  # Limit to top 2
+                    contract_hypotheses = self._analyze_dex_contract(contract, opts)
+                    dex_hypotheses.extend(contract_hypotheses)
+            
+        except Exception as e:
+            logger.error(f"Error scanning DEX contracts: {e}")
+        
+        return dex_hypotheses
+    
+    def _analyze_dex_contract(self, contract_info: Dict[str, Any], opts: Dict[str, Any]) -> List[Hypothesis]:
+        """Analyze individual DEX contract for vulnerabilities."""
+        hypotheses = []
+        
+        try:
+            contract_address = contract_info['address']
+            protocol = contract_info.get('protocol', 'unknown')
+            vulnerability_focus = contract_info.get('vulnerability_focus', [])
+            
+            logger.info(f"Analyzing DEX contract: {contract_address} ({protocol})")
+            
+            # Get contract data
+            abi_result = self._collect_abi_info(contract_address, 'ethereum')  # Default to ethereum for now
+            contract_abi = abi_result.get('abi', [])
+            
+            if not contract_abi:
+                logger.warning(f"No ABI found for DEX contract: {contract_address}")
+                return hypotheses
+            
+            # Create contract session data for analysis
+            contract_data = {
+                'target_address': contract_address,
+                'abi': contract_abi,
+                'protocol': protocol,
+                'contract_type': contract_info.get('relationship', 'unknown'),
+                'vulnerability_focus': vulnerability_focus
+            }
+            
+            # Run DEX-specific vulnerability detection
+            if vulnerability_focus:
+                # Use focused vulnerability patterns
+                for vuln_type in vulnerability_focus:
+                    vuln_hypotheses = self._detect_dex_vulnerability(contract_data, vuln_type)
+                    hypotheses.extend(vuln_hypotheses)
+            else:
+                # Run general DEX vulnerability patterns
+                hypotheses.extend(self._detect_general_dex_vulnerabilities(contract_data))
+            
+            logger.info(f"Found {len(hypotheses)} vulnerabilities in DEX contract: {contract_address}")
+            
+        except Exception as e:
+            logger.error(f"Error analyzing DEX contract {contract_info.get('address', 'unknown')}: {e}")
+        
+        return hypotheses
+    
+    def _detect_dex_vulnerability(self, contract_data: Dict[str, Any], vuln_type: str) -> List[Hypothesis]:
+        """Detect specific DEX vulnerability type."""
+        hypotheses = []
+        
+        try:
+            # Map vulnerability types to detection methods
+            vuln_mappings = {
+                'flashloan': self._detect_flashloan_vulnerabilities,
+                'price_manipulation': self._detect_price_manipulation,
+                'liquidity_pool': self._detect_liquidity_vulnerabilities,
+                'front_running': self._detect_front_running,
+                'slippage_manipulation': self._detect_slippage_manipulation,
+                'arbitrage_opportunity': self._detect_arbitrage_opportunity,
+                'sandwich_attack': self._detect_sandwich_attack,
+                'fee_manipulation': self._detect_fee_manipulation
+            }
+            
+            detector_func = vuln_mappings.get(vuln_type)
+            if detector_func:
+                hypotheses = detector_func(contract_data)
+            
+        except Exception as e:
+            logger.error(f"Error detecting {vuln_type} vulnerability: {e}")
+        
+        return hypotheses
+    
+    def _detect_general_dex_vulnerabilities(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect general DEX vulnerabilities."""
+        hypotheses = []
+        
+        # Common DEX vulnerability types to check
+        common_vulns = ['flashloan', 'price_manipulation', 'liquidity_pool']
+        
+        for vuln_type in common_vulns:
+            vuln_hypotheses = self._detect_dex_vulnerability(contract_data, vuln_type)
+            hypotheses.extend(vuln_hypotheses)
+        
+        return hypotheses
+    
+    def _detect_flashloan_vulnerabilities(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect flash loan vulnerabilities in DEX contracts."""
+        hypotheses = []
+        
+        try:
+            abi = contract_data.get('abi', [])
+            contract_address = contract_data.get('target_address')
+            
+            # Look for flash loan indicators in ABI
+            flashloan_indicators = [
+                'flashLoan', 'flashloan', 'execute', 'operate', 
+                'uniswapV2Call', 'uniswapV3SwapCallback'
+            ]
+            
+            vulnerable_functions = []
+            for func in abi:
+                if func.get('type') == 'function':
+                    func_name = func.get('name', '')
+                    if any(indicator.lower() in func_name.lower() for indicator in flashloan_indicators):
+                        vulnerable_functions.append(func_name)
+            
+            if vulnerable_functions:
+                # Check for reentrancy patterns
+                reentrancy_risk = self._check_reentrancy_in_functions(abi, vulnerable_functions)
+                
+                confidence = 0.8 if reentrancy_risk else 0.6
+                
+                hypothesis = Hypothesis(
+                    id=generate_hypothesis_id(),
+                    category="flashloan_vulnerability",
+                    confidence=confidence,
+                    description=f"DEX contract {contract_address} has flash loan functionality with potential reentrancy risk",
+                    severity=RiskLevel.HIGH if reentrancy_risk else RiskLevel.MEDIUM,
+                    evidence=[
+                        f"Flash loan functions detected: {', '.join(vulnerable_functions)}",
+                        f"Reentrancy risk: {'High' if reentrancy_risk else 'Medium'}"
+                    ]
+                )
+                hypotheses.append(hypothesis)
+            
+        except Exception as e:
+            logger.error(f"Error detecting flashloan vulnerabilities: {e}")
+        
+        return hypotheses
+    
+    def _check_reentrancy_in_functions(self, abi: List[Dict], target_functions: List[str]) -> bool:
+        """Check if target functions have reentrancy risk."""
+        try:
+            # Look for external calls in target functions
+            for func in abi:
+                if func.get('type') == 'function' and func.get('name') in target_functions:
+                    # This is a simplified check - in practice you'd analyze bytecode
+                    # For now, we'll assume functions with external calls have reentrancy risk
+                    return True
+            
+            return False
+        except Exception:
+            return False
+    
+    # Placeholder methods for other DEX vulnerability types
+    def _detect_price_manipulation(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect price manipulation vulnerabilities."""
+        # Simplified implementation
+        return []
+    
+    def _detect_liquidity_vulnerabilities(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect liquidity pool vulnerabilities."""
+        # Simplified implementation
+        return []
+    
+    def _detect_front_running(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect front running vulnerabilities."""
+        # Simplified implementation
+        return []
+    
+    def _detect_slippage_manipulation(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect slippage manipulation vulnerabilities."""
+        # Simplified implementation
+        return []
+    
+    def _detect_arbitrage_opportunity(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect arbitrage opportunities."""
+        # Simplified implementation
+        return []
+    
+    def _detect_sandwich_attack(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect sandwich attack vulnerabilities."""
+        # Simplified implementation
+        return []
+    
+    def _detect_fee_manipulation(self, contract_data: Dict[str, Any]) -> List[Hypothesis]:
+        """Detect fee manipulation vulnerabilities."""
+        # Simplified implementation
+        return []
     
     def _save_session_and_generate_reports(self, session: ScreeningSession, opts: Dict[str, Any]) -> tuple[str, Dict[str, Any]]:
         """Save session file and generate reports."""
