@@ -1,0 +1,91 @@
+# Blockchain Configuration File for GhostScan
+# Dynamic chain management system
+
+[tenderly]
+name = "Tenderly Virtual Testnet"
+type = "virtual"
+supported_scanners = ["static", "dynamic", "reentrancy", "overflow", "access_control", "gas_optimization", "supply_manipulation"]
+supported_exploits = ["reentrancy", "overflow", "access_control", "supply_manipulation"]
+description = "Tenderly virtual testnet for safe vulnerability testing"
+
+[mainnet]
+name = "Real Mainnet"
+type = "real"
+supported_scanners = ["static", "dynamic", "reentrancy", "overflow", "access_control", "gas_optimization", "supply_manipulation", "flash_loan", "dex_analysis"]
+supported_exploits = ["reentrancy", "overflow", "access_control", "supply_manipulation", "flash_loan", "dex_manipulation"]
+description = "Real blockchain execution for actual vulnerability testing"
+
+[hardhat]
+name = "Hardhat Local"
+type = "local"
+supported_scanners = ["static", "dynamic", "reentrancy", "overflow", "access_control", "gas_optimization", "supply_manipulation", "unit_testing"]
+supported_exploits = ["reentrancy", "overflow", "access_control", "supply_manipulation", "unit_testing"]
+description = "Local Hardhat development environment"
+
+# Pre-configured chains
+[[chains]]
+name = "Story Protocol"
+environment = "tenderly"
+rpc_url = "https://virtual.story.eu.rpc.tenderly.co/b685a445-4451-4750-bfc8-906d4b809144"
+explorer_url = "https://mainnet.storyrpc.io"
+blockscout_api = "ce358ed1-ba20-41f9-8351-554d9b2aa9cd"
+chain_id = 1511
+currency = "STORY"
+
+[[chains]]
+name = "SHIB Testnet"
+environment = "tenderly"
+rpc_url = "https://virtual.mainnet.eu.rpc.tenderly.co/17266b31-1ba8-484f-9e46-c5b5016fefaf"
+explorer_url = "https://etherscan.io"
+chain_id = 1
+currency = "ETH"
+target_contract = "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE"
+is_default = true
+
+[[chains]]
+name = "Ethereum Mainnet"
+environment = "mainnet"
+rpc_url = "https://eth.public-rpc.com"
+explorer_url = "https://etherscan.io"
+chain_id = 1
+currency = "ETH"
+is_default = true
+
+[[chains]]
+name = "BSC Mainnet"
+environment = "mainnet"
+rpc_url = "https://bsc-dataseed.binance.org"
+explorer_url = "https://bscscan.com"
+chain_id = 56
+currency = "BNB"
+is_default = true
+
+[[chains]]
+name = "Polygon Mainnet"
+environment = "mainnet"
+rpc_url = "https://polygon-rpc.com"
+explorer_url = "https://polygonscan.com"
+chain_id = 137
+currency = "MATIC"
+is_default = true
+
+# Default attacker configuration
+[attacker]
+default_private_key = ""
+default_address = ""
+gas_limit = 300000
+gas_price_gwei = 20
+timeout_seconds = 120
+
+# Scanner configuration
+[scanners]
+static_analysis_timeout = 30
+dynamic_analysis_timeout = 60
+reentrancy_test_depth = 5
+overflow_test_precision = 256
+
+# Exploit configuration
+[exploits]
+max_exploit_value = "115792089237316195423570985008687907853269984665640564039457584007913129639935"
+real_execution_confirmation = true
+damage_assessment = true

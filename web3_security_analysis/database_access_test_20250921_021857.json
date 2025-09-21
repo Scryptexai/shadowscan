@@ -1,0 +1,179 @@
+{
+  "database_detection": {
+    "error": "expected string or bytes-like object, got 'method'",
+    "score": 0
+  },
+  "sql_injection": {
+    "endpoints_tested": 96,
+    "vulnerable_endpoints": 0,
+    "successful_attacks": 0,
+    "vulnerable_details": [],
+    "attack_details": [],
+    "security_score": 100,
+    "score": 100
+  },
+  "connection_testing": {
+    "error": "Session is closed",
+    "score": 100
+  },
+  "address_control": {
+    "addresses_tested": 6,
+    "address_results": [
+      {
+        "address": "0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+        "endpoints_tested": [
+          {
+            "endpoint": "/api/eligibility?address=0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/claim?address=0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/balance?address=0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/verify?address=0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+            "error": "Session is closed"
+          }
+        ],
+        "responses": [],
+        "vulnerable": false
+      },
+      {
+        "address": "0x0000000000000000000000000000000000000000",
+        "endpoints_tested": [
+          {
+            "endpoint": "/api/eligibility?address=0x0000000000000000000000000000000000000000",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/claim?address=0x0000000000000000000000000000000000000000",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/balance?address=0x0000000000000000000000000000000000000000",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/verify?address=0x0000000000000000000000000000000000000000",
+            "error": "Session is closed"
+          }
+        ],
+        "responses": [],
+        "vulnerable": false
+      },
+      {
+        "address": "0xffffffffffffffffffffffffffffffffffffffff",
+        "endpoints_tested": [
+          {
+            "endpoint": "/api/eligibility?address=0xffffffffffffffffffffffffffffffffffffffff",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/claim?address=0xffffffffffffffffffffffffffffffffffffffff",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/balance?address=0xffffffffffffffffffffffffffffffffffffffff",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/verify?address=0xffffffffffffffffffffffffffffffffffffffff",
+            "error": "Session is closed"
+          }
+        ],
+        "responses": [],
+        "vulnerable": false
+      },
+      {
+        "address": "0x1234567890123456789012345678901234567890",
+        "endpoints_tested": [
+          {
+            "endpoint": "/api/eligibility?address=0x1234567890123456789012345678901234567890",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/claim?address=0x1234567890123456789012345678901234567890",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/balance?address=0x1234567890123456789012345678901234567890",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/verify?address=0x1234567890123456789012345678901234567890",
+            "error": "Session is closed"
+          }
+        ],
+        "responses": [],
+        "vulnerable": false
+      },
+      {
+        "address": "invalid_address",
+        "endpoints_tested": [
+          {
+            "endpoint": "/api/eligibility?address=invalid_address",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/claim?address=invalid_address",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/balance?address=invalid_address",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/verify?address=invalid_address",
+            "error": "Session is closed"
+          }
+        ],
+        "responses": [],
+        "vulnerable": false
+      },
+      {
+        "address": "0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+        "endpoints_tested": [
+          {
+            "endpoint": "/api/eligibility?address=0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/claim?address=0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/balance?address=0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+            "error": "Session is closed"
+          },
+          {
+            "endpoint": "/api/verify?address=0x4bc6D600889003f4516167bb46dD04aF33E0312b",
+            "error": "Session is closed"
+          }
+        ],
+        "responses": [],
+        "vulnerable": false
+      }
+    ],
+    "vulnerabilities_found": 0,
+    "vulnerability_details": [],
+    "address_control_secure": true,
+    "score": 100
+  },
+  "token_database": {
+    "error": "Session is closed",
+    "score": 100
+  },
+  "summary": {
+    "test_completed": true,
+    "overall_security_score": 80.0,
+    "risk_level": "Low",
+    "critical_findings": [],
+    "recommendations": [],
+    "next_steps": []
+  },
+  "scan_duration": 0.5236494541168213
+}

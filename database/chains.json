@@ -1,0 +1,11 @@
+{
+  "chains": [
+    {
+      "name": "Test Chain",
+      "rpc_url": "https://test.example.com",
+      "chain_id": 999,
+      "environment": "test"
+    }
+  ],
+  "last_updated": 1758439762.0288486
+}

@@ -1,0 +1,1227 @@
+{
+  "scan_info": {
+    "target_url": "https://airdrop.0gfoundation.ai",
+    "scan_timestamp": "2025-09-21T07:43:24.791174",
+    "scan_type": "Web3 System Explorer",
+    "scan_duration": "1-2 menit"
+  },
+  "summary": {
+    "explored_endpoints": 139,
+    "exploited_vulnerabilities": 0,
+    "system_access_achieved": true,
+    "sensitive_data_found": 5
+  },
+  "explored_endpoints": [
+    {
+      "endpoint": "/rest",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {}
+    },
+    {
+      "endpoint": "/graphql",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {}
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/user/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Bearer user_token"
+      }
+    },
+    {
+      "endpoint": "/rest/v1",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {}
+    },
+    {
+      "endpoint": "/rest/v2",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {}
+    },
+    {
+      "endpoint": "/graphql/v1",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {}
+    },
+    {
+      "endpoint": "/graphql/v2",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {}
+    },
+    {
+      "endpoint": "/config.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/database.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/db.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/settings.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/admin/config.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/application/config.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/system/config.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/etc/passwd",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/etc/hosts",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/etc/shadow",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/proc/version",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/proc/self/environ",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/var/log/apache2/access.log",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/var/log/nginx/access.log",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/var/log/syslog",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/tmp/config.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/tmp/database.php",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/backup.sql",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/backup/database.sql",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970
+    },
+    {
+      "endpoint": "/admin",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/dashboard",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/dashboard",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/dashboard",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/dashboard",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/dashboard",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/dashboard",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/dashboard",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/dashboard",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/login",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/login",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/login",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/login",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/login",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/login",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/login",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/login",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/panel",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/panel",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/panel",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/panel",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/panel",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/panel",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/panel",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/panel",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/config",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/config",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/config",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/config",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/config",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/config",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/config",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/config",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/settings",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/settings",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/settings",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/settings",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/settings",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/settings",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/settings",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/settings",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/users",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/users",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/users",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/users",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/users",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/users",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/users",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/users",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/logs",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/logs",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/logs",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/logs",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/logs",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/logs",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/logs",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/logs",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/backup",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/backup",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/backup",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/backup",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/backup",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/backup",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/backup",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/backup",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/database",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/database",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/database",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/database",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/database",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/database",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/database",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/database",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/api",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/user",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/user",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/user",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/user",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/user",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/user",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/user",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/user",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/auth",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/auth",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/auth",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/auth",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/auth",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/auth",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/auth",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/auth",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    },
+    {
+      "endpoint": "/admin/session",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic YWRtaW46YWRtaW4="
+      }
+    },
+    {
+      "endpoint": "/admin/session",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic cm9vdDpzb21l"
+      }
+    },
+    {
+      "endpoint": "/admin/session",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Authorization": "Basic dGVzdDp0ZXN0"
+      }
+    },
+    {
+      "endpoint": "/admin/session",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "admin_key"
+      }
+    },
+    {
+      "endpoint": "/admin/session",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "root_key"
+      }
+    },
+    {
+      "endpoint": "/admin/session",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "X-API-Key": "secret_key"
+      }
+    },
+    {
+      "endpoint": "/admin/session",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "session=admin123"
+      }
+    },
+    {
+      "endpoint": "/admin/session",
+      "method": "GET",
+      "status": 200,
+      "content_length": 30970,
+      "headers": {
+        "Cookie": "admin_session=admin"
+      }
+    }
+  ],
+  "exploited_vulnerabilities": [],
+  "system_access_achieved": true,
+  "sensitive_data_found": [
+    {
+      "endpoint": "/etc/hosts",
+      "type": "network_config",
+      "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/4cf2300e9c8272f7-s.p.woff"
+    },
+    {
+      "endpoint": "/proc/version",
+      "type": "system_info",
+      "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/4cf2300e9c8272f7-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/93f479601ee12b01-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/24b9d70a518bb58e.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/00fc63222eea12fb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/b630abdf619c5cd1.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/138f3cb2f3239054.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-1c57e71637164b6f.js\"/><script src=\"/_next/static/chunks/eb75bb98-0bb76c1d48a52818.js\" async=\"\"></script><script src=\"/_next/static/chunks/6302-f39b800629aeb1c3.js\" async=\"\"></script><script src=\"/_next/static/chunks/main-app-0fec2480b714473d.js\" async=\"\"></script><script src=\"/_next/static/chunks/e1f8a4cc-1f0a9376658949eb.js\" async=\"\"></script><script src=\"/_next/static/chunks/9713-854ac93997337ed7.js\" async=\"\"></script><script src=\"/_next/static/chunks/9956-83430cb0583067af.js\" async=\"\"></script><script src=\"/_next/static/chunks/619-b28f131dace1e3fb.js\" async=\"\"></script><script src=\"/_next/static/chunks/5117-f1f87252a315e21b.js\" async=\"\"></script><script src=\"/_next/static/chunks/963-48039921023efa44.js\" async=\"\"></script><script src=\"/_next/static/chunks/2791-3f8d6a5941d69756.js\" async=\"\"></script><script src=\"/_next/static/chunks/4620-8625e05652dc53a5.js\" async=\"\"></script><script src=\"/_next/static/chunks/9285-5334f998e69efe8e.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/layout-69f49b24947f910e.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/page-189924e993c1b34e.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/(app)/(light)/end/page-0e2365e80cb77b63.js\" async=\"\"></script><script src=\"/_next/static/chunks/app/(app)/(main)/layout-f420da9081d3df4a.js\" async=\"\"></script><link rel=\"preload\" href=\"https://www.googletagmanager.com/gtag/js?id=G-PFV6RNLTTZ\" as=\"script\"/><meta name=\"next-size-adjust\" content=\"\"/><meta property=\"og:image\" content=\"https://airdrop.0gfoundation.ai/images/opengraph-image.png\"/><meta name=\"twitter:card\" content=\"summary_large_image\"/><meta name=\"twitter:image\" content=\"https://airdrop.0gfoundation.ai/images/opengraph-image.png\"/><link rel=\"icon\" href=\"/favicon.ico\" type=\"image/x-icon\" sizes=\"32x32\"/><script>document.querySelectorAll('body link[rel=\"icon\"], body link[rel=\"apple-touch-icon\"]').forEach(el => document.head.appendChild(el))</script><script src=\"/_next/static/chunks/polyfills-42372ed130431b0a.js\" noModule=\"\"></script></head><body class=\"bg-white! bg-[url(&quot;/images/img-body-bg.png&quot;)] bg-cover bg-center font-sans antialiased __variable_188709 __variable_9a8899\"><!--$!--><template data-dgst=\"BAILOUT_TO_CLIENT_SIDE_RENDERING\"></template><!--/$--><script>((e,t,n,r,a,i,o,s)=>{let l=document.documentElement,c=[\"light\",\"dark\"];function u(t){var n;(Array.isArray(e)?e:[e]).forEach(e=>{let n=\"class\"===e,r=n&&i?a.map(e=>i[e]||e):a;n?(l.classList.remove(...r),l.classList.add(i&&i[t]?i[t]:t)):l.setAttribute(e,t)}),n=t,s&&c.includes(n)&&(l.style.colorScheme=n)}if(r)u(r);else try{let e=localStorage.getItem(t)||n,r=o&&\"system\"===e?window.matchMedia(\"(prefers-color-scheme: dark)\").matches?\"dark\":\"light\":e;u(r)}catch(e){}})(\"class\",\"theme\",\"dark\",null,[\"light\",\"dark\"],null,true,true)</script><section class=\"Toastify\" aria-live=\"polite\" aria-atomic=\"false\" aria-relevant=\"additions text\" aria-label=\"Notifications Alt+T\"></section><div data-rk=\"\"><style>[data-rk]{--rk-blurs-modalOverlay:blur(0px);--rk-fonts-body:var(--font-app-sans);--rk-radii-actionButton:var(--radius-md);--rk-radii-connectButton:var(--radius-md);--rk-radii-menuButton:var(--radius-md);--rk-radii-modal:var(--radius-md);--rk-radii-modalMobile:var(--radius-md);--rk-colors-accentColor:var(--color-primary);--rk-colors-accentColorForeground:var(--color-primary-foreground);--rk-colors-actionButtonBorder:rgba(0, 0, 0, 0.04);--rk-colors-actionButtonBorderMobile:rgba(0, 0, 0, 0.06);--rk-colors-actionButtonSecondaryBackground:rgba(0, 0, 0, 0.06);--rk-colors-closeButton:rgba(60, 66, 66, 0.8);--rk-colors-closeButtonBackground:rgba(0, 0, 0, 0.06);--rk-colors-connectButtonBackground:#FFF;--rk-colors-connectButtonBackgroundError:#FF494A;--rk-colors-connectButtonInnerBackground:linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06));--rk-colors-connectButtonText:#25292E;--rk-colors-connectButtonTextError:#FFF;--rk-colors-connectionIndicator:#30E000;--rk-colors-downloadBottomCardBackground:linear-gradient(126deg, rgba(255, 255, 255, 0) 9.49%, rgba(171, 171, 171, 0.04) 71.04%), #FFFFFF;--rk-colors-downloadTopCardBackground:linear-gradient(126deg, rgba(171, 171, 171, 0.2) 9.49%, rgba(255, 255, 255, 0) 71.04%), #FFFFFF;--rk-colors-error:#FF494A;--rk-colors-generalBorder:rgba(0, 0, 0, 0.06);--rk-colors-generalBorderDim:rgba(0, 0, 0, 0.03);--rk-colors-menuItemBackground:rgba(60, 66, 66, 0.1);--rk-colors-modalBackdrop:rgba(0, 0, 0, 0.3);--rk-colors-modalBackground:#FFF;--rk-colors-modalBorder:transparent;--rk-colors-modalText:#25292E;--rk-colors-modalTextDim:rgba(60, 66, 66, 0.3);--rk-colors-modalTextSecondary:rgba(60, 66, 66, 0.6);--rk-colors-profileAction:#FFF;--rk-colors-profileActionHover:rgba(255, 255, 255, 0.5);--rk-colors-profileForeground:rgba(60, 66, 66, 0.06);--rk-colors-selectedOptionBorder:rgba(60, 66, 66, 0.1);--rk-colors-standby:#FFD641;--rk-shadows-connectButton:0px 4px 12px rgba(0, 0, 0, 0.1);--rk-shadows-dialog:0px 8px 32px rgba(0, 0, 0, 0.32);--rk-shadows-profileDetailsAction:0px 2px 6px rgba(37, 41, 46, 0.04);--rk-shadows-selectedOption:0px 2px 6px rgba(0, 0, 0, 0.24);--rk-shadows-selectedWallet:0px 2px 6px rgba(0, 0, 0, 0.12);--rk-shadows-walletLogo:0px 2px 16px rgba(0, 0, 0, 0.16);}</style><main class=\"flex min-h-screen flex-col\"><header class=\"flex h-16 items-center pt-4 sm:justify-center px-6 sm:h-20 mb-5 relative justify-center\"><a class=\"flex items-center justify-center px-7 py-3 rounded-full bg-black/5\" style=\"backdrop-filter:blur(1.149999976158142px)\" href=\"/\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"96\" height=\"40\" viewBox=\"0 0 96 40\" fill=\"none\" class=\"size-6 w-[95px] h-[40px] text-black\"><mask id=\"mask0_150_1411\" style=\"mask-type:alpha\" maskUnits=\"userSpaceOnUse\" x=\"8\" y=\"0\" width=\"79\" height=\"40\"><path d=\"M40.6584 33.543C33.5588 40.6423 22.1822 40.858 14.8229 34.1896L20.8021 28.2103L31.3783 17.6343L33.3669 19.6226L23.258 29.7316C27.0347 31.3871 31.601 30.6689 34.6928 27.5773C38.7195 23.5503 38.7195 17.0212 34.6928 12.9942C30.6656 8.96712 24.1365 8.96712 20.1096 12.9942C16.5353 16.5684 16.1335 22.1139 18.904 26.1314L12.8835 32.1519C6.84924 24.7872 7.26929 13.9027 14.1437 7.02817C21.4656 -0.293571 33.3365 -0.293571 40.6584 7.02817C47.9801 14.3501 47.9801 26.221 40.6584 33.543Z\" fill=\"#FF3CD4\"></path><path d=\"M67.3223 38.4852C77.3628 38.4852 85.5598 30.5929 86.0481 20.674H62.6353V23.4863H76.9312C75.4312 27.3271 71.6948 30.0483 67.3226 30.0483C61.6274 30.0483 57.0107 25.4316 57.0107 19.7363C57.0107 14.0414 61.6274 9.42471 67.3226 9.42471C72.3772 9.42471 76.5826 13.0616 77.4642 17.8617H85.9787C85.0379 8.38732 77.0443 0.987671 67.3223 0.987671C56.9679 0.987671 48.5737 9.38165 48.5737 19.7363C48.5737 30.091 56.9679 38.4852 67.3223 38.4852Z\" fill=\"#FF3CD4\"></path></mask><g mask=\"url(#mask0_150_1411)\"><path d=\"M7.46631 0.350098H89.1663V39.6168H7.46631V0.350098Z\" fill=\"currentColor\"></path></g></svg></a></header><section class=\"flex flex-1 flex-col\"><div class=\"container flex flex-1 flex-col items-center justify-center gap-6 text-white sm:gap-12\"><p class=\"text-center text-lg text-muted-foreground sm:text-2xl\">The site is now closed.</p></div><!--$--><!--/$--><!--$--><!--/$--></section><footer class=\"w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 px-4 py-8 sm:border-t border-white/15 bg-white text-black\"><div class=\"flex items-start sm:items-center gap-3 flex flex-col sm:flex-row\"><a href=\"https://clique.tech\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"flex items-center justify-center gap-2 w-fit\"><span class=\"text-nowrap text-sm font-medium\">Powered by</span><svg viewBox=\"0 0 80 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" style=\"aspect-ratio:80/22\" class=\"w-20 h-5.5 text-black\"><g clip-path=\"url(#clip0_6597_8507)\"><path d=\"M80.3391 3.97186C80.3235 3.82305 80.1974 3.70703 80.0441 3.70703H75.5546H73.7443H69.2549C69.0909 3.70703 68.9583 3.8397 68.9583 4.00363V7.18758C68.9583 7.21179 68.9613 7.23449 68.9668 7.25719C68.9663 9.87618 68.9658 12.4952 68.9658 15.1142C68.9613 15.1353 68.9583 15.157 68.9583 15.1797V18.3637C68.9583 18.5276 69.0909 18.6603 69.2549 18.6603H73.7443H75.5546H80.0441C80.208 18.6603 80.3407 18.5276 80.3407 18.3637V18.3021C80.3407 17.261 80.3407 16.2204 80.3407 15.1792C80.3407 15.1596 80.3407 15.1399 80.3407 15.1202C80.3341 15.1031 80.327 15.0864 80.32 15.0708C80.3134 15.0546 80.3059 15.0395 80.2968 15.0249C80.2095 14.8655 80.0814 14.7954 79.8741 14.7903C79.8171 14.7888 79.7601 14.7898 79.7031 14.7898C77.7328 14.7898 75.763 14.7898 73.7932 14.7898C73.6923 14.7898 73.5914 14.7883 73.4915 14.7706C73.2272 14.7242 73.093 14.5714 73.089 14.302C73.086 14.0831 73.0875 13.8637 73.0885 13.6448C73.09 13.2871 73.2494 13.1242 73.6081 13.1116C73.6605 13.1096 73.7135 13.1106 73.766 13.1106C74.9942 13.1106 76.223 13.1106 77.4513 13.1106C77.9779 13.1106 78.5045 13.1121 79.0307 13.1101C79.3237 13.1085 79.5079 12.9552 79.5694 12.6707C79.587 12.589 79.5916 12.5058 79.5916 12.4225C79.5916 11.5902 79.5916 10.7574 79.5916 9.92511C79.5916 9.8328 79.5845 9.7415 79.5623 9.6512C79.5013 9.40151 79.3353 9.26179 79.0776 9.24363C79.016 9.23959 78.955 9.2411 78.8935 9.2411C77.1779 9.2411 75.4623 9.2411 73.7468 9.2411C73.6636 9.2411 73.5798 9.24363 73.4971 9.23102C73.2308 9.19066 73.093 9.03832 73.0885 8.76896C73.084 8.50161 73.085 8.23427 73.088 7.96743C73.091 7.71017 73.2383 7.54169 73.4936 7.49528C73.5385 7.48721 73.5834 7.48469 73.6287 7.48368H73.7433H75.5536H80.043C80.207 7.48368 80.3396 7.35102 80.3396 7.18708V7.15278C80.3396 6.10256 80.3396 5.05284 80.3396 4.00263C80.3396 3.99203 80.3396 3.98144 80.3396 3.97085C80.3402 3.97186 80.3402 3.97186 80.3391 3.97186Z\" fill=\"currentColor\"></path><path d=\"M66.0193 9.62753V3.98652C66.0193 3.83166 65.8937 3.70605 65.7389 3.70605H62.1857C62.0308 3.70605 61.9052 3.83166 61.9052 3.98652V4.07277C61.8997 4.09194 61.9022 4.11363 61.9052 4.13532V6.21003V9.62753H61.9088C61.9088 10.0982 61.9088 10.5693 61.9088 11.0399H61.9052V12.6763C61.9052 14.0186 60.8172 15.1071 59.4744 15.1071C58.1321 15.1071 57.0436 14.0191 57.0436 12.6763V11.0399H57.0375C57.0375 10.5693 57.0375 10.0982 57.0375 9.62753H57.0436V6.21003V3.98652C57.0436 3.83166 56.918 3.70605 56.7631 3.70605H53.2099C53.055 3.70605 52.9294 3.83166 52.9294 3.98652V9.62702C52.9294 10.2571 52.9294 10.8876 52.9294 11.5176C52.9294 11.5181 52.9294 11.5191 52.9294 11.5196V12.8327C52.9294 12.8332 52.9294 12.8332 52.9294 12.8332C52.9294 12.877 52.9294 12.9209 52.9294 12.9648C52.9294 12.9966 52.9315 13.0284 52.934 13.0597C52.9385 13.1812 52.9466 13.3018 52.9582 13.4213C52.9577 13.4254 52.9577 13.4299 52.9577 13.4339C52.9567 13.444 52.9587 13.4521 52.9622 13.4597C53.0384 14.1961 53.2472 14.8927 53.5645 15.5258C53.5701 15.5409 53.5771 15.5556 53.5857 15.5687C53.6094 15.6151 53.6336 15.661 53.6583 15.7064C53.6654 15.7321 53.6765 15.7553 53.6957 15.7735C53.7234 15.8229 53.7522 15.8723 53.7809 15.9213C53.7885 15.949 53.8016 15.9732 53.8243 15.9924C53.8702 16.067 53.9181 16.1407 53.9671 16.2133C53.9797 16.2517 53.9993 16.285 54.0326 16.3082C54.0452 16.3258 54.0579 16.343 54.0705 16.3606C54.0785 16.4025 54.0952 16.4378 54.1391 16.4534C54.1915 16.5231 54.245 16.5911 54.3005 16.6582C54.305 16.69 54.3217 16.7102 54.3514 16.7188C54.4104 16.7884 54.4705 16.8565 54.5325 16.9236C54.6107 17.0426 54.7076 17.143 54.8271 17.2202C54.8735 17.2635 54.9204 17.3064 54.9678 17.3483C54.9941 17.3977 55.0314 17.4335 55.0844 17.4487C55.1086 17.4689 55.1328 17.489 55.157 17.5087C55.1696 17.5324 55.1888 17.5491 55.2155 17.5561C55.2286 17.5662 55.2417 17.5768 55.2544 17.5869C55.2639 17.6177 55.2897 17.6288 55.3184 17.6363C55.3573 17.6656 55.3961 17.6943 55.4354 17.7231C55.4511 17.7407 55.4697 17.7544 55.4914 17.7629C55.5192 17.7826 55.5474 17.8018 55.5752 17.8209C55.5853 17.8366 55.6009 17.8457 55.6196 17.8502C55.7225 17.9188 55.8274 17.9839 55.9343 18.0464C55.9464 18.058 55.9605 18.0656 55.9762 18.0706C56.7913 18.5347 57.725 18.8137 58.7203 18.8515C58.7475 18.8575 58.7753 18.8565 58.8035 18.8545C58.8529 18.8555 58.9024 18.8565 58.9518 18.8565H59.9955C60.0504 18.8565 60.1059 18.8555 60.1604 18.854C60.1917 18.8565 60.223 18.858 60.2537 18.8505C61.3186 18.8056 62.3118 18.4843 63.1638 17.9561C63.1839 17.9531 63.2006 17.944 63.2117 17.9264C63.2642 17.8931 63.3156 17.8598 63.3671 17.825C63.3817 17.823 63.3938 17.8164 63.4009 17.8018C63.4276 17.7831 63.4548 17.7649 63.4811 17.7463C63.5033 17.7422 63.5209 17.7317 63.5315 17.7095C63.6011 17.659 63.6697 17.6071 63.7373 17.5536C63.7721 17.542 63.8009 17.5213 63.8195 17.4875C63.8422 17.4689 63.8644 17.4497 63.8871 17.4305C63.929 17.43 63.9532 17.4098 63.9587 17.369C63.9749 17.3549 63.9915 17.3402 64.0077 17.3256C64.0369 17.3205 64.0561 17.3044 64.0642 17.2746C64.0828 17.2575 64.101 17.2403 64.1192 17.2232C64.1641 17.2207 64.1943 17.202 64.1953 17.1501C64.1989 17.1465 64.2024 17.143 64.2059 17.14C64.2634 17.1344 64.2947 17.1031 64.2997 17.0461C64.3033 17.0426 64.3073 17.0386 64.3108 17.035C64.3709 17.0295 64.4021 16.9952 64.4062 16.9352C64.4153 16.9251 64.4248 16.9155 64.4339 16.9054C64.4647 16.8973 64.4813 16.8777 64.4859 16.8484C64.5 16.8328 64.5141 16.8166 64.5282 16.8005C64.5701 16.7949 64.5903 16.7697 64.5908 16.7278C64.6014 16.7152 64.612 16.7031 64.6226 16.6905C64.666 16.6764 64.6932 16.6487 64.6952 16.6012C64.7053 16.5886 64.7154 16.576 64.7255 16.5634C64.8122 16.4898 64.8859 16.406 64.9237 16.2971C64.9353 16.2809 64.9464 16.2643 64.9575 16.2481C65.0009 16.237 65.015 16.2058 65.014 16.1649C65.0221 16.1533 65.0296 16.1412 65.0372 16.1296C65.0831 16.1003 65.1068 16.058 65.1154 16.0065C65.1356 15.9742 65.1552 15.9419 65.1744 15.9097C65.2087 15.8834 65.2254 15.8461 65.2355 15.8047C65.2592 15.7629 65.2829 15.7205 65.3056 15.6776C65.3147 15.6645 65.3217 15.6509 65.3273 15.6363C65.7681 14.7989 66.0178 13.8456 66.0178 12.8342V11.5211C66.0178 11.502 66.0163 11.4833 66.0143 11.4652C66.0143 10.8528 66.0143 10.2409 66.0143 9.62854H66.0193V9.62753Z\" fill=\"currentColor\"></path><path d=\"M32.8291 18.6153H29.8979C29.5725 18.6153 29.3087 18.3515 29.3087 18.0261V4.29816C29.3087 3.9728 29.5725 3.70898 29.8979 3.70898H32.8291C33.1545 3.70898 33.4183 3.9728 33.4183 4.29816V18.0261C33.4178 18.3515 33.1545 18.6153 32.8291 18.6153Z\" fill=\"currentColor\"></path><path d=\"M27.3232 14.8331H20.6976V4.17054C20.6976 3.9158 20.4908 3.70898 20.236 3.70898H17.0496C16.7948 3.70898 16.588 3.9158 16.588 4.17054V18.1538C16.588 18.4085 16.7948 18.6153 17.0496 18.6153H18.292H20.236H27.3232C27.578 18.6153 27.7848 18.4085 27.7848 18.1538V15.2942C27.7848 15.0399 27.578 14.8331 27.3232 14.8331Z\" fill=\"currentColor\"></path><path d=\"M49.0787 15.6358C49.0756 15.6212 49.0726 15.6071 49.0701 15.5934C49.0287 15.3609 49.0913 15.1208 49.232 14.9306C50.1339 13.7094 50.4527 12.6375 50.5637 12.0892C50.6121 11.7431 50.6373 11.39 50.6373 11.0309C50.6373 6.84162 47.241 3.44531 43.0518 3.44531C38.8625 3.44531 35.4662 6.84162 35.4662 11.0309C35.4662 15.2202 38.8625 18.6165 43.0518 18.6165C43.7267 18.6165 44.3804 18.5277 45.0034 18.3627C45.0049 18.3683 45.0059 18.3723 45.0059 18.3723C45.0059 18.3723 49.6199 19.7701 50.2863 18.3723C50.2863 18.3723 50.368 18.2033 50.1687 17.9375C49.9791 17.6843 49.2537 16.683 49.0787 15.6358ZM43.0563 14.5735C41.0996 14.5735 39.5132 12.9871 39.5132 11.0304C39.5132 9.07371 41.0996 7.48729 43.0563 7.48729C45.013 7.48729 46.5994 9.07371 46.5994 11.0304C46.5994 12.9871 45.0135 14.5735 43.0563 14.5735Z\" fill=\"currentColor\"></path><path d=\"M14.7212 13.9154L11.9882 12.8768C11.73 12.7784 11.4359 12.8803 11.2997 13.1209C10.6384 14.2881 9.39294 15.0751 7.96491 15.0751C5.8448 15.0751 4.12622 13.3413 4.12622 11.2026C4.12622 9.06379 5.8448 7.33007 7.96491 7.33007C9.39899 7.33007 10.6495 8.12354 11.3083 9.29936C11.447 9.54703 11.7506 9.64993 12.0129 9.54199L14.753 8.4161C15.0587 8.2905 15.1903 7.93085 15.0405 7.63576C14.5512 6.67129 13.8667 5.82082 13.0379 5.13379C12.9809 5.07579 10.5234 2.61115 5.44882 2.02451C5.44882 2.02451 0.430277 1.75615 0.807084 2.99553C1.14404 4.10476 1.84671 4.85333 0.792456 7.72958C0.705694 7.90613 0.625995 8.08621 0.552853 8.26932C0.486268 8.43578 0.294081 9.02596 0.267851 9.12331C0.0933189 9.76999 0 10.45 0 11.1511C0 15.4862 3.5547 19 7.94019 19C11.0323 19 13.7113 17.2522 15.0224 14.7018C15.1767 14.4026 15.0365 14.0354 14.7212 13.9154Z\" fill=\"currentColor\"></path></g><defs><clipPath id=\"clip0_6597_8507\"><rect width=\"80\" height=\"22\" fill=\"white\"></rect></clipPath></defs></svg></a><p class=\"order-2 sm:order-1 text-sm\">© <!-- -->2025<!-- --> <!-- -->. All rights reserved.</p></div><div class=\"flex flex-col justify-between gap-y-3 sm:flex-row\"></div></footer></main></div><script src=\"/_next/static/chunks/webpack-1c57e71637164b6f.js\" async=\"\"></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,\"1:\\\"$Sreact.fragment\\\"\\n2:I[72749,[\\\"4722\\\",\\\"static/chunks/e1f8a4cc-1f0a9376658949eb.js\\\",\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"619\\\",\\\"static/chunks/619-b28f131dace1e3fb.js\\\",\\\"5117\\\",\\\"static/chunks/5117-f1f87252a315e21b.js\\\",\\\"963\\\",\\\"static/chunks/963-48039921023efa44.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"9285\\\",\\\"static/chunks/9285-5334f998e69efe8e.js\\\",\\\"7177\\\",\\\"static/chunks/app/layout-69f49b24947f910e.js\\\"],\\\"\\\"]\\n3:I[75977,[\\\"4722\\\",\\\"static/chunks/e1f8a4cc-1f0a9376658949eb.js\\\",\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"619\\\",\\\"static/chunks/619-b28f131dace1e3fb.js\\\",\\\"5117\\\",\\\"static/chunks/5117-f1f87252a315e21b.js\\\",\\\"963\\\",\\\"static/chunks/963-48039921023efa44.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"9285\\\",\\\"static/chunks/9285-5334f998e69efe8e.js\\\",\\\"7177\\\",\\\"static/chunks/app/layout-69f49b24947f910e.js\\\"],\\\"ApplicationInsightsWeb\\\"]\\n4:I[87692,[\\\"4722\\\",\\\"static/chunks/e1f8a4cc-1f0a9376658949eb.js\\\",\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"619\\\",\\\"static/chunks/619-b28f131dace1e3fb.js\\\",\\\"5117\\\",\\\"static/chunks/5117-f1f87252a315e21b.js\\\",\\\"963\\\",\\\"static/chunks/963-48039921023efa44.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"9285\\\",\\\"static/chunks/9285-5334f998e69efe8e.js\\\",\\\"7177\\\",\\\"static/chunks/app/layout-69f49b24947f910e.js\\\"],\\\"ThemeProvider\\\"]\\n5:I[37669,[\\\"4722\\\",\\\"static/chunks/e1f8a4cc-1f0a9376658949eb.js\\\",\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"619\\\",\\\"static/chunks/619-b28f131dace1e3fb.js\\\",\\\"5117\\\",\\\"static/chunks/5117-f1f87252a315e21b.js\\\",\\\"963\\\",\\\"static/chunks/963-48039921023efa44.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"9285\\\",\\\"static/chunks/9285-5334f998e69efe8e.js\\\",\\\"7177\\\",\\\"static/chunks/app/layout-69f49b2494\"])</script><script>self.__next_f.push([1,\"7f910e.js\\\"],\\\"ToastContainer\\\"]\\n6:I[11282,[\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"619\\\",\\\"static/chunks/619-b28f131dace1e3fb.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"8974\\\",\\\"static/chunks/app/page-189924e993c1b34e.js\\\"],\\\"ClientBlockingContainer\\\"]\\n7:I[39657,[\\\"4722\\\",\\\"static/chunks/e1f8a4cc-1f0a9376658949eb.js\\\",\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"619\\\",\\\"static/chunks/619-b28f131dace1e3fb.js\\\",\\\"5117\\\",\\\"static/chunks/5117-f1f87252a315e21b.js\\\",\\\"963\\\",\\\"static/chunks/963-48039921023efa44.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"9285\\\",\\\"static/chunks/9285-5334f998e69efe8e.js\\\",\\\"7177\\\",\\\"static/chunks/app/layout-69f49b24947f910e.js\\\"],\\\"Providers\\\"]\\n8:I[29888,[\\\"4722\\\",\\\"static/chunks/e1f8a4cc-1f0a9376658949eb.js\\\",\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"619\\\",\\\"static/chunks/619-b28f131dace1e3fb.js\\\",\\\"5117\\\",\\\"static/chunks/5117-f1f87252a315e21b.js\\\",\\\"963\\\",\\\"static/chunks/963-48039921023efa44.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"9285\\\",\\\"static/chunks/9285-5334f998e69efe8e.js\\\",\\\"7177\\\",\\\"static/chunks/app/layout-69f49b24947f910e.js\\\"],\\\"Global\\\"]\\n9:I[48701,[],\\\"\\\"]\\na:I[6185,[],\\\"\\\"]\\nb:I[71988,[\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"1509\\\",\\\"static/chunks/app/(app)/(light)/end/page-0e2365e80cb77b63.js\\\"],\\\"Header\\\"]\\nc:I[42173,[\\\"9713\\\",\\\"static/chunks/9713-854ac93997337ed7.js\\\",\\\"9956\\\",\\\"static/chunks/9956-83430cb0583067af.js\\\",\\\"619\\\",\\\"static/chunks/619-b28f131dace1e3fb.js\\\",\\\"2791\\\",\\\"static/chunks/2791-3f8d6a5941d69756.js\\\",\\\"4620\\\",\\\"static/chunks/4620-8625e05652dc53a5.js\\\",\\\"5323\\\",\\\"static/chunks/app/(app)/(main)/layout-f420da9081d3df4a.js\\\"],\\\"Footer\\\"]\\nd:I[38563,[],\\\"MetadataBoun\"])</script><script>self.__next_f.push([1,\"dary\\\"]\\nf:I[38563,[],\\\"OutletBoundary\\\"]\\n12:I[65273,[],\\\"AsyncMetadataOutlet\\\"]\\n14:I[38563,[],\\\"ViewportBoundary\\\"]\\n16:I[51492,[],\\\"\\\"]\\n:HL[\\\"/_next/static/media/4cf2300e9c8272f7-s.p.woff2\\\",\\\"font\\\",{\\\"crossOrigin\\\":\\\"\\\",\\\"type\\\":\\\"font/woff2\\\"}]\\n:HL[\\\"/_next/static/media/93f479601ee12b01-s.p.woff2\\\",\\\"font\\\",{\\\"crossOrigin\\\":\\\"\\\",\\\"type\\\":\\\"font/woff2\\\"}]\\n:HL[\\\"/_next/static/css/24b9d70a518bb58e.css\\\",\\\"style\\\"]\\n:HL[\\\"/_next/static/css/00fc63222eea12fb.css\\\",\\\"style\\\"]\\n:HL[\\\"/_next/static/css/b630abdf619c5cd1.css\\\",\\\"style\\\"]\\n:HL[\\\"/_next/static/css/138f3cb2f3239054.css\\\",\\\"style\\\"]\\n\"])</script><script>self.__next_f.push([1,\"0:{\\\"P\\\":null,\\\"b\\\":\\\"2cU7FBq85BsJOzzgHkxxZ\\\",\\\"p\\\":\\\"\\\",\\\"c\\\":[\\\"\\\",\\\"end\\\"],\\\"i\\\":false,\\\"f\\\":[[[\\\"\\\",{\\\"children\\\":[\\\"(app)\\\",{\\\"children\\\":[\\\"(light)\\\",{\\\"children\\\":[\\\"end\\\",{\\\"children\\\":[\\\"__PAGE__\\\",{}]}]}]}]},\\\"$undefined\\\",\\\"$undefined\\\",true],[\\\"\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[[\\\"$\\\",\\\"link\\\",\\\"0\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/24b9d70a518bb58e.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"link\\\",\\\"1\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/00fc63222eea12fb.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"link\\\",\\\"2\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/b630abdf619c5cd1.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}],[\\\"$\\\",\\\"link\\\",\\\"3\\\",{\\\"rel\\\":\\\"stylesheet\\\",\\\"href\\\":\\\"/_next/static/css/138f3cb2f3239054.css\\\",\\\"precedence\\\":\\\"next\\\",\\\"crossOrigin\\\":\\\"$undefined\\\",\\\"nonce\\\":\\\"$undefined\\\"}]],[\\\"$\\\",\\\"html\\\",null,{\\\"lang\\\":\\\"en\\\",\\\"suppressHydrationWarning\\\":true,\\\"children\\\":[[\\\"$\\\",\\\"head\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"$L2\\\",null,{\\\"async\\\":true,\\\"src\\\":\\\"https://www.googletagmanager.com/gtag/js?id=G-PFV6RNLTTZ\\\"}],[\\\"$\\\",\\\"$L2\\\",null,{\\\"id\\\":\\\"gtag\\\",\\\"children\\\":\\\"\\\\nwindow.dataLayer = window.dataLayer || [];\\\\nfunction gtag(){dataLayer.push(arguments);}\\\\ngtag('js', new Date());\\\\ngtag('config', 'G-PFV6RNLTTZ');\\\\n\\\"}]]}],[\\\"$\\\",\\\"body\\\",null,{\\\"className\\\":\\\"bg-white! bg-[url(\\\\\\\"/images/img-body-bg.png\\\\\\\")] bg-cover bg-center font-sans antialiased __variable_188709 __variable_9a8899\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L3\\\",null,{}],[\\\"$\\\",\\\"$L4\\\",null,{\\\"attribute\\\":\\\"class\\\",\\\"defaultTheme\\\":\\\"dark\\\",\\\"children\\\":[[\\\"$\\\",\\\"$L5\\\",null,{}],[\\\"$\\\",\\\"$L6\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$L7\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$L8\\\",null,{\\\"children\\\":[\\\"$\\\",\\\"$L9\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$La\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"fontFamily\\\":\\\"system-ui,\\\\\\\"Segoe UI\\\\\\\",Roboto,Helvetica,Arial,sans-serif,\\\\\\\"Apple Color Emoji\\\\\\\",\\\\\\\"Segoe UI Emoji\\\\\\\"\\\",\\\"height\\\":\\\"100vh\\\",\\\"textAlign\\\":\\\"center\\\",\\\"display\\\":\\\"flex\\\",\\\"flexDirection\\\":\\\"column\\\",\\\"alignItems\\\":\\\"center\\\",\\\"justifyContent\\\":\\\"center\\\"},\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\",\\\"margin\\\":\\\"0 20px 0 0\\\",\\\"padding\\\":\\\"0 23px 0 0\\\",\\\"fontSize\\\":24,\\\"fontWeight\\\":500,\\\"verticalAlign\\\":\\\"top\\\",\\\"lineHeight\\\":\\\"49px\\\"},\\\"children\\\":404}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":{\\\"display\\\":\\\"inline-block\\\"},\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":{\\\"fontSize\\\":14,\\\"fontWeight\\\":400,\\\"lineHeight\\\":\\\"49px\\\",\\\"margin\\\":0},\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],[]],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]}]}]}]]}]]}]]}]]}],{\\\"children\\\":[\\\"(app)\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$L9\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$La\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":[[[\\\"$\\\",\\\"title\\\",null,{\\\"children\\\":\\\"404: This page could not be found.\\\"}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":\\\"$0:f:0:1:1:props:children:1:props:children:1:props:children:1:props:children:1:props:children:props:children:props:children:props:notFound:0:1:props:style\\\",\\\"children\\\":[\\\"$\\\",\\\"div\\\",null,{\\\"children\\\":[[\\\"$\\\",\\\"style\\\",null,{\\\"dangerouslySetInnerHTML\\\":{\\\"__html\\\":\\\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\\\"}}],[\\\"$\\\",\\\"h1\\\",null,{\\\"className\\\":\\\"next-error-h1\\\",\\\"style\\\":\\\"$0:f:0:1:1:props:children:1:props:children:1:props:children:1:props:children:1:props:children:props:children:props:children:props:notFound:0:1:props:children:props:children:1:props:style\\\",\\\"children\\\":404}],[\\\"$\\\",\\\"div\\\",null,{\\\"style\\\":\\\"$0:f:0:1:1:props:children:1:props:children:1:props:children:1:props:children:1:props:children:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:style\\\",\\\"children\\\":[\\\"$\\\",\\\"h2\\\",null,{\\\"style\\\":\\\"$0:f:0:1:1:props:children:1:props:children:1:props:children:1:props:children:1:props:children:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style\\\",\\\"children\\\":\\\"This page could not be found.\\\"}]}]]}]}]],[]],\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]]}],{\\\"children\\\":[\\\"(light)\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"main\\\",null,{\\\"className\\\":\\\"flex min-h-screen flex-col\\\",\\\"children\\\":[[\\\"$\\\",\\\"$Lb\\\",null,{}],[\\\"$\\\",\\\"section\\\",null,{\\\"className\\\":\\\"flex flex-1 flex-col\\\",\\\"children\\\":[\\\"$\\\",\\\"$L9\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$La\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":\\\"$undefined\\\",\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]}],[\\\"$\\\",\\\"$Lc\\\",null,{}]]}]]}],{\\\"children\\\":[\\\"end\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$L9\\\",null,{\\\"parallelRouterKey\\\":\\\"children\\\",\\\"error\\\":\\\"$undefined\\\",\\\"errorStyles\\\":\\\"$undefined\\\",\\\"errorScripts\\\":\\\"$undefined\\\",\\\"template\\\":[\\\"$\\\",\\\"$La\\\",null,{}],\\\"templateStyles\\\":\\\"$undefined\\\",\\\"templateScripts\\\":\\\"$undefined\\\",\\\"notFound\\\":\\\"$undefined\\\",\\\"forbidden\\\":\\\"$undefined\\\",\\\"unauthorized\\\":\\\"$undefined\\\"}]]}],{\\\"children\\\":[\\\"__PAGE__\\\",[\\\"$\\\",\\\"$1\\\",\\\"c\\\",{\\\"children\\\":[[\\\"$\\\",\\\"div\\\",null,{\\\"className\\\":\\\"container flex flex-1 flex-col items-center justify-center gap-6 text-white sm:gap-12\\\",\\\"children\\\":[\\\"$\\\",\\\"p\\\",null,{\\\"className\\\":\\\"text-center text-lg text-muted-foreground sm:text-2xl\\\",\\\"children\\\":\\\"The site is now closed.\\\"}]}],[\\\"$\\\",\\\"$Ld\\\",null,{\\\"children\\\":\\\"$Le\\\"}],null,[\\\"$\\\",\\\"$Lf\\\",null,{\\\"children\\\":[\\\"$L10\\\",\\\"$L11\\\",[\\\"$\\\",\\\"$L12\\\",null,{\\\"promise\\\":\\\"$@13\\\"}]]}]]}],{},null,false]},null,false]},null,false]},null,false]},null,false],[\\\"$\\\",\\\"$1\\\",\\\"h\\\",{\\\"children\\\":[null,[\\\"$\\\",\\\"$1\\\",\\\"uR72tgFA81j0RfR3t9Xgy\\\",{\\\"children\\\":[[\\\"$\\\",\\\"$L14\\\",null,{\\\"children\\\":\\\"$L15\\\"}],[\\\"$\\\",\\\"meta\\\",null,{\\\"name\\\":\\\"next-size-adjust\\\",\\\"content\\\":\\\"\\\"}]]}],null]}],false]],\\\"m\\\":\\\"$undefined\\\",\\\"G\\\":[\\\"$16\\\",\\\"$undefined\\\"],\\\"s\\\":false,\\\"S\\\":true}\\n\"])</script><script>self.__next_f.push([1,\"17:\\\"$Sreact.suspense\\\"\\n18:I[65273,[],\\\"AsyncMetadata\\\"]\\ne:[\\\"$\\\",\\\"$17\\\",null,{\\\"fallback\\\":null,\\\"children\\\":[\\\"$\\\",\\\"$L18\\\",null,{\\\"promise\\\":\\\"$@19\\\"}]}]\\n\"])</script><script>self.__next_f.push([1,\"11:null\\n\"])</script><script>self.__next_f.push([1,\"15:[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"charSet\\\":\\\"utf-8\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"viewport\\\",\\\"content\\\":\\\"width=device-width, initial-scale=1\\\"}]]\\n10:null\\n\"])</script><script>self.__next_f.push([1,\"19:{\\\"metadata\\\":[[\\\"$\\\",\\\"meta\\\",\\\"0\\\",{\\\"property\\\":\\\"og:image\\\",\\\"content\\\":\\\"https://airdrop.0gfoundation.ai/images/opengraph-image.png\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"1\\\",{\\\"name\\\":\\\"twitter:card\\\",\\\"content\\\":\\\"summary_large_image\\\"}],[\\\"$\\\",\\\"meta\\\",\\\"2\\\",{\\\"name\\\":\\\"twitter:image\\\",\\\"content\\\":\\\"https://airdrop.0gfoundation.ai/images/opengraph-image.png\\\"}],[\\\"$\\\",\\\"link\\\",\\\"3\\\",{\\\"rel\\\":\\\"icon\\\",\\\"href\\\":\\\"/favicon.ico\\\",\\\"type\\\":\\\"image/x-icon\\\",\\\"sizes\\\":\\\"32x32\\\"}]],\\\"error\\\":null,\\\"digest\\\":\\\"$undefined\\\"}\\n13:{\\\"metadata\\\":\\\"$19:metadata\\\",\\\"error\\\":null,\\\"digest\\\":\\\"$undefined\\\"}\\n\"])</script></body></html>"
+    },
+    {
+      "endpoint": "/var/log/apache2/access.log",
+      "type": "log_file",
+      "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/4cf2300e9c8272f7-s.p.woff"
+    },
+    {
+      "endpoint": "/var/log/nginx/access.log",
+      "type": "log_file",
+      "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/4cf2300e9c8272f7-s.p.woff"
+    },
+    {
+      "endpoint": "/var/log/syslog",
+      "type": "log_file",
+      "content": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/4cf2300e9c8272f7-s.p.woff"
+    }
+  ]
+}

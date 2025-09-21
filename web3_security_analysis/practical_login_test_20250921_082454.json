@@ -1,0 +1,19 @@
+{
+  "login_test_info": {
+    "target_url": "https://airdrop.0gfoundation.ai",
+    "test_timestamp": "2025-09-21T08:24:33.792787",
+    "test_type": "Practical Login Tester",
+    "duration": "2-3 menit"
+  },
+  "summary": {
+    "endpoints_tested": 9,
+    "successful_logins": 0,
+    "session_data_extracted": 0,
+    "access_tokens": 0,
+    "system_access_achieved": false
+  },
+  "login_details": [],
+  "session_data": [],
+  "access_tokens": [],
+  "exploited_endpoints": []
+}

@@ -1,0 +1,242 @@
+{
+  "scan_info": {
+    "target_url": "https://airdrop.0gfoundation.ai",
+    "scan_timestamp": "2025-09-21T03:24:31.364656",
+    "scan_type": "Advanced Authentication Bypass",
+    "scan_duration": "30-60 detik"
+  },
+  "summary": {
+    "total_endpoints_discovered": 18,
+    "total_vulnerabilities_found": 12,
+    "valid_credentials_found": 0,
+    "session_tokens_extracted": 0,
+    "access_gained": false,
+    "risk_level": "High"
+  },
+  "vulnerabilities": [
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "http://evil.com",
+      "severity": "High",
+      "description": "OAuth vulnerability: http://evil.com"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "//evil.com",
+      "severity": "High",
+      "description": "OAuth vulnerability: //evil.com"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "/\\evil.com",
+      "severity": "High",
+      "description": "OAuth vulnerability: /\\evil.com"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "state=malicious",
+      "severity": "High",
+      "description": "OAuth vulnerability: state=malicious"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "redirect_uri=evil.com",
+      "severity": "High",
+      "description": "OAuth vulnerability: redirect_uri=evil.com"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "client_id=evil",
+      "severity": "High",
+      "description": "OAuth vulnerability: client_id=evil"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "code=malicious_code",
+      "severity": "High",
+      "description": "OAuth vulnerability: code=malicious_code"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "access_token=stolen_token",
+      "severity": "High",
+      "description": "OAuth vulnerability: access_token=stolen_token"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "refresh_token=stolen_refresh",
+      "severity": "High",
+      "description": "OAuth vulnerability: refresh_token=stolen_refresh"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "Host: evil.com",
+      "severity": "High",
+      "description": "OAuth vulnerability: Host: evil.com"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "X-Forwarded-For: 127.0.0.1",
+      "severity": "High",
+      "description": "OAuth vulnerability: X-Forwarded-For: 127.0.0.1"
+    },
+    {
+      "type": "OAuth Vulnerability",
+      "endpoint": "/oauth",
+      "payload": "X-Forwarded-Host: localhost",
+      "severity": "High",
+      "description": "OAuth vulnerability: X-Forwarded-Host: localhost"
+    }
+  ],
+  "credentials": [],
+  "sessions": [],
+  "endpoints": [
+    {
+      "endpoint": "/login",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/admin",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/dashboard",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/auth/login",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/signin",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/sign-in",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/authenticate",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/verify",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/oauth",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/auth",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/user",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/profile",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/account",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/settings",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/wp-admin",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/phpmyadmin",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/admin/login",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    },
+    {
+      "endpoint": "/cpanel",
+      "status_code": 200,
+      "content_length": 16912,
+      "title": "No Title",
+      "forms": []
+    }
+  ],
+  "recommendations": [
+    "Implement proper authentication mechanisms",
+    "Use parameterized queries to prevent SQL injection",
+    "Implement rate limiting to prevent brute force attacks",
+    "Use secure session management",
+    "Implement proper input validation",
+    "Use prepared statements for database operations",
+    "Implement proper error handling",
+    "Use Web Application Firewall (WAF)"
+  ]
+}

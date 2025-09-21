@@ -1,6 +1,0 @@
-# shadowscan/detectors/__init__.py
-"""Detectors package for vulnerability analysis."""
-
-from .evm.generic_patterns import GenericPatternDetector
-
-__all__ = ['GenericPatternDetector']

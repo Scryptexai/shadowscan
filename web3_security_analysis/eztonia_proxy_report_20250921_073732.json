@@ -1,0 +1,27 @@
+{
+  "scan_info": {
+    "target_url": "https://airdrop.0gfoundation.ai",
+    "proxy_url": "http://eztonia.com:8080",
+    "scan_timestamp": "2025-09-21T07:37:32.779837",
+    "scan_type": "Eztonia Proxy Exploiter",
+    "scan_duration": "2-3 menit"
+  },
+  "summary": {
+    "successful_logins": 0,
+    "discovered_credentials": 0,
+    "admin_access": false,
+    "shell_access": false,
+    "proxy_access": [],
+    "exploit_success": false
+  },
+  "successful_logins": [],
+  "discovered_credentials": [],
+  "proxy_access": [],
+  "exploit_success": false,
+  "recommendations": [
+    "No proxy-based vulnerabilities found",
+    "Proxy security appears robust",
+    "Consider regular proxy security assessments",
+    "Monitor for new proxy-based vulnerabilities"
+  ]
+}

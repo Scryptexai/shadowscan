@@ -1,0 +1,19 @@
+{
+  "contracts": [
+    {
+      "name": "0g",
+      "address": "0x4B948d64dE1F71fCd12fB586f4c776421a35b3eE",
+      "chain_id": 56,
+      "chain_name": "BSC Mainnet",
+      "environment": "mainnet",
+      "added_at": 1758454453.9332263,
+      "scan_count": 0,
+      "vulnerability_count": 0,
+      "last_scan": null,
+      "abi_file": "",
+      "source_code": "",
+      "verified": false
+    }
+  ],
+  "last_updated": 1758454453.9416735
+}
