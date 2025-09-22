@@ -24,6 +24,7 @@ class GhostScanDatabase:
         self.contracts_file = self.db_path / "contracts.json"
         self.vulnerabilities_file = self.db_path / "vulnerabilities.json"
         self.reports_file = self.db_path / "reports.json"
+        self.addresses_file = self.db_path / "addresses.json"
         self.config_file = self.db_path / "config.json"
 
         # Initialize database files
@@ -44,6 +45,7 @@ class GhostScanDatabase:
             "contracts": {"contracts": [], "last_updated": time.time()},
             "vulnerabilities": {"vulnerabilities": [], "last_updated": time.time()},
             "reports": {"reports": [], "last_updated": time.time()},
+            "addresses": {"addresses": [], "last_updated": time.time()},
             "config": {"version": "1.0", "last_updated": time.time()}
         }
 
@@ -215,6 +217,14 @@ class GhostScanDatabase:
             data["last_updated"] = time.time()
             return self._save_data(self.vulnerabilities_file, data, "vulnerabilities")
 
+    def add_vulnerabilities(self, vuln_list: List[Dict[str, Any]]) -> bool:
+        """Add multiple vulnerability findings"""
+        with self._lock:
+            data = self._load_data(self.vulnerabilities_file, "vulnerabilities")
+            data["vulnerabilities"].extend(vuln_list)
+            data["last_updated"] = time.time()
+            return self._save_data(self.vulnerabilities_file, data, "vulnerabilities")
+
     def get_vulnerabilities(self, contract_address: str = None, severity: str = None) -> List[Dict[str, Any]]:
         """Get vulnerabilities, optionally filtered"""
         with self._lock:
@@ -273,6 +283,18 @@ class GhostScanDatabase:
             data["reports"].append(report_data)
             data["last_updated"] = time.time()
             return self._save_data(self.reports_file, data, "reports")
+
+    def add_address(self, address_data: Dict[str, Any]) -> bool:
+        """Add a new address data"""
+        with self._lock:
+            data = self._load_data(self.addresses_file, "addresses")
+            data["addresses"].append(address_data)
+            data["last_updated"] = time.time()
+            return self._save_data(self.addresses_file, data, "addresses")
+
+    def get_addresses(self) -> List[Dict[str, Any]]:
+        """Get all addresses"""
+        return self._load_data(self.addresses_file, "addresses").get("addresses", [])
 
     def get_reports(self, contract_address: str = None, scan_type: str = None) -> List[Dict[str, Any]]:
         """Get reports, optionally filtered"""

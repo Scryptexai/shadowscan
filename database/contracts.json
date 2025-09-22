@@ -13,7 +13,2293 @@
       "abi_file": "",
       "source_code": "",
       "verified": false
+    },
+    {
+      "name": "SHIB Token Real",
+      "address": "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE",
+      "chain_id": 1,
+      "symbol": "SHIB",
+      "decimals": 18,
+      "total_supply": 999982338526316511947999622632193,
+      "block_number": 23394328,
+      "is_real": true,
+      "balance_check": 0
+    },
+    {
+      "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+      "name": "Uniswap V3",
+      "description": "Leading DEX on Ethereum with concentrated liquidity",
+      "category": "DEX",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 8000000000,
+      "daily_volume_usd": 200000000,
+      "security_score": 9,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "FRONT_RUNNING",
+        "LIQUIDITY_MANIPULATION"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.567608"
+    },
+    {
+      "address": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+      "name": "Aave V3",
+      "description": "Decentralized lending protocol with multi-chain support",
+      "category": "LENDING",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 12000000000,
+      "daily_volume_usd": 50000000,
+      "security_score": 8,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "FLASH_LOAN_MANIPULATION",
+        "ACCESS_CONTROL"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.573102"
+    },
+    {
+      "address": "0x7599435742aF8daD9fDCb911EF2D8187f836Fb49",
+      "name": "Compound V3",
+      "description": "Algorithmic money markets with efficient capital",
+      "category": "LENDING",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 5000000000,
+      "daily_volume_usd": 30000000,
+      "security_score": 8,
+      "attack_surface": [
+        "ACCESS_CONTROL",
+        "ORACLE_MANIPULATION",
+        "REENTRANCY"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.576163"
+    },
+    {
+      "address": "0x7D86446dDb609eD0F5e22B666E33e93375002733",
+      "name": "Curve Finance",
+      "description": "Low-sliding DEX for stablecoins and ETH",
+      "category": "DEX",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 15000000000,
+      "daily_volume_usd": 100000000,
+      "security_score": 7,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "INVARIANT_BUGS",
+        "FLASH_LOAN_MANIPULATION"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.579121"
+    },
+    {
+      "address": "0xba12222222228d8ba445958a75a0704d566bf2c8",
+      "name": "Balancer V2",
+      "description": "Automated market maker with customizable pools",
+      "category": "DEX",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 2000000000,
+      "daily_volume_usd": 40000000,
+      "security_score": 8,
+      "attack_surface": [
+        "INVARIANT_BUGS",
+        "ORACLE_MANIPULATION",
+        "FRONT_RUNNING"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.582824"
+    },
+    {
+      "address": "0x398eC7346DcD622eDc5EADb3F6F5E7e819f4bE8c",
+      "name": "SushiSwap",
+      "description": "Decentralized exchange and yield farming platform",
+      "category": "DEX",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 1000000000,
+      "daily_volume_usd": 50000000,
+      "security_score": 7,
+      "attack_surface": [
+        "REENTRANCY",
+        "ACCESS_CONTROL",
+        "APPROVAL_MISUSE"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.585592"
+    },
+    {
+      "address": "0x9759A6Ac90977b93B585Ef7Df45FD2929F9A46bA",
+      "name": "MakerDAO",
+      "description": "Decentralized stablecoin system with governance",
+      "category": "STABLECOIN",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 8000000000,
+      "daily_volume_usd": 10000000,
+      "security_score": 9,
+      "attack_surface": [
+        "ACCESS_CONTROL",
+        "GOVERNANCE_TAKEOVER",
+        "ORACLE_MANIPULATION"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.588653"
+    },
+    {
+      "address": "0x4e3B29C1D9937024395B7f70F5A56A5B5e3B22C1",
+      "name": "Convex Finance",
+      "description": "Optimization platform for Curve Finance",
+      "category": "YIELD_OPTIMIZER",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 3000000000,
+      "daily_volume_usd": 20000000,
+      "security_score": 7,
+      "attack_surface": [
+        "DELEGATECALL_UNTRUSTED",
+        "ACCESS_CONTROL",
+        "STORAGE_COLLISION"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.590709"
+    },
+    {
+      "address": "0x13f11cBFda3968E602d43b314e1237b5e545A652",
+      "name": "Yearn Finance",
+      "description": "Aggregator for yield farming strategies",
+      "category": "YIELD_OPTIMIZER",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 2500000000,
+      "daily_volume_usd": 15000000,
+      "security_score": 7,
+      "attack_surface": [
+        "DELEGATECALL_UNTRUSTED",
+        "FLASH_LOAN_MANIPULATION",
+        "ACCESS_CONTROL"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.592586"
+    },
+    {
+      "address": "0x4Da214F4E210Ff01D29d7A75835A5D369C216840",
+      "name": "Lynpo Finance",
+      "description": "Staking and yield optimization protocol",
+      "category": "STAKING",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "tvl_usd": 500000000,
+      "daily_volume_usd": 5000000,
+      "security_score": 6,
+      "attack_surface": [
+        "ACCESS_CONTROL",
+        "SUPPLY_MANIPULATION",
+        "REENTRANCY"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.594282"
+    },
+    {
+      "address": "0xa5e0829caced8ffdd4de3c43696c57f7d7a678ff",
+      "name": "QuickSwap",
+      "description": "Leading DEX on Polygon with Ethereum compatibility",
+      "category": "DEX",
+      "chain_id": 137,
+      "chain_name": "polygon_mainnet",
+      "tvl_usd": 1000000000,
+      "daily_volume_usd": 80000000,
+      "security_score": 7,
+      "attack_surface": [
+        "REENTRANCY",
+        "ORACLE_MANIPULATION",
+        "FRONT_RUNNING"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.595973"
+    },
+    {
+      "address": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+      "name": "Aave Polygon",
+      "description": "Aave protocol deployed on Polygon",
+      "category": "LENDING",
+      "chain_id": 137,
+      "chain_name": "polygon_mainnet",
+      "tvl_usd": 800000000,
+      "daily_volume_usd": 20000000,
+      "security_score": 8,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "FLASH_LOAN_MANIPULATION",
+        "ACCESS_CONTROL"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.597640"
+    },
+    {
+      "address": "0x4cB159DDB976EA5A8B3dB6Dc79089c34752B0134",
+      "name": "Curve Polygon",
+      "description": "Curve Finance on Polygon network",
+      "category": "DEX",
+      "chain_id": 137,
+      "chain_name": "polygon_mainnet",
+      "tvl_usd": 600000000,
+      "daily_volume_usd": 30000000,
+      "security_score": 7,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "INVARIANT_BUGS",
+        "FLASH_LOAN_MANIPULATION"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.599686"
+    },
+    {
+      "address": "0xc36442b4a4522e871399cd717aBDD847Ab11FE88",
+      "name": "PancakeSwap",
+      "description": "Leading DEX on BSC with farming rewards",
+      "category": "DEX",
+      "chain_id": 56,
+      "chain_name": "bsc_mainnet",
+      "tvl_usd": 2000000000,
+      "daily_volume_usd": 100000000,
+      "security_score": 6,
+      "attack_surface": [
+        "REENTRANCY",
+        "APPROVAL_MISUSE",
+        "ACCESS_CONTROL"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.601071"
+    },
+    {
+      "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+      "name": "Venus Protocol",
+      "description": "Market creating and borrowing platform on BSC",
+      "category": "LENDING",
+      "chain_id": 56,
+      "chain_name": "bsc_mainnet",
+      "tvl_usd": 1500000000,
+      "daily_volume_usd": 50000000,
+      "security_score": 6,
+      "attack_surface": [
+        "ACCESS_CONTROL",
+        "ORACLE_MANIPULATION",
+        "SUPPLY_MANIPULATION"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.602737"
+    },
+    {
+      "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+      "name": "Uniswap V3 Arbitrum",
+      "description": "Uniswap V3 deployed on Arbitrum",
+      "category": "DEX",
+      "chain_id": 42161,
+      "chain_name": "arbitrum_one",
+      "tvl_usd": 3000000000,
+      "daily_volume_usd": 400000000,
+      "security_score": 9,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "FRONT_RUNNING",
+        "LIQUIDITY_MANIPULATION"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.604136"
+    },
+    {
+      "address": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+      "name": "Aave Arbitrum",
+      "description": "Aave protocol on Arbitrum One",
+      "category": "LENDING",
+      "chain_id": 42161,
+      "chain_name": "arbitrum_one",
+      "tvl_usd": 2000000000,
+      "daily_volume_usd": 100000000,
+      "security_score": 8,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "FLASH_LOAN_MANIPULATION",
+        "ACCESS_CONTROL"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.605676"
+    },
+    {
+      "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+      "name": "Uniswap V3 Optimism",
+      "description": "Uniswap V3 on Optimism network",
+      "category": "DEX",
+      "chain_id": 10,
+      "chain_name": "optimism",
+      "tvl_usd": 1500000000,
+      "daily_volume_usd": 150000000,
+      "security_score": 9,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "FRONT_RUNNING",
+        "LIQUIDITY_MANIPULATION"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.607234"
+    },
+    {
+      "address": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+      "name": "Aave Optimism",
+      "description": "Aave protocol on Optimism",
+      "category": "LENDING",
+      "chain_id": 10,
+      "chain_name": "optimism",
+      "tvl_usd": 800000000,
+      "daily_volume_usd": 30000000,
+      "security_score": 8,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "FLASH_LOAN_MANIPULATION",
+        "ACCESS_CONTROL"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.608675"
+    },
+    {
+      "address": "0x6e224f9e1416b0e505a5a9d34c1ab04af5143746",
+      "name": "Trader Joe",
+      "description": "Leading DEX on Avalanche",
+      "category": "DEX",
+      "chain_id": 43114,
+      "chain_name": "avalanche",
+      "tvl_usd": 1000000000,
+      "daily_volume_usd": 120000000,
+      "security_score": 7,
+      "attack_surface": [
+        "REENTRANCY",
+        "ORACLE_MANIPULATION",
+        "FRONT_RUNNING"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.610167"
+    },
+    {
+      "address": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+      "name": "BenQi",
+      "description": "Liquid staking and lending protocol on Avalanche",
+      "category": "LENDING",
+      "chain_id": 43114,
+      "chain_name": "avalanche",
+      "tvl_usd": 800000000,
+      "daily_volume_usd": 50000000,
+      "security_score": 7,
+      "attack_surface": [
+        "ORACLE_MANIPULATION",
+        "FLASH_LOAN_MANIPULATION",
+        "ACCESS_CONTROL"
+      ],
+      "scan_type": "TEST_SCAN",
+      "scanned_at": "2025-09-21T15:36:24.611801"
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "name": "NewSwapRouter_v2",
+      "description": "New DEX router with advanced trading features",
+      "category": "router",
+      "chain_id": 137,
+      "chain_name": "polygon_mainnet",
+      "is_verified": true,
+      "functions_count": 25,
+      "discovery_keyword": "router_v2",
+      "discovery_category": "router",
+      "activity_score": 5.0,
+      "total_transfers": 5000,
+      "unique_addresses": 1200,
+      "risk_score": 12,
+      "risk_level": "CRITICAL",
+      "risk_factors": [
+        "Router pattern detected: router_v2",
+        "Vulnerability pattern: reentrancy",
+        "Vulnerability pattern: unchecked_call",
+        "Control function detected: onlyowner"
+      ],
+      "discovered_at": "2025-09-21T16:02:52.038485",
+      "scan_type": "SIMULATED_DISCOVERY",
+      "last_updated": "2025-09-21T16:02:52.038551"
+    },
+    {
+      "address": "0x2345678901234567890123456789012345678901",
+      "name": "LiquidityPool_V3",
+      "description": "Advanced liquidity pool with concentrated liquidity",
+      "category": "lp_pool",
+      "chain_id": 137,
+      "chain_name": "polygon_mainnet",
+      "is_verified": true,
+      "functions_count": 35,
+      "discovery_keyword": "v3",
+      "discovery_category": "lp_pool",
+      "activity_score": 8.5,
+      "total_transfers": 15000,
+      "unique_addresses": 3500,
+      "risk_score": 15,
+      "risk_level": "CRITICAL",
+      "risk_factors": [
+        "Liquidity pool detected: v3",
+        "Vulnerability pattern: reentrancy",
+        "Vulnerability pattern: flash_loan",
+        "Vulnerability pattern: oracle_manipulation"
+      ],
+      "discovered_at": "2025-09-21T16:02:52.038505",
+      "scan_type": "SIMULATED_DISCOVERY",
+      "last_updated": "2025-09-21T16:02:52.043506"
+    },
+    {
+      "address": "0x3456789012345678901234545678901234567890",
+      "name": "ControlManager",
+      "description": "Protocol control and governance contract",
+      "category": "control",
+      "chain_id": 137,
+      "chain_name": "polygon_mainnet",
+      "is_verified": false,
+      "functions_count": 15,
+      "discovery_keyword": "controller",
+      "discovery_category": "control",
+      "activity_score": 2.0,
+      "total_transfers": 2000,
+      "unique_addresses": 500,
+      "risk_score": 18,
+      "risk_level": "CRITICAL",
+      "risk_factors": [
+        "Control function detected: controller",
+        "Vulnerability pattern: access_control",
+        "Vulnerability pattern: governance_takeover",
+        "Vulnerability pattern: onlyowner"
+      ],
+      "discovered_at": "2025-09-21T16:02:52.038511",
+      "scan_type": "SIMULATED_DISCOVERY",
+      "last_updated": "2025-09-21T16:02:52.045908"
+    },
+    {
+      "address": "0x456789012345678901234567890123456787890",
+      "name": "ArbitrageDEX_v2",
+      "description": "DEX specialized in arbitrage trading",
+      "category": "router",
+      "chain_id": 42161,
+      "chain_name": "arbitrum_one",
+      "is_verified": true,
+      "functions_count": 40,
+      "discovery_keyword": "arbitrage",
+      "discovery_category": "router",
+      "activity_score": 9.5,
+      "total_transfers": 25000,
+      "unique_addresses": 8000,
+      "risk_score": 20,
+      "risk_level": "CRITICAL",
+      "risk_factors": [
+        "Router pattern detected: arbitrage",
+        "Vulnerability pattern: flash_loan",
+        "Vulnerability pattern: oracle_manipulation",
+        "Vulnerability pattern: front_running",
+        "Vulnerability pattern: reentrancy"
+      ],
+      "discovered_at": "2025-09-21T16:02:52.038525",
+      "scan_type": "SIMULATED_DISCOVERY",
+      "last_updated": "2025-09-21T16:02:52.047915"
+    },
+    {
+      "address": "0x5678901234567890123456789012345678901234",
+      "name": "YieldOptimizer_V3",
+      "description": "Advanced yield optimization protocol",
+      "category": "lp_pool",
+      "chain_id": 10,
+      "chain_name": "optimism",
+      "is_verified": true,
+      "functions_count": 30,
+      "discovery_keyword": "optimization",
+      "discovery_category": "lp_pool",
+      "activity_score": 4.5,
+      "total_transfers": 8000,
+      "unique_addresses": 2000,
+      "risk_score": 14,
+      "risk_level": "HIGH",
+      "risk_factors": [
+        "Liquidity pool detected: optimization",
+        "Vulnerability pattern: flash_loan",
+        "Vulnerability pattern: access_control",
+        "Vulnerability pattern: time_dependence"
+      ],
+      "discovered_at": "2025-09-21T16:02:52.038531",
+      "scan_type": "SIMULATED_DISCOVERY",
+      "last_updated": "2025-09-21T16:02:52.050215"
+    },
+    {
+      "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+      "name": "Uniswap V3 Router",
+      "description": "Uniswap V3 Exchange Router",
+      "category": "router",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "is_verified": true,
+      "functions_count": 39,
+      "discovery_keyword": "uniswap",
+      "discovery_category": "router",
+      "activity_score": 10,
+      "total_transfers": 10000,
+      "unique_addresses": 78,
+      "risk_score": 8,
+      "risk_level": "HIGH",
+      "risk_factors": [
+        "Front-running",
+        "Oracle manipulation",
+        "Reentrancy"
+      ],
+      "discovered_at": "2025-09-21T16:36:58.961066",
+      "scan_type": "REAL_BLOCKCHAIN_SCAN",
+      "last_updated": "2025-09-21T16:37:19.377486"
+    },
+    {
+      "address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+      "name": "Uniswap V2 Router",
+      "description": "Uniswap V2 Router",
+      "category": "router",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "is_verified": true,
+      "functions_count": 24,
+      "discovery_keyword": "uniswap",
+      "discovery_category": "router",
+      "activity_score": 10,
+      "total_transfers": 10000,
+      "unique_addresses": 580,
+      "risk_score": 8,
+      "risk_level": "MEDIUM",
+      "risk_factors": [
+        "Front-running",
+        "Impermanent loss"
+      ],
+      "discovered_at": "2025-09-21T16:37:06.628581",
+      "scan_type": "REAL_BLOCKCHAIN_SCAN",
+      "last_updated": "2025-09-21T16:37:19.393029"
+    },
+    {
+      "address": "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+      "name": "Aave V3 Lending Pool",
+      "description": "Aave V3 Lending Pool",
+      "category": "lending",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "is_verified": true,
+      "functions_count": 5,
+      "discovery_keyword": "aave",
+      "discovery_category": "lending",
+      "activity_score": 10,
+      "total_transfers": 10000,
+      "unique_addresses": 623,
+      "risk_score": 9,
+      "risk_level": "CRITICAL",
+      "risk_factors": [
+        "Flash loan attacks",
+        "Oracle manipulation",
+        "Access control"
+      ],
+      "discovered_at": "2025-09-21T16:37:15.671224",
+      "scan_type": "REAL_BLOCKCHAIN_SCAN",
+      "last_updated": "2025-09-21T16:37:19.398478"
+    },
+    {
+      "address": "0x7599435742aF8daD9fDCb911EF2D8187f836Fb49",
+      "name": "Compound V3 Lending Pool",
+      "description": "Compound V3 Lending Pool",
+      "category": "lending",
+      "chain_id": 1,
+      "chain_name": "ethereum_mainnet",
+      "is_verified": false,
+      "functions_count": 0,
+      "discovery_keyword": "compound",
+      "discovery_category": "lending",
+      "activity_score": 0.0,
+      "total_transfers": 0,
+      "unique_addresses": 0,
+      "risk_score": 9,
+      "risk_level": "HIGH",
+      "risk_factors": [
+        "Oracle manipulation",
+        "Liquidation attacks"
+      ],
+      "discovered_at": "2025-09-21T16:37:16.263013",
+      "scan_type": "REAL_BLOCKCHAIN_SCAN",
+      "last_updated": "2025-09-21T16:37:19.423343"
+    },
+    {
+      "address": "0xa5e0829caced8ffdd4de3c43696c57f7d7a678ff",
+      "name": "QuickSwap Router",
+      "description": "QuickSwap V2 Router on Polygon",
+      "category": "router",
+      "chain_id": 137,
+      "chain_name": "polygon_mainnet",
+      "is_verified": false,
+      "functions_count": 0,
+      "discovery_keyword": "quickswap",
+      "discovery_category": "router",
+      "activity_score": 0,
+      "total_transfers": 0,
+      "unique_addresses": 0,
+      "risk_score": 8,
+      "risk_level": "MEDIUM",
+      "risk_factors": [
+        "Front-running",
+        "Liquidity manipulation"
+      ],
+      "discovered_at": "2025-09-21T16:37:17.428951",
+      "scan_type": "REAL_BLOCKCHAIN_SCAN",
+      "last_updated": "2025-09-21T16:37:19.429521"
+    },
+    {
+      "address": "0x4cB159DDB976EA5A8B3dB6Dc79089c34752B0134",
+      "name": "Curve Polygon Pool",
+      "description": "Curve Finance Pool on Polygon",
+      "category": "lp_pool",
+      "chain_id": 137,
+      "chain_name": "polygon_mainnet",
+      "is_verified": false,
+      "functions_count": 0,
+      "discovery_keyword": "curve",
+      "discovery_category": "lp_pool",
+      "activity_score": 0,
+      "total_transfers": 0,
+      "unique_addresses": 0,
+      "risk_score": 7,
+      "risk_level": "HIGH",
+      "risk_factors": [
+        "Price oracle manipulation",
+        "Stableswap issues"
+      ],
+      "discovered_at": "2025-09-21T16:37:17.907190",
+      "scan_type": "REAL_BLOCKCHAIN_SCAN",
+      "last_updated": "2025-09-21T16:37:19.435042"
+    },
+    {
+      "address": "0xc36442b4a4522e871399cd717aBDD847Ab11FE88",
+      "name": "PancakeSwap Router",
+      "description": "PancakeSwap Router on BSC",
+      "category": "router",
+      "chain_id": 56,
+      "chain_name": "bsc_mainnet",
+      "is_verified": false,
+      "functions_count": 0,
+      "discovery_keyword": "pancake",
+      "discovery_category": "router",
+      "activity_score": 0,
+      "total_transfers": 0,
+      "unique_addresses": 0,
+      "risk_score": 8,
+      "risk_level": "MEDIUM",
+      "risk_factors": [
+        "Front-running",
+        "Centralization risks"
+      ],
+      "discovered_at": "2025-09-21T16:37:19.377394",
+      "scan_type": "REAL_BLOCKCHAIN_SCAN",
+      "last_updated": "2025-09-21T16:37:19.437546"
+    },
+    {
+      "address": "0x3456789012345667890123456789012345678902",
+      "name": "Token-0x345678",
+      "symbol": "TKN-678902",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x345678",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:38.895264",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:38.895289",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0xA0b86a33E6417aAb7b6DbCBbe9FD4E89c0778a4B",
+      "name": "Token-0xA0b86a",
+      "symbol": "TKN-778a4B",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0xA0b86a",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:39.231441",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:39.231455",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+      "name": "Token-0x7Fc665",
+      "symbol": "TKN-2DDaE9",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x7Fc665",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:39.546906",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:39.546929",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x2345678901234567890123456789012345678901",
+      "name": "Token-0x234567",
+      "symbol": "TKN-678901",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x234567",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:39.873135",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:39.873161",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+      "name": "Token-0x1f9840",
+      "symbol": "TKN-01F984",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x1f9840",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:40.204356",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:40.204381",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "name": "Token-0x123456",
+      "symbol": "TKN-567890",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x123456",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:40.537629",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:40.537656",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+      "name": "Token-0x2260FA",
+      "symbol": "TKN-c2C599",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x2260FA",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:40.865757",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:40.865795",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "name": "Token-0x6B1754",
+      "symbol": "TKN-271d0F",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x6B1754",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:41.194436",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:41.194457",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "Token-0x000000",
+      "symbol": "TKN-000000",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x000000",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:41.523665",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:41.523678",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x397FF1542f962076d0Bfe6e1108e375B62E3F2a3",
+      "name": "Token-0x397FF1",
+      "symbol": "TKN-E3F2a3",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x397FF1",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:41.855326",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:41.855340",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "name": "Token-0x7ceB23",
+      "symbol": "TKN-b9f619",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x7ceB23",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:43.125021",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:43.125040",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x3456789012345667890123456789012345678902",
+      "name": "Token-0x345678",
+      "symbol": "TKN-678902",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x345678",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:43.443261",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:43.443289",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x2345678901234567890123456789012345678901",
+      "name": "Token-0x234567",
+      "symbol": "TKN-678901",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x234567",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:43.774473",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:43.774500",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "name": "Token-0x123456",
+      "symbol": "TKN-567890",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x123456",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:44.102455",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:44.102481",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "name": "Token-0x0d500B",
+      "symbol": "TKN-Df1270",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x0d500B",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:44.423478",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:44.423502",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "name": "Token-0x7ceb23",
+      "symbol": "TKN-b9f619",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x7ceb23",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:44.739421",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:44.739448",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x3456789012345667890123456789012345678902",
+      "name": "Token-0x345678",
+      "symbol": "TKN-678902",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x345678",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:45.317385",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:45.317398",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x2345678901234567890123456789012345678901",
+      "name": "Token-0x234567",
+      "symbol": "TKN-678901",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x234567",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:45.606333",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:45.606347",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "name": "Token-0x123456",
+      "symbol": "TKN-567890",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x123456",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:45.897579",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:45.897607",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x912CE59144191C1204E64559E54c3F30In9aF8DF",
+      "name": "Token-0x912CE5",
+      "symbol": "TKN-9aF8DF",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x912CE5",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:46.202495",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:46.202523",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x82aF49447D8a07e3bdEBe6E8526d6e3a302af3b7",
+      "name": "Token-0x82aF49",
+      "symbol": "TKN-2af3b7",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x82aF49",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:40:46.522184",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:40:46.522204",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x397FF1542f962076d0Bfe6e1108e375B62E3F2a3",
+      "name": "Token-0x397FF1",
+      "symbol": "TKN-E3F2a3",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x397FF1",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:27.082829",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:27.082862",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+      "name": "Token-0x6B1754",
+      "symbol": "TKN-271d0F",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x6B1754",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:28.439043",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:28.439086",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "name": "Token-0x123456",
+      "symbol": "TKN-567890",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x123456",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:29.776613",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:29.776627",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+      "name": "Token-0x7Fc665",
+      "symbol": "TKN-2DDaE9",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x7Fc665",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:31.118054",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:31.118084",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x2345678901234567890123456789012345678901",
+      "name": "Token-0x234567",
+      "symbol": "TKN-678901",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x234567",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:32.455943",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:32.455964",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0xA0b86a33E6417aAb7b6DbCBbe9FD4E89c0778a4B",
+      "name": "Token-0xA0b86a",
+      "symbol": "TKN-778a4B",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0xA0b86a",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:33.814648",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:33.814675",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x3456789012345667890123456789012345678902",
+      "name": "Token-0x345678",
+      "symbol": "TKN-678902",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x345678",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:35.154344",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:35.154357",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+      "name": "Token-0x1f9840",
+      "symbol": "TKN-01F984",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x1f9840",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:36.507727",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:36.507761",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x0000000000000000000000000000000000000000",
+      "name": "Token-0x000000",
+      "symbol": "TKN-000000",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x000000",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:37.847410",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:37.847454",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+      "name": "Token-0x2260FA",
+      "symbol": "TKN-c2C599",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "ethereum_mainnet",
+      "chain_id": 1,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x2260FA",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:39.197851",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:39.197877",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "name": "Token-0x0d500B",
+      "symbol": "TKN-Df1270",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x0d500B",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:41.448809",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:41.448836",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "name": "Token-0x7ceB23",
+      "symbol": "TKN-b9f619",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x7ceB23",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:42.761105",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:42.761123",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "name": "Token-0x123456",
+      "symbol": "TKN-567890",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x123456",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:44.090414",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:44.090451",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "name": "Token-0x7ceb23",
+      "symbol": "TKN-b9f619",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x7ceb23",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:45.408398",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:45.408412",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x2345678901234567890123456789012345678901",
+      "name": "Token-0x234567",
+      "symbol": "TKN-678901",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x234567",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:46.726241",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:46.726259",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x3456789012345667890123456789012345678902",
+      "name": "Token-0x345678",
+      "symbol": "TKN-678902",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "polygon_mainnet",
+      "chain_id": 137,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x345678",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:48.040122",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:48.040141",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x1234567890123456789012345678901234567890",
+      "name": "Token-0x123456",
+      "symbol": "TKN-567890",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x123456",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:49.617787",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:49.617807",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x2345678901234567890123456789012345678901",
+      "name": "Token-0x234567",
+      "symbol": "TKN-678901",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x234567",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:50.939466",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:50.939520",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x3456789012345667890123456789012345678902",
+      "name": "Token-0x345678",
+      "symbol": "TKN-678902",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x345678",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:52.278886",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:52.278981",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x912CE59144191C1204E64559E54c3F30In9aF8DF",
+      "name": "Token-0x912CE5",
+      "symbol": "TKN-9aF8DF",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x912CE5",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:53.605124",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:53.605164",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
+    },
+    {
+      "address": "0x82aF49447D8a07e3bdEBe6E8526d6e3a302af3b7",
+      "name": "Token-0x82aF49",
+      "symbol": "TKN-2af3b7",
+      "description": "Mock token contract for demonstration",
+      "category": "token",
+      "chain_name": "arbitrum_one",
+      "chain_id": 42161,
+      "is_verified": true,
+      "token_type": "ERC20",
+      "decimals": 18,
+      "total_supply": 1000000000000000000000000000,
+      "functions_count": 9,
+      "risk_score": 8,
+      "risk_level": "LOW",
+      "vulnerabilities": [
+        {
+          "pattern": "transfer",
+          "name": "Token Transfer Reentrancy",
+          "impact": "CRITICAL",
+          "description": "Potential reentrancy vulnerability in transfer function",
+          "detection_signs": [
+            "transfer(address,uint256)"
+          ],
+          "exploit_potential": 8.0,
+          "difficulty": "HIGH",
+          "contract_name": "Token-0x82aF49",
+          "contract_address": "unknown"
+        }
+      ],
+      "discovered_at": "2025-09-21T17:42:54.928383",
+      "scan_type": "TOKEN_VULNERABILITY_SCAN",
+      "last_updated": "2025-09-21T17:42:54.928411",
+      "vulnerability_count": 1,
+      "risk_factors": [
+        "Token Transfer Reentrancy: CRITICAL"
+      ]
     }
   ],
-  "last_updated": 1758454453.9416735
+  "last_updated": 1758476574.9284506
 }

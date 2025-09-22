@@ -5,7 +5,18 @@
       "rpc_url": "https://test.example.com",
       "chain_id": 999,
       "environment": "test"
+    },
+    {
+      "name": "SHIB Testnet Real",
+      "rpc_url": "https://virtual.mainnet.eu.rpc.tenderly.co/17266b31-1ba8-484f-9e46-c5b5016fefaf",
+      "chain_id": 1,
+      "environment": "tenderly",
+      "block_number": 23394328,
+      "timestamp": 1758410387,
+      "is_real": true,
+      "gas_price": 10000000001,
+      "connection_status": "connected"
     }
   ],
-  "last_updated": 1758439762.0288486
+  "last_updated": 1758462231.1643038
 }

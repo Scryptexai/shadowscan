@@ -1,0 +1,46 @@
+{
+  "scan_metadata": {
+    "scan_date": "2025-09-22T04:16:18.150577",
+    "scan_phase": "phase_1",
+    "scan_tool": "Phase1DiscoveryScanner",
+    "total_sources": 4,
+    "total_chains": 10
+  },
+  "protocols": [],
+  "discovered_websites": [
+    {
+      "protocol_name": "defipulse",
+      "website": "https://twitter.com/defipulse",
+      "blockchain": "unknown",
+      "chain_id": 0,
+      "category": "DEFI",
+      "subcategory": "AGGREGATOR",
+      "maturity_level": "EMERGING",
+      "age_months": 2,
+      "risk_level": "MEDIUM",
+      "keywords": [],
+      "social_media": {},
+      "discovery_source": "https://defipulse.com",
+      "discovery_date": "2025-09-22T04:16:40.684595",
+      "last_updated": "2025-09-22T04:16:40.684612"
+    },
+    {
+      "protocol_name": "defipulse",
+      "website": "https://twitter.com/defipulse",
+      "blockchain": "unknown",
+      "chain_id": 0,
+      "category": "DEFI",
+      "subcategory": "AGGREGATOR",
+      "maturity_level": "EMERGING",
+      "age_months": 2,
+      "risk_level": "MEDIUM",
+      "keywords": [],
+      "social_media": {},
+      "discovery_source": "https://defipulse.com",
+      "discovery_date": "2025-09-22T04:16:40.684797",
+      "last_updated": "2025-09-22T04:16:40.684805"
+    }
+  ],
+  "chain_coverage": {},
+  "categories_found": []
+}

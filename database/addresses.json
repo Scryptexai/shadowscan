@@ -1,0 +1,14 @@
+{
+  "addresses": [
+    {
+      "address": "0x609748df45d43c99298F5C0A0E46b57340d06E90",
+      "chain_id": 1,
+      "eth_balance": 6981335129999827471,
+      "shib_balance": 0,
+      "shib_allowance": 0,
+      "block_number": 23394328,
+      "is_real": true
+    }
+  ],
+  "last_updated": 1758462231.1761506
+}
