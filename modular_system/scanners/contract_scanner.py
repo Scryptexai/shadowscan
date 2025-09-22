@@ -88,8 +88,24 @@ class ContractScanner(BaseManager):
                 "api_key": get_config('network.etherscan_api_key', ''),
                 "rate_limit": 5  # calls per second
             },
+            "polygonscan": {
+                "base_url": "https://api.polygonscan.com/api",
+                "api_key": get_config('network.polygonscan_api_key', ''),
+                "rate_limit": 5
+            },
+            "bscscan": {
+                "base_url": "https://api.bscscan.com/api",
+                "api_key": get_config('network.bscscan_api_key', ''),
+                "rate_limit": 5
+            },
+            "arbiscan": {
+                "base_url": "https://api.arbiscan.io/api",
+                "api_key": get_config('network.arbiscan_api_key', ''),
+                "rate_limit": 5
+            },
             "blockscout": {
-                "base_url": "",
+                "base_url": get_config('network.blockscout_api_key', ''),  # Will be updated per chain
+                "api_key": get_config('network.blockscout_api_key', ''),
                 "rate_limit": 10
             },
             "berascan": {

@@ -90,7 +90,24 @@ class ConfigManager:
                 "max_retries": 3,
                 "retry_delay": 1,
                 "timeout": 30,
-                "user_agent": "ShadowScan-Scanner/1.0"
+                "user_agent": "ShadowScan-Scanner/1.0",
+                "etherscan_api_key": "",
+                "polygonscan_api_key": "",
+                "bscscan_api_key": "",
+                "arbiscan_api_key": "",
+                "infura_api_key": "",
+                "blockscout_api_key": "",
+                "eth_rpc_url": "",
+                "polygon_rpc_url": "",
+                "bsc_rpc_url": "",
+                "arb_rpc_url": "",
+                "opt_rpc_url": "",
+                "tenderly_rpc_bsc": "",
+                "tenderly_rpc_eth": "",
+                "tenderly_rpc_story": "",
+                "tenderly_account_slug": "",
+                "tenderly_project_slug": "",
+                "tenderly_api_key": ""
             },
             "scanning": {
                 "phase_1": {
@@ -144,12 +161,41 @@ class ConfigManager:
 
         # Environment variable mapping
         env_mappings = {
+            # System Configuration
             "SHADOWSCAN_DEBUG": "system.debug_mode",
             "SHADOWSCAN_LOG_LEVEL": "logging.level",
             "SHADOWSCAN_MAX_WORKERS": "system.max_workers",
             "SHADOWSCAN_TIMEOUT": "system.timeout",
             "SHADOWSCAN_DB_PATH": "database.path",
-            "SHADOWSCAN_DATA_DIR": "system.data_directory"
+            "SHADOWSCAN_DATA_DIR": "system.data_directory",
+
+            # Network Configuration
+            "SHADOWSCAN_USER_AGENT": "network.user_agent",
+            "SHADOWSCAN_MAX_RETRIES": "network.max_retries",
+            "SHADOWSCAN_RETRY_DELAY": "network.retry_delay",
+
+            # API Keys
+            "ETHERSCAN_API_KEY": "network.etherscan_api_key",
+            "POLYGONSCAN_API_KEY": "network.polygonscan_api_key",
+            "BSCSCAN_API_KEY": "network.bscscan_api_key",
+            "ARBISCAN_API_KEY": "network.arbiscan_api_key",
+            "INFURA_API_KEY": "network.infura_api_key",
+            "BLOCKSCOUT_API_KEY": "network.blockscout_api_key",
+
+            # Blockchain RPC URLs
+            "ETH_RPC_URL": "network.eth_rpc_url",
+            "POLYGON_RPC_URL": "network.polygon_rpc_url",
+            "BSC_RPC_URL": "network.bsc_rpc_url",
+            "ARB_RPC_URL": "network.arb_rpc_url",
+            "OPT_RPC_URL": "network.opt_rpc_url",
+
+            # Tenderly Configuration
+            "TENDERLY_RPC_BSC": "network.tenderly_rpc_bsc",
+            "TENDERLY_RPC_ETH": "network.tenderly_rpc_eth",
+            "TENDERLY_RPC_STORY": "network.tenderly_rpc_story",
+            "TENDERLY_ACCOUNT_SLUG": "network.tenderly_account_slug",
+            "TENDERLY_PROJECT_SLUG": "network.tenderly_project_slug",
+            "API_TENDERLY": "network.tenderly_api_key"
         }
 
         for env_var, config_path in env_mappings.items():
