@@ -34,7 +34,7 @@ class BaseManager(ABC):
         # Performance tracking
         self.performance_metrics = {}
 
-        logger.info(f"Initialized {name} manager at {self.created_at}")
+        self.logger.info(f"Initialized {name} manager at {self.created_at}")
 
     def _setup_logging(self):
         """Setup comprehensive logging system"""

@@ -1,0 +1,58 @@
+2025-09-22 10:04:07,859 - ModularSystemController - INFO - Initialized ModularSystemController manager at 2025-09-22 10:04:07.859397
+2025-09-22 10:04:07,860 - ModularSystemController - INFO - ModularSystemController initialized
+2025-09-22 10:04:07,860 - __main__ - ERROR - Unexpected error: name 'set_config' is not defined
+2025-09-22 10:04:52,309 - ModularSystemController - INFO - Initialized ModularSystemController manager at 2025-09-22 10:04:52.309543
+2025-09-22 10:04:52,313 - ModularSystemController - INFO - ModularSystemController initialized
+2025-09-22 10:04:52,313 - __main__ - INFO - Initializing modular scanning system...
+2025-09-22 10:04:52,314 - ModularSystemController - INFO - Initializing modular scanning system
+2025-09-22 10:04:52,325 - ModularSystemController - INFO - Directories setup completed
+2025-09-22 10:04:52,325 - ModularSystemController - ERROR - Component initialization failed: 'Phase3Runner' object has no attribute 'debug_mode'
+2025-09-22 10:04:52,325 - ModularSystemController - ERROR - Component initialization failed
+2025-09-22 10:04:52,328 - DiagnosticTools - INFO - Operation completed: ModularSystemController_initialize_system_1758535492314 - SUCCESS - Duration: 0.01s
+2025-09-22 10:04:52,328 - __main__ - ERROR - System initialization failed
+2025-09-22 10:13:03,938 - ModularSystemController - INFO - Initialized ModularSystemController manager at 2025-09-22 10:13:03.938329
+2025-09-22 10:13:03,941 - ModularSystemController - INFO - ModularSystemController initialized
+2025-09-22 10:13:03,941 - __main__ - INFO - Initializing modular scanning system...
+2025-09-22 10:13:03,941 - ModularSystemController - INFO - Initializing modular scanning system
+2025-09-22 10:13:03,947 - ModularSystemController - INFO - Directories setup completed
+2025-09-22 10:13:03,949 - Phase3Runner - INFO - Initialized Phase3Runner manager at 2025-09-22 10:13:03.948071
+2025-09-22 10:13:03,951 - ContractScanner - INFO - Initialized ContractScanner manager at 2025-09-22 10:13:03.950173
+2025-09-22 10:13:03,952 - ContractScanner - INFO - ContractScanner initialized
+2025-09-22 10:13:03,952 - Phase3Runner - INFO - Phase3Runner initialized
+2025-09-22 10:13:03,952 - ModularSystemController - INFO - Components initialization completed
+2025-09-22 10:13:03,953 - ModularSystemController - INFO - Modular scanning system initialized successfully
+2025-09-22 10:13:03,956 - DiagnosticTools - INFO - Operation completed: ModularSystemController_initialize_system_1758535983942 - SUCCESS - Duration: 0.01s
+2025-09-22 10:13:03,956 - __main__ - INFO - System initialized successfully
+2025-09-22 10:13:35,690 - ModularSystemController - INFO - Initialized ModularSystemController manager at 2025-09-22 10:13:35.690859
+2025-09-22 10:13:35,692 - ModularSystemController - INFO - ModularSystemController initialized
+2025-09-22 10:13:35,692 - __main__ - INFO - Starting Phase 3: Contract Intelligence Gathering...
+2025-09-22 10:13:35,692 - ModularSystemController - ERROR - System not ready. Current status: SystemStatus.INITIALIZING
+2025-09-22 10:13:35,692 - __main__ - ERROR - Failed to start Phase 3
+2025-09-22 10:14:07,351 - ModularSystemController - INFO - Initialized ModularSystemController manager at 2025-09-22 10:14:07.351801
+2025-09-22 10:14:07,352 - ModularSystemController - INFO - ModularSystemController initialized
+2025-09-22 10:14:07,353 - __main__ - INFO - Initializing modular scanning system...
+2025-09-22 10:14:07,353 - ModularSystemController - INFO - Initializing modular scanning system
+2025-09-22 10:14:07,359 - ModularSystemController - INFO - Directories setup completed
+2025-09-22 10:14:07,361 - Phase3Runner - INFO - Initialized Phase3Runner manager at 2025-09-22 10:14:07.360119
+2025-09-22 10:14:07,363 - ContractScanner - INFO - Initialized ContractScanner manager at 2025-09-22 10:14:07.361838
+2025-09-22 10:14:07,363 - ContractScanner - INFO - ContractScanner initialized
+2025-09-22 10:14:07,363 - Phase3Runner - INFO - Phase3Runner initialized
+2025-09-22 10:14:07,364 - ModularSystemController - INFO - Components initialization completed
+2025-09-22 10:14:07,364 - ModularSystemController - INFO - Modular scanning system initialized successfully
+2025-09-22 10:14:07,369 - DiagnosticTools - INFO - Operation completed: ModularSystemController_initialize_system_1758536047353 - SUCCESS - Duration: 0.01s
+2025-09-22 10:14:07,369 - __main__ - INFO - System initialized successfully
+2025-09-22 10:14:29,313 - ModularSystemController - INFO - Initialized ModularSystemController manager at 2025-09-22 10:14:29.313276
+2025-09-22 10:14:29,314 - ModularSystemController - INFO - ModularSystemController initialized
+2025-09-22 10:14:52,178 - ModularSystemController - INFO - Initialized ModularSystemController manager at 2025-09-22 10:14:52.178001
+2025-09-22 10:14:52,179 - ModularSystemController - INFO - ModularSystemController initialized
+2025-09-22 10:14:52,179 - __main__ - INFO - Initializing modular scanning system...
+2025-09-22 10:14:52,179 - ModularSystemController - INFO - Initializing modular scanning system
+2025-09-22 10:14:52,194 - ModularSystemController - INFO - Directories setup completed
+2025-09-22 10:14:52,200 - Phase3Runner - INFO - Initialized Phase3Runner manager at 2025-09-22 10:14:52.194696
+2025-09-22 10:14:52,203 - ContractScanner - INFO - Initialized ContractScanner manager at 2025-09-22 10:14:52.201295
+2025-09-22 10:14:52,204 - ContractScanner - INFO - ContractScanner initialized
+2025-09-22 10:14:52,204 - Phase3Runner - INFO - Phase3Runner initialized
+2025-09-22 10:14:52,205 - ModularSystemController - INFO - Components initialization completed
+2025-09-22 10:14:52,206 - ModularSystemController - INFO - Modular scanning system initialized successfully
+2025-09-22 10:14:52,214 - DiagnosticTools - INFO - Operation completed: ModularSystemController_initialize_system_1758536092179 - SUCCESS - Duration: 0.03s
+2025-09-22 10:14:52,214 - __main__ - INFO - System initialized successfully

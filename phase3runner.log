@@ -1,0 +1,11 @@
+2025-09-22 10:13:03,949 - Phase3Runner - INFO - __init__:37 - Initialized Phase3Runner manager at 2025-09-22 10:13:03.948071
+2025-09-22 10:13:03,952 - Phase3Runner - INFO - __init__:34 - Phase3Runner initialized
+2025-09-22 10:14:07,361 - Phase3Runner - INFO - __init__:37 - Initialized Phase3Runner manager at 2025-09-22 10:14:07.360119
+2025-09-22 10:14:07,363 - Phase3Runner - INFO - __init__:34 - Phase3Runner initialized
+2025-09-22 10:14:52,200 - Phase3Runner - INFO - __init__:37 - Initialized Phase3Runner manager at 2025-09-22 10:14:52.194696
+2025-09-22 10:14:52,204 - Phase3Runner - INFO - __init__:34 - Phase3Runner initialized
+2025-09-22 10:16:14,843 - Phase3Runner - INFO - __init__:37 - Initialized Phase3Runner manager at 2025-09-22 10:16:14.842987
+2025-09-22 10:16:14,848 - Phase3Runner - INFO - __init__:34 - Phase3Runner initialized
+2025-09-22 10:16:14,854 - Phase3Runner - INFO - run_phase_3:39 - Starting Phase 3: Contract and Backend Intelligence Gathering
+2025-09-22 10:16:14,862 - Phase3Runner - INFO - run_phase_3:48 - Starting contract scanning
+2025-09-22 10:16:14,897 - Phase3Runner - ERROR - run_phase_3:64 - Contract scanning failed

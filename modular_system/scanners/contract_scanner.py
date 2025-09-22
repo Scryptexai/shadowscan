@@ -55,7 +55,12 @@ class ContractScanner(BaseManager):
     """Advanced contract scanner with comprehensive intelligence gathering"""
 
     def __init__(self, config: Optional[Dict[str, Any]] = None):
-        super().__init__("ContractScanner", config)
+        # Initialize config first
+        self.config = config or {}
+        self.debug_mode = self.config.get('debug_mode', False)
+
+        # Now call parent with proper config
+        super().__init__("ContractScanner", self.config)
         self.diagnostic = DiagnosticTools()
 
         # Configuration

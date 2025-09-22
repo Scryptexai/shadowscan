@@ -1,0 +1,55 @@
+2025-09-22 10:04:07,840 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:04:07.836720
+2025-09-22 10:04:07,841 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:04:07,859 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:04:07.859397
+2025-09-22 10:04:07,860 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:04:52,285 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:04:52.284407
+2025-09-22 10:04:52,288 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:04:52,309 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:04:52.309543
+2025-09-22 10:04:52,313 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:04:52,314 - ModularSystemController - INFO - initialize_system:97 - Initializing modular scanning system
+2025-09-22 10:04:52,325 - ModularSystemController - INFO - _setup_directories:173 - Directories setup completed
+2025-09-22 10:04:52,325 - ModularSystemController - ERROR - _initialize_components:195 - Component initialization failed: 'Phase3Runner' object has no attribute 'debug_mode'
+2025-09-22 10:04:52,325 - ModularSystemController - ERROR - initialize_system:110 - Component initialization failed
+2025-09-22 10:13:03,919 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:13:03.917175
+2025-09-22 10:13:03,922 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:13:03,938 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:13:03.938329
+2025-09-22 10:13:03,941 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:13:03,941 - ModularSystemController - INFO - initialize_system:97 - Initializing modular scanning system
+2025-09-22 10:13:03,947 - ModularSystemController - INFO - _setup_directories:173 - Directories setup completed
+2025-09-22 10:13:03,952 - ModularSystemController - INFO - _initialize_components:191 - Components initialization completed
+2025-09-22 10:13:03,953 - ModularSystemController - INFO - initialize_system:122 - Modular scanning system initialized successfully
+2025-09-22 10:13:35,672 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:13:35.671248
+2025-09-22 10:13:35,673 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:13:35,690 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:13:35.690859
+2025-09-22 10:13:35,692 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:13:35,692 - ModularSystemController - ERROR - start_phase:243 - System not ready. Current status: SystemStatus.INITIALIZING
+2025-09-22 10:14:07,332 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:14:07.331054
+2025-09-22 10:14:07,332 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:14:07,351 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:14:07.351801
+2025-09-22 10:14:07,352 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:14:07,353 - ModularSystemController - INFO - initialize_system:97 - Initializing modular scanning system
+2025-09-22 10:14:07,359 - ModularSystemController - INFO - _setup_directories:173 - Directories setup completed
+2025-09-22 10:14:07,364 - ModularSystemController - INFO - _initialize_components:191 - Components initialization completed
+2025-09-22 10:14:07,364 - ModularSystemController - INFO - initialize_system:122 - Modular scanning system initialized successfully
+2025-09-22 10:14:29,283 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:14:29.281971
+2025-09-22 10:14:29,284 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:14:29,313 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:14:29.313276
+2025-09-22 10:14:29,314 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:14:52,140 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:14:52.137213
+2025-09-22 10:14:52,141 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:14:52,178 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:14:52.178001
+2025-09-22 10:14:52,179 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:14:52,179 - ModularSystemController - INFO - initialize_system:97 - Initializing modular scanning system
+2025-09-22 10:14:52,194 - ModularSystemController - INFO - _setup_directories:173 - Directories setup completed
+2025-09-22 10:14:52,205 - ModularSystemController - INFO - _initialize_components:191 - Components initialization completed
+2025-09-22 10:14:52,206 - ModularSystemController - INFO - initialize_system:122 - Modular scanning system initialized successfully
+2025-09-22 10:16:14,828 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:16:14.827480
+2025-09-22 10:16:14,832 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:16:14,833 - ModularSystemController - INFO - __init__:37 - Initialized ModularSystemController manager at 2025-09-22 10:16:14.833305
+2025-09-22 10:16:14,834 - ModularSystemController - INFO - __init__:74 - ModularSystemController initialized
+2025-09-22 10:16:14,834 - ModularSystemController - INFO - initialize_system:97 - Initializing modular scanning system
+2025-09-22 10:16:14,842 - ModularSystemController - INFO - _setup_directories:173 - Directories setup completed
+2025-09-22 10:16:14,848 - ModularSystemController - INFO - _initialize_components:191 - Components initialization completed
+2025-09-22 10:16:14,849 - ModularSystemController - INFO - initialize_system:122 - Modular scanning system initialized successfully
+2025-09-22 10:16:14,852 - ModularSystemController - INFO - start_phase:255 - Starting phase: SystemPhase.PHASE_3
+2025-09-22 10:16:14,905 - ModularSystemController - ERROR - _execute_phase:293 - Phase SystemPhase.PHASE_3 failed

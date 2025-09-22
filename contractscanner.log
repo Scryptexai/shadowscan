@@ -1,0 +1,17 @@
+2025-09-22 10:13:03,951 - ContractScanner - INFO - __init__:37 - Initialized ContractScanner manager at 2025-09-22 10:13:03.950173
+2025-09-22 10:13:03,952 - ContractScanner - INFO - __init__:81 - ContractScanner initialized
+2025-09-22 10:14:07,363 - ContractScanner - INFO - __init__:37 - Initialized ContractScanner manager at 2025-09-22 10:14:07.361838
+2025-09-22 10:14:07,363 - ContractScanner - INFO - __init__:81 - ContractScanner initialized
+2025-09-22 10:14:52,203 - ContractScanner - INFO - __init__:37 - Initialized ContractScanner manager at 2025-09-22 10:14:52.201295
+2025-09-22 10:14:52,204 - ContractScanner - INFO - __init__:81 - ContractScanner initialized
+2025-09-22 10:16:14,847 - ContractScanner - INFO - __init__:37 - Initialized ContractScanner manager at 2025-09-22 10:16:14.845889
+2025-09-22 10:16:14,847 - ContractScanner - INFO - __init__:81 - ContractScanner initialized
+2025-09-22 10:16:14,862 - ContractScanner - INFO - run:468 - Starting contract scanner
+2025-09-22 10:16:14,868 - ContractScanner - INFO - scan_database_contracts:427 - Scanning contracts for defipulse
+2025-09-22 10:16:14,868 - ContractScanner - INFO - scan_protocol_contracts:104 - Scanning contracts for protocol: defipulse
+2025-09-22 10:16:14,879 - ContractScanner - WARNING - scan_database_contracts:435 - No contracts found for defipulse
+2025-09-22 10:16:14,880 - ContractScanner - INFO - scan_database_contracts:427 - Scanning contracts for defipulse
+2025-09-22 10:16:14,881 - ContractScanner - INFO - scan_protocol_contracts:104 - Scanning contracts for protocol: defipulse
+2025-09-22 10:16:14,892 - ContractScanner - WARNING - scan_database_contracts:435 - No contracts found for defipulse
+2025-09-22 10:16:14,896 - ContractScanner - INFO - scan_database_contracts:458 - Contract scanning completed. Results saved to contract_intelligence_database_20250922_101614.json
+2025-09-22 10:16:14,896 - ContractScanner - WARNING - run:477 - Contract scanning completed but no contracts found

@@ -1,0 +1,268 @@
+{
+  "https://chainscan.0g.ai_professional_security_report": {
+    "target": "https://chainscan.0g.ai",
+    "scan_date": "2025-09-22T11:16:53.678786",
+    "scan_type": "Professional Security Testing",
+    "assessment_method": "19 Testing Methodologies - No Looping",
+    "total_tests": 24,
+    "vulnerable_tests": 1,
+    "blocked_tests": 12,
+    "error_tests": 1,
+    "risk_level": "MEDIUM",
+    "unique_methodologies": 24,
+    "methodologies_used": [
+      "URL Redirection Analysis - Double redirect",
+      "URL Redirection Analysis - Unicode encoded redirect",
+      "URL Redirection Analysis - URL encoded redirect",
+      "Access Control Analysis - Boolean-based authentication bypass",
+      "Access Control Analysis - Union-based authentication bypass",
+      "URL Redirection Analysis - HTTPS redirect",
+      "URL Redirection Analysis - IP address redirect",
+      "Time-based Detection",
+      "Access Control Analysis - Username existence bypass",
+      "Session Analysis",
+      "Access Control Analysis - Alternative SQL bypass",
+      "Access Control Analysis - Username field bypass with comment",
+      "URL Redirection Analysis - Internal IP redirect",
+      "Access Control Analysis - Username field bypass",
+      "URL Redirection Analysis - Base64 encoded redirect",
+      "Privilege Escalation - Administrator access without authentication",
+      "URL Redirection Analysis - Basic HTTP redirect",
+      "Boolean-based Blind Analysis",
+      "Access Control Analysis - Alternative time-based bypass",
+      "Access Control Analysis - Limit-based authentication bypass",
+      "Access Control Analysis - SQL injection authentication bypass",
+      "Access Control Analysis - Time-based authentication bypass",
+      "URL Redirection Analysis - Data URI redirect",
+      "URL Redirection Analysis - JavaScript redirect"
+    ],
+    "impact_assessment": "Multiple testing methodologies used for comprehensive security assessment",
+    "detailed_findings": [
+      {
+        "test_name": "SQL Injection: Boolean",
+        "methodology": "Boolean-based Blind Analysis",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:32.360947",
+        "details": {
+          "response_difference": false
+        }
+      },
+      {
+        "test_name": "SQL Injection: Time",
+        "methodology": "Time-based Detection",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:32.853642",
+        "details": {
+          "elapsed_time": "0.49s"
+        }
+      },
+      {
+        "test_name": "CSRF: Session",
+        "methodology": "Session Analysis",
+        "result": "ERROR",
+        "timestamp": "2025-09-22T11:16:46.571495",
+        "details": {
+          "error": "name 'document' is not defined"
+        }
+      },
+      {
+        "test_name": "IDOR: Privilege",
+        "methodology": "Privilege Escalation - Administrator access without authentication",
+        "result": "VULNERABLE",
+        "timestamp": "2025-09-22T11:16:46.743016",
+        "details": {
+          "payload": "?user=admin",
+          "sensitive_data": true,
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - SQL injection authentication bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:46.925252",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Alternative SQL bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:47.077690",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Username field bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:47.258096",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Username field bypass with comment",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:47.432259",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Username existence bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:47.606832",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Union-based authentication bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:47.780429",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Limit-based authentication bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:47.962936",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Time-based authentication bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:48.133241",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Alternative time-based bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:48.294817",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Auth: Bypass",
+        "methodology": "Access Control Analysis - Boolean-based authentication bypass",
+        "result": "BLOCKED",
+        "timestamp": "2025-09-22T11:16:48.471300",
+        "details": {
+          "response_length": 978
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - Basic HTTP redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:51.179057",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - HTTPS redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:51.341359",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - URL encoded redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:51.509637",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - Double redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:51.678135",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - Data URI redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:52.849082",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - JavaScript redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:53.000001",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - Base64 encoded redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:53.160220",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - IP address redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:53.330002",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - Internal IP redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:53.506189",
+        "details": {
+          "status_code": 200
+        }
+      },
+      {
+        "test_name": "Redirect: Open",
+        "methodology": "URL Redirection Analysis - Unicode encoded redirect",
+        "result": "NO_REDIRECT",
+        "timestamp": "2025-09-22T11:16:53.678451",
+        "details": {
+          "status_code": 200
+        }
+      }
+    ],
+    "recommendations": [
+      {
+        "priority": "MEDIUM",
+        "recommendation": "Some vulnerabilities found",
+        "action": "Address critical vulnerabilities and improve input validation"
+      }
+    ]
+  }
+}
